@@ -24,6 +24,7 @@
 
 <style lang="scss" scoped>
   @import "@/assets/scss/variables.scss";
+  @import "@/assets/scss/media_queries.scss";
 
   .links {
     display: flex;
@@ -51,6 +52,18 @@
     .fa-copyright {
       margin-right: 0.25em;
       color: $fontcolor;
+    }
+  }
+
+// Media queries
+  @media (max-width: $mediaSmartphone) {
+    .links {
+      flex-direction: column;
+      
+      a{
+        padding : 0.2em;
+      }
+      
     }
   }
 </style>
