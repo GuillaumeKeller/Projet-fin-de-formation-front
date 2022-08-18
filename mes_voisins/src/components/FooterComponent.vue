@@ -27,6 +27,7 @@
   @import "@/assets/scss/media_queries.scss";
 
   
+
   .links {
     display: flex;
     justify-content: space-around;
