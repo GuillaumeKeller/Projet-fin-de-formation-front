@@ -1,8 +1,7 @@
 <template>
   <header>
     <div class="logo-home" href="#">
-      <font-awesome-icon icon="fa-solid fa-people-carry-box" />
-      <h1>Mes voisins</h1>
+      <img src="../assets/img/mesvoisins_logo.png" alt="">
     </div>
     <div class="search">
       <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
@@ -22,12 +21,12 @@
 <style lang="scss" scoped>
   @import "@/assets/scss/variables.scss";
   @import "@/assets/scss/media_queries.scss";
+  
 
   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
     color: $fontcolor;
     background-color: $maincolor;
     
@@ -35,9 +34,10 @@
     .logo-home {
       cursor: pointer;
 
-      h1 {
-        font-size: 1.5em;
-        font-weight: bold;
+      img {
+        width: 11em;
+        height: auto;
+        margin-left: 1em;
       }
 
       .fa-people-carry-box {
