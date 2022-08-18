@@ -28,7 +28,7 @@
     justify-content: space-between;
     align-items: center;
     color: $fontcolor;
-    background-color: $maincolor;
+    background-color: $maincolor;  
     
 
     .logo-home {
@@ -94,7 +94,7 @@
       }
 
       button:hover {
-        color: $tertiarycolor;
+        background-color: $tertiarycolor;
       }
     }
   }
