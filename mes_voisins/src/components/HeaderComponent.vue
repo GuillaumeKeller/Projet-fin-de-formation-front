@@ -30,6 +30,7 @@
     padding: 30px;
     color: $fontcolor;
     background-color: $maincolor;
+    
 
     .logo-home {
       cursor: pointer;

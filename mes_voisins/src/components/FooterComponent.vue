@@ -26,6 +26,7 @@
   @import "@/assets/scss/variables.scss";
   @import "@/assets/scss/media_queries.scss";
 
+  
   .links {
     display: flex;
     justify-content: space-around;
@@ -33,6 +34,7 @@
     padding: 30px;
     color: $fontcolor;
     background-color: $maincolor;
+    
 
     a {
       color: $fontcolor;
