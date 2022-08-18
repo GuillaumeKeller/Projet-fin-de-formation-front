@@ -7,11 +7,7 @@ const routes = [
     name: 'home',
     component: HomeView
   },
-  {
-    path: '/inscription',
-    name: 'inscription',
-    component: () => import(/* webpackChunkName: "inscription" */ '../views/InscriptionView.vue')
-  }
+  
 ]
 
 const router = createRouter({
