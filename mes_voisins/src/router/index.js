@@ -25,6 +25,11 @@ const routes = [
     name: 'inscription',
     component: () => import(/* webpackChunkName: "about" */ '@/views/InscriptionView.vue')
   },
+  {
+  path: '/profil/:id',
+    name: 'profile',
+    component: () => import(/* webpackChunkName: "about" */ '@/views/ProfileView.vue')
+  }
  
 ]
 
