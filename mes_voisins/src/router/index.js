@@ -16,12 +16,16 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AdsView.vue')
   },
   {
-    path: '/inscription',
+    path: '/connexion',
+    name: 'login',
+    component: () => import('../views/LoginView.vue')
+  },
+  {
+  path: '/inscription',
     name: 'inscription',
     component: () => import(/* webpackChunkName: "about" */ '@/views/InscriptionView.vue')
   },
-
-  
+ 
 ]
 
 const router = createRouter({
