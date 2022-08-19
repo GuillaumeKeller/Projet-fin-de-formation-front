@@ -45,13 +45,9 @@
         <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" />
       </div>
 
-      <div class="form-group">
+      <div class="form-group"> 
         <label for="password_confirmation">Confirmation du mot de passe</label>
-        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirmation du mot de passe" />
-      </div>
-
-      <div class="checkbox">
-        <input type="checkbox" /><span>Je souhaite être contacté uniquement par email</span>
+        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirmation du mot de passe" /> 
       </div>
 
       <button type="submit" class="btn btn-primary">S'inscrire</button>
@@ -61,13 +57,13 @@
 
 <script></script>
 
-<style lang="scss" scoped>
-  @import "@/assets/scss/variables.scss";
-  @import "@/assets/scss/media_queries.scss";
+<style lang="scss" scoped> 
+  @import "@/assets/scss/variables.scss"; 
+  @import "@/assets/scss/media_queries.scss"; 
 
   section {
     padding: 1.5em;
-    background-color: $backgroundcolor;
+    background-color: $backgroundcolor; 
     background-size: cover;
     display: flex;
     flex-direction: column;

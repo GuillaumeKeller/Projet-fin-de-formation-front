@@ -38,6 +38,7 @@ export default {
   background-color: $backgroundcolor;
   background-size: cover;
   height: 100%;
+  width: 100%;
 }
 
 

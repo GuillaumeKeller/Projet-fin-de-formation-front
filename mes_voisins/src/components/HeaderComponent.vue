@@ -3,9 +3,9 @@
     <div class="logo-home" href="#">
       <img src="../assets/img/mesvoisins_logo.png" alt="">
     </div>
-    <div class="search">
-      <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
-      <input type="text" placeholder="Rechercher" />
+    <div class="search"> 
+      <font-awesome-icon icon="fa-solid fa-magnifying-glass" /> 
+      <input type="text" placeholder="Rechercher" /> 
       <span>ou</span>
       <a href="#">voir toutes les annonces</a>
     </div>
