@@ -31,7 +31,6 @@
     width: 100%;
     bottom: 0;
   }
-
   .links {
     display: flex;
     justify-content: space-around;

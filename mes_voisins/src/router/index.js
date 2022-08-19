@@ -18,7 +18,6 @@ const routes = [
   {
     path: '/connexion',
     name: 'login',
-    
     component: () => import('../views/LoginView.vue')
   },
   {
@@ -26,10 +25,7 @@ const routes = [
     name: 'inscription',
     component: () => import(/* webpackChunkName: "about" */ '@/views/InscriptionView.vue')
   },
-
-
-
-  
+ 
 ]
 
 const router = createRouter({
