@@ -21,23 +21,20 @@ const routes = [
     component: () => import('../views/LoginView.vue')
   },
   {
-  path: '/inscription',
+    path: '/inscription',
     name: 'inscription',
     component: () => import(/* webpackChunkName: "about" */ '@/views/InscriptionView.vue')
   },
   {
-  path: '/profil/:id',
+    path: '/profil/:id',
     name: 'profile',
     component: () => import(/* webpackChunkName: "about" */ '@/views/ProfileView.vue')
   },
-
   {
     path: '/annonces/annonce/:id',
     name: 'ad',
     component: () => import(/* webpackChunkName: "about" */ '@/views/SingleAdView.vue')
-  }
-   
- 
+  }, 
 ]
 
 const router = createRouter({

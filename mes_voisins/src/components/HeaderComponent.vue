@@ -131,6 +131,7 @@
     }
   }
 
+  // Media queries
   // Tablette
 
   @media (min-width: $mediaSmartphone) and (max-width: $mediaTablet) {
