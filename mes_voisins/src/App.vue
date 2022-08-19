@@ -34,7 +34,12 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: $fontcolor;
+  background-color: $backgroundcolor;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  
   
 }
 

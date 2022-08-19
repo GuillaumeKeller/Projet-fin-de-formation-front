@@ -26,7 +26,11 @@
   @import "@/assets/scss/variables.scss";
   @import "@/assets/scss/media_queries.scss";
 
-  
+  footer{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
 
   .links {
     display: flex;
