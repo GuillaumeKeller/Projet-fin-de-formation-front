@@ -72,7 +72,7 @@
     height: 80px;
     width: 300px;
     border: solid 2px black;
-    background-color: $maincolor;
+    background-color: $tertiaryColor;
     text-align: left;
     padding: 10px 0 0 10px;
   }
@@ -81,7 +81,7 @@
     height: 150px;
     width: 500px;
     border: solid 2px black;
-    background-color: $maincolor;
+    background-color: $tertiaryColor;
     text-align: left;
     padding: 10px 0 0 10px;
   }
@@ -102,7 +102,7 @@ section {
 
   .ads {
     padding: 1.3em 0 1.3em 0;
-    background-color: $maincolor;
+    background-color: $tertiaryColor;
   }
 
   .ad {
@@ -114,7 +114,7 @@ section {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: $backgroundcolor;
+    background-color: $backgroundColor;
 
     img{
         border: 2px solid black;
@@ -129,7 +129,7 @@ section {
       padding: 10px 10px;
       
       margin: 2em 2em ;
-      background-color: $maincolor;
+      background-color: $tertiaryColor;
     }
   }
 }

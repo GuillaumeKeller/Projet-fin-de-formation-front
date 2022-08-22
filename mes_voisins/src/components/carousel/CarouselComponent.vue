@@ -48,35 +48,35 @@
       direction: "right",
     }),
     methods: {
-      setCurrentSlide(index) {
+      setCurrentSlide(index) { // set current slide to index
         this.currentSlide = index;
       },
-      prev(step = -1) {
+      prev(step = -1) { // go to previous slide
         const index = this.currentSlide > 0 ? this.currentSlide + step : this.slides.length - 1;
         this.setCurrentSlide(index);
         this.direction = "left";
         this.startSlideTimer();
       },
-      _next(step = 1) {
+      _next(step = 1) { // go to next slide
         const index = this.currentSlide < this.slides.length - 1 ? this.currentSlide + step : 0;
         this.setCurrentSlide(index);
         this.direction = "right";
       },
-      next(step = 1) {
+      next(step = 1) { 
         this._next(step);
         this.startSlideTimer();
       },
-      startSlideTimer() {
+      startSlideTimer() { 
         this.stopSlideTimer();
         this.slideInterval = setInterval(() => {
           this._next();
         }, this.interval);
       },
-      stopSlideTimer() {
-        clearInterval(this.slideInterval);
+      stopSlideTimer() { 
+        clearInterval(this.slideInterval); 
       },
       switchSlide(index) {
-        const step = index - this.currentSlide;
+        const step = index - this.currentSlide; 
         if (step > 0) {
           this.next(step);
         } else {
@@ -94,18 +94,21 @@
 </script>
 
 <style lang="scss" scoped>
-
-@import "@/assets/scss/variables.scss";
-@import "@/assets/scss/media_queries.scss";
+  @import "@/assets/scss/variables.scss";
+  @import "@/assets/scss/media_queries.scss";
 
   .carousel {
     display: flex;
     justify-content: center;
+    width: 95%;
+    margin-bottom: 2em;
+
     .carousel-inner {
       position: relative;
-      width: 900px;
-      height: 400px;
+      width: 75em;
+      height: 43.75em;
       overflow: hidden;
+      border-radius: 4em;
     }
   }
 
@@ -114,8 +117,8 @@
       display: flex;
       justify-content: center;
       .carousel-inner {
-        width: 700px;
-        height: 300px;
+        width: 43.75em;
+        height: 18.75em;
       }
     }
   }
@@ -125,8 +128,8 @@
       display: flex;
       justify-content: center;
       .carousel-inner {
-        width: 300px;
-        height: 200px;
+        width: 18.75em;
+        height: 12.5em;
       }
     }
   }
