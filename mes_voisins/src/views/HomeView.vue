@@ -124,7 +124,7 @@
       color: $primaryColor;
       background-color: $tertiaryColor;
       border-radius: 10px;
-      width: 75em;
+      width: 80%;
       margin-bottom: 3em;
       margin-top: -4em;
       padding: 1em;
