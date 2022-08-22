@@ -38,6 +38,7 @@
   @import "@/assets/scss/media_queries.scss";
 
   section {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     background: #0f2027; /* fallback for old browsers */
