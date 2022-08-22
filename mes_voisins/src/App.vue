@@ -17,6 +17,7 @@
 </script>
 
 <style lang="scss">
+
   // Import du reset-css
   @import "reset-css";
 

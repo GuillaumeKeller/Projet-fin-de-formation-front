@@ -68,6 +68,7 @@
   @import "@/assets/scss/media_queries.scss";
 
   section {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     min-height: 100vh;

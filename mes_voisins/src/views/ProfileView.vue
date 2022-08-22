@@ -50,7 +50,7 @@
 @import "@/assets/scss/media_queries.scss";
 
 .profil_page {
-  min-height: 1000px;
+  min-height: 100vh;
 }
 
 .infos {
@@ -103,6 +103,7 @@ section {
   .ads {
     padding: 1.3em 0 1.3em 0;
     background-color: $tertiaryColor;
+
   }
 
   .ad {
@@ -127,9 +128,9 @@ section {
       border: solid 2px black;
       height: 100px;
       padding: 10px 10px;
-      
       margin: 2em 2em ;
       background-color: $tertiaryColor;
+
     }
   }
 }
