@@ -26,11 +26,15 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '@/views/RegisterView.vue')
   },
   {
+    path: '/profil/:id',
+    name: 'profile',
+    component: () => import(/* webpackChunkName: "about" */ '@/views/ProfileView.vue')
+  },
+  {
     path: '/annonces/annonce/:id',
     name: 'ad',
     component: () => import(/* webpackChunkName: "about" */ '@/views/SingleAdView.vue')
-  },
- 
+  }, 
 ]
 
 const router = createRouter({
