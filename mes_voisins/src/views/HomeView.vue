@@ -2,7 +2,6 @@
   <section>
     <div class="home">
       <div class="intro">
-        <img src="../assets/img/mesvoisins_logo.png" alt="" />
         <p>
           <strong>Mes voisins</strong> est un site de mise en relation entre voisins proches. Par exemple d'un meme quartier, d'une meme ville, etc. C'est une plateforme
           d'entraide destinée à échanger des biens ou des services entre les membres de la communauté. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut ab
@@ -40,10 +39,11 @@
   section {
     display: flex;
     flex-direction: column;
-    background: #0f2027; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #2c5364, #203a43, #0f2027); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #2c5364, #203a43, #0f2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    min-height: 100vh;
+    width: 80%;
+    margin: 0 auto;
+    background: $secondaryColor;
+    
     .home {
       display: flex;
       flex-direction: column;
@@ -79,6 +79,16 @@
         font-size: 1.2em;
         margin-top: 20px;
       }
+    }
+  }
+
+  // Media queries
+
+  // Tablet
+
+  @media (max-width: $mediaTablet) {
+    section {
+      width: 100%;
     }
   }
 </style>

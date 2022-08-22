@@ -101,10 +101,11 @@
   .carousel {
     display: flex;
     justify-content: center;
+    width: 95%;
     .carousel-inner {
       position: relative;
-      width: 900px;
-      height: 400px;
+      width: 56.25em;
+      height: 25em;
       overflow: hidden;
     }
   }
@@ -114,8 +115,8 @@
       display: flex;
       justify-content: center;
       .carousel-inner {
-        width: 700px;
-        height: 300px;
+        width: 43.75em;
+        height: 18.75em;
       }
     }
   }
@@ -125,8 +126,8 @@
       display: flex;
       justify-content: center;
       .carousel-inner {
-        width: 300px;
-        height: 200px;
+        width: 18.75em;
+        height: 12.5em;
       }
     }
   }

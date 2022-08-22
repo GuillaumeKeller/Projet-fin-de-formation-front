@@ -25,9 +25,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: $tertiaryColor;
+    color: white;
     box-sizing: border-box;
-    background-color: white;
+    background-color: $primaryColor;
 
     .logo-home {
       cursor: pointer;
@@ -41,7 +41,7 @@
     .search {
       .fa-magnifying-glass {
         margin-right: 0.5rem;
-        height: 2.5rem;
+        height: 2.2rem;
         vertical-align: middle;
         color: #30dd8a;
       }
@@ -55,7 +55,6 @@
         background-image: linear-gradient(white, white), linear-gradient(to right, #30dd8a, #0ba360);
         background-origin: border-box;
         background-clip: padding-box, border-box;
-        padding: 0.5em;
         font-size: 1.1em;
         color: $primaryColor;
         margin-right: 0.5em;
@@ -73,12 +72,12 @@
     .btn {
       margin-right: 4em;
       button {
-        width: 200px;
-        font-size: 16px;
-        font-weight: 600;
+        width: 12.5em;
+        font-size: 1em;
+        font-weight: bold;
         color: #fff;
         cursor: pointer;
-        margin: 15px;
+        margin: 0.9375em;
         height: 3em;
         text-align: center;
         border: none;
@@ -118,28 +117,32 @@
       align-items: center;
       justify-content: center;
       padding: 0.5em;
-      h1 {
-        justify-content: center;
-        font-size: 1.4rem;
-        margin-bottom: 0.5em;
-      }
-      .search {
-        justify-content: center;
-        padding: 0.1em;
 
-        .fa-magnifying-glass {
-          align-self: flex-start;
-        }
+      .search {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
 
         input {
           width: 80%;
           margin-bottom: 0.5em;
+          height: 1em;
+        }
+
+        .fa-magnifying-glass {
+          height: 1.5em;
         }
       }
 
       .btn {
         justify-content: center;
         margin: auto;
+
+        button {
+          width: 100%;
+          margin: 0.2em;
+        }
       }
     }
   }
@@ -153,21 +156,51 @@
       align-items: center;
       justify-content: center;
       padding: 0.5em;
-      h1 {
-        font-size: 1.4rem;
-        margin-bottom: 0.5em;
-      }
+
       .search {
+        padding: 0.1em;
+        margin-bottom: 0.2em;
+        display: flex;
         justify-content: center;
         flex-direction: row;
+        align-items: center;
+
+        input {
+          width: 80%;
+          margin-bottom: 0.5em;
+          height: 1em;
+        }
+        .fa-magnifying-glass {
+          height: 1.5em;
+        }
+      }
+
+      .btn {
+        justify-content: center;
+        margin: auto;
+      }
+    }
+  }
+
+  //  LapTop
+
+  @media (min-width: $mediaTablet) and (max-width: $mediaLaptop) {
+    header {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5em;
+
+      .search {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
         padding: 0.1em;
         margin-bottom: 0.2em;
         input {
           width: 80%;
           margin-bottom: 0.5em;
-        }
-        .fa-magnifying-glass {
-         display: none;
         }
       }
 
