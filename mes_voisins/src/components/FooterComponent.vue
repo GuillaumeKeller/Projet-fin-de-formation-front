@@ -27,22 +27,24 @@
   @import "@/assets/scss/media_queries.scss";
 
   footer{
-    position: fixed;
     width: 100%;
-    bottom: 0;
   }
   .links {
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 30px;
-    color: $fontcolor;
-    background-color: $maincolor;
+    color: $tertiaryColor;
+    background-color: #2C5364;
     
 
     a {
-      color: $fontcolor;
+      color: $tertiaryColor;
       text-decoration: none;
+
+      &:hover {
+        color: $quaternaryColor;
+      }
     }
   }
 
@@ -51,13 +53,13 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-    color: $fontcolor;
-    background-color: $secondarycolor;
+    color: $secondaryColor;
+    background-color: $primaryColor;
     font-size: 1em;
 
     .fa-copyright {
       margin-right: 0.25em;
-      color: $fontcolor;
+      color: $quaternaryColor;
     }
   }
 

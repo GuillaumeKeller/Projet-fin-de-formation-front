@@ -63,14 +63,14 @@
 
   section {
     padding: 1.5em;
-    background-color: $backgroundcolor; 
+    background-color: $tertiaryColor; 
     background-size: cover;
     display: flex;
     flex-direction: column;
 
     h1 {
       font-size: 1.5em;
-      color: $fontcolor;
+      color: $tertiaryColor;
       font-weight: bold;
       margin-bottom: 0.5em;
     }
@@ -84,18 +84,18 @@
       .form-title {
         margin-bottom: 0.5em;
         border-radius: 5px;
-        border: 1px solid $maincolor;
+        border: 1px solid $primaryColor;
         box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
         width: 100%;
         padding: 0.5em;
-        background-color: $maincolor;
-        color: $fontcolor;
+        background-color: $tertiaryColor;
+        color: $quaternaryColor;
         font-size: 1.1em;
         font-weight: bold;
 
         h2 {
           font-size: 1.2em;
-          color: $fontcolor;
+          color: $tertiaryColor;
           font-weight: bold;
           padding: 0.2em;
         }
@@ -113,28 +113,28 @@
         width: 100%;
         height: 2rem;
         border-radius: 5px;
-        border: 1px solid $maincolor;
+        border: 1px solid $quaternaryColor;
         padding: 5px;
         font-size: 1.1em;
-        color: $fontcolor;
+        color: $tertiaryColor;
         margin-bottom: 0.5em;
       }
 
       .form-group label {
         font-size: 1.1em;
-        color: $fontcolor;
+        color: $tertiaryColor;
         margin-bottom: 0.5em;
         margin-top: 0.3em;
       }
 
       .form-group input:focus {
-        border: 1px solid $maincolor;
+        border: 1px solid $primaryColor;
       }
 
       button {
         margin-top: 2em;
-        background-color: $quaternarycolor;
-        color: $fontcolor;
+        background-color: $quaternaryColor;
+        color: $tertiaryColor;
         font-weight: bold;
         border: none;
         padding: 0.6rem;
@@ -142,11 +142,11 @@
         font-size: 1.2rem;
         cursor: pointer;
         margin: 0.5rem;
-        box-shadow: 0.1em 0.1em 0.1em $tertiarycolor;
+        box-shadow: 0.1em 0.1em 0.1em darken ($quaternaryColor, 30%);
         width: 100%;
 
         &:hover {
-          background-color: $tertiarycolor;
+          background-color: lighten ($quaternaryColor, 30%);
         }
       }
 

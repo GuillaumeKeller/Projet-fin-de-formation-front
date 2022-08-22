@@ -38,7 +38,7 @@
 
 section{
 
-    background-color: $backgroundcolor;
+    background-color: $tertiaryColor;
     padding-top: 10%;
     padding-bottom: 10%;
 }
@@ -58,7 +58,7 @@ form {
   align-items: center;
   padding: 1em;
   margin: 0;
-  background-color: $backgroundcolor;
+  background-color: $tertiaryColor;
 
   label {
     margin-bottom: 2.5em;
@@ -69,7 +69,7 @@ form {
       width: 100%;
       padding: 0.75em 1.5em;
       border-radius: 0.5em;
-      background: $primarycolor;
+      background: $tertiaryColor;
       border: none;
       box-sizing: border-box;
     }
@@ -77,7 +77,7 @@ form {
 
   .error
   {
-    color: $errorcolor;
+    color: $quaternaryColor;
   }
 
   button {
@@ -85,7 +85,7 @@ form {
     margin: 5px 0;
     padding: 1.2em 1.5em;
     border-radius: 0.5em;
-    background: $quaternarycolor;
+    background: $primaryColor;
     color: black;
     font-weight: bold;
     border: none;
@@ -94,7 +94,7 @@ form {
 
     &:hover
     {
-      background: darken( $quaternarycolor, 10% );
+      background: darken( $primaryColor, 10% );
       cursor: pointer;
     }
   }

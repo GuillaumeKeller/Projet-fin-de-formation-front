@@ -1,17 +1,15 @@
 <template>
   <header>
     <div class="logo-home" href="#">
-      <img src="../assets/img/mesvoisins_logo.png" alt="">
+      <img class="logo" src="../assets/img/logo.png" alt="" />
     </div>
-    <div class="search"> 
-      <font-awesome-icon icon="fa-solid fa-magnifying-glass" /> 
-      <input type="text" placeholder="Rechercher" /> 
-      <span>ou</span>
-      <a href="#">voir toutes les annonces</a>
+    <div class="search">
+      <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
+      <input type="text" placeholder="Rechercher" />
     </div>
     <div class="btn">
-      <button href="#">Inscription</button>
-      <button href="#">Connexion</button>
+      <button class="btn-header" href="#">Inscription</button>
+      <button class="btn-header" href="#">Connexion</button>
     </div>
   </header>
 </template>
@@ -21,80 +19,91 @@
 <style lang="scss" scoped>
   @import "@/assets/scss/variables.scss";
   @import "@/assets/scss/media_queries.scss";
-  
 
   header {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: $fontcolor;
-    background-color: $maincolor;  
-    
+    color: $tertiaryColor;
+    box-sizing: border-box;
+    background-color: white;
 
     .logo-home {
       cursor: pointer;
 
-      img {
-        width: 11em;
+      img.logo {
+        width: 25em;
         height: auto;
-        margin-left: 1em;
-      }
-
-      .fa-people-carry-box {
-        font-size: 2em;
-        color: $fontcolor;
       }
     }
 
     .search {
       .fa-magnifying-glass {
-        margin-right: 0.5em;
-        height: 1.5em;
+        margin-right: 0.5rem;
+        height: 2.5rem;
         vertical-align: middle;
+        color: #30dd8a;
       }
 
       input {
-        width: 15rem;
-        height: 2rem;
-        border-radius: 5px;
-        border: 1px solid $maincolor;
-        padding: 5px;
+        width: 20rem;
+        height: 1.5rem;
+        padding: 0.5rem;
+        border: double 5px transparent;
+        border-radius: 50px;
+        background-image: linear-gradient(white, white), linear-gradient(to right, #30dd8a, #0ba360);
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+        padding: 0.5em;
         font-size: 1.1em;
-        color: $fontcolor;
+        color: $primaryColor;
         margin-right: 0.5em;
-      }
+        box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
 
-      a {
-        color: $fontcolor;
-        text-decoration: none;
-        margin-left: 0.5em;
-        font-size: 1em;
-        text-decoration: underline;
-        font-weight: bold;
-      }
-
-      a:hover {
-        color: $quaternarycolor;
-        font-weight: bold;
+        &:focus {
+          outline: none;
+          border: double 5px transparent;
+          border-radius: 50px;
+          background-image: linear-gradient(white, white), linear-gradient(to right, #0ba360, #30dd8a);
+        }
       }
     }
 
     .btn {
+      margin-right: 4em;
       button {
-        background-color: $quaternarycolor;
-        color: $fontcolor;
-        font-weight: bold;
-        border: none;
-        padding: 0.6rem;
-        border-radius: 5px;
-        font-size: 1.2rem;
+        width: 200px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
         cursor: pointer;
-        margin: 0.5rem;
-        box-shadow: 0.1em 0.1em 0.1em $tertiarycolor;
+        margin: 15px;
+        height: 3em;
+        text-align: center;
+        border: none;
+        background-size: 300% 100%;
+
+        border-radius: 50px;
+        -o-transition: all 0.4s ease-in-out;
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
       }
 
       button:hover {
-        background-color: $tertiarycolor;
+        background-position: 100% 0;
+        -o-transition: all 0.4s ease-in-out;
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+      }
+
+      button:focus {
+        outline: none;
+      }
+
+      .btn-header {
+        background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+        box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
       }
     }
   }
@@ -110,15 +119,18 @@
       justify-content: center;
       padding: 0.5em;
       h1 {
+        justify-content: center;
         font-size: 1.4rem;
         margin-bottom: 0.5em;
-      }
-      .fa-people-carry-box {
-        font-size: 3em;
       }
       .search {
         justify-content: center;
         padding: 0.1em;
+
+        .fa-magnifying-glass {
+          align-self: flex-start;
+        }
+
         input {
           width: 80%;
           margin-bottom: 0.5em;
@@ -126,7 +138,8 @@
       }
 
       .btn {
-        width: 100%;
+        justify-content: center;
+        margin: auto;
       }
     }
   }
@@ -144,17 +157,23 @@
         font-size: 1.4rem;
         margin-bottom: 0.5em;
       }
-      .fa-people-carry-box {
-        font-size: 3em;
-      }
       .search {
         justify-content: center;
+        flex-direction: row;
         padding: 0.1em;
-        margin-bottom: 0.2em;  
+        margin-bottom: 0.2em;
         input {
           width: 80%;
           margin-bottom: 0.5em;
         }
+        .fa-magnifying-glass {
+         display: none;
+        }
+      }
+
+      .btn {
+        justify-content: center;
+        margin: auto;
       }
     }
   }

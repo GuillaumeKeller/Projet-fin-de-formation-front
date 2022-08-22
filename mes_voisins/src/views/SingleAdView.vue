@@ -56,7 +56,7 @@
   section {
     display: flex;
     flex-direction: column;
-    background-color: $backgroundcolor;
+    background-color: $tertiaryColor;
     background-size: cover;
     background-repeat: repeat;
     height: 100%;
@@ -66,7 +66,7 @@
     .ad__data {
       display: flex;
       margin-bottom: 1em;
-      border: 0.3em solid $maincolor;
+      border: 0.3em solid $secondaryColor;
       border-radius: 0.3em;
 
       .ad__info {
@@ -78,7 +78,7 @@
 
         h2 {
           font-size: 1.5em;
-          color: $fontcolor;
+          color: $primaryColor;
           font-weight: bold;
           text-transform: uppercase;
           text-align: left;
@@ -87,7 +87,7 @@
 
         span {
           font-size: 1em;
-          color: $fontcolor;
+          color: $primaryColor;
           display: block;
           font-weight: bold;
           padding: 0.2em;
@@ -97,7 +97,7 @@
 
         p {
           font-size: 1em;
-          color: $fontcolor;
+          color: $primaryColor;
           font-weight: bold;
           text-align: justify;
           line-height: 1.2em;
@@ -119,12 +119,12 @@
       border: none;
       flex-direction: column;
       padding: 1em;
-      border: 0.3em solid $maincolor;
+      border: 0.3em solid $secondaryColor;
       border-radius: 0.3em;
 
       h2 {
         font-size: 1.5em;
-        color: $fontcolor;
+        color: $primaryColor;
         font-weight: bold;
         text-transform: uppercase;
         margin-bottom: 0.3em;
@@ -149,7 +149,7 @@
 
         span {
           font-size: 1em;
-          color: $fontcolor;
+          color: $primaryColor;
           display: block;
           font-weight: bold;
           text-align: left;
@@ -167,12 +167,12 @@
       border: none;
       flex-direction: column;
       padding: 1em;
-      border: 0.3em solid $maincolor;
+      border: 0.3em solid $secondaryColor;
       border-radius: 0.3em;
 
       h2 {
         font-size: 1.5em;
-        color: $fontcolor;
+        color: $primaryColor;
         font-weight: bold;
         text-transform: uppercase;
         margin-bottom: 0.3em;
@@ -188,23 +188,23 @@
       border-radius: 0.3em;
       width: 100%;
       padding: 0.5em;
-      background-color: $maincolor;
-      color: $fontcolor;
+      background-color: $primaryColor;
+      color: $tertiaryColor;
     }
 
     textarea {
       border-radius: 5px;
-      border: 1px solid $maincolor;
+      border: 1px solid $tertiaryColor;
       margin: 0.5em;
       font-size: 1.1em;
-      color: $fontcolor;
+      color: $tertiaryColor;
       margin-bottom: 0.5em;
     }
 
     button {
       margin-top: 2em;
-      background-color: $quaternarycolor;
-      color: $fontcolor;
+      background-color: $quaternaryColor;
+      color: $tertiaryColor;
       font-weight: bold;
       border: none;
       padding: 0.6rem;
@@ -212,10 +212,10 @@
       font-size: 1.2rem;
       cursor: pointer;
       margin: 0.5rem;
-      box-shadow: 0.1em 0.1em 0.1em $tertiarycolor;
+      box-shadow: 0.1em 0.1em 0.1em lighten ($quaternaryColor, 30%);
 
       &:hover {
-        background-color: $tertiarycolor;
+        background-color: darken($quaternaryColor, 20%);
       }
     }
   }
