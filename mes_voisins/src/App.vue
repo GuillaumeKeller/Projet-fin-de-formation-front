@@ -25,20 +25,21 @@ export default {
 
 // Inmport de la police du site
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 // Import des variables du site
 @import '@/assets/scss/variables.scss';
+@import '@/assets/scss/media_queries.scss';
 
 #app {
-  font-family: Montserrat, sans-serif;
+
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: $fontcolor;
-  background-color: $backgroundcolor;
-  background-size: cover;
-  height: 100%;
-  width: 100%;
+  background: white; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #2c5364, #203a43, #0f2027); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #2c5364, #203a43, #0f2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 
