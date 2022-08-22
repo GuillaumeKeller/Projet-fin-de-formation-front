@@ -1,15 +1,21 @@
 <template>
   <header>
     <div class="logo-home" href="#">
+      <router-link :to="{ name : 'home' }">
       <img class="logo" src="../assets/img/logo.png" alt="" />
+      </router-link>
     </div>
     <div class="search">
       <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
       <input type="text" placeholder="Rechercher" />
     </div>
     <div class="btn">
-      <button class="btn-header" href="#">Inscription</button>
-      <button class="btn-header" href="#">Connexion</button>
+      <router-link :to="{ name : 'register' }">
+      <button class="btn-header">Inscription</button>
+      </router-link>
+      <router-link :to="{ name : 'login' }">
+      <button class="btn-header">Connexion</button>
+      </router-link>
     </div>
   </header>
 </template>
