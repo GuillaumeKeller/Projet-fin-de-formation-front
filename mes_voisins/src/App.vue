@@ -32,8 +32,6 @@ export default {
 @import '@/assets/scss/media_queries.scss';
 
 #app {
-
-  
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
