@@ -96,12 +96,11 @@
         margin-top: 1em;
 
         h2 {
-          font-size: 1.2em;
+          font-size: 1.5em;
           color: $primaryColor;
           font-weight: bold;
-          padding: 0.2em;
-          font-size: 2em;
-          background: linear-gradient(to top, #30dd8a, #30dd8a 0.6em, transparent 0.5em) no-repeat;
+          text-transform: uppercase;
+          background: linear-gradient(to top, #30dd8a, #30dd8a 0.5em, transparent 0.5em) no-repeat;
         }
       }
 
