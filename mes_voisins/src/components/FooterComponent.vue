@@ -35,7 +35,7 @@
     align-items: center;
     padding: 30px;
     color: $tertiaryColor;
-    background-color: #2C5364;
+    background-color: $primaryColor;
     
 
     a {
