@@ -8,7 +8,7 @@
 
       <div class="form-group">
         <label for="phonenumber">Prénom</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="Prénom" value="" />
+        <input type="text" class="form-control" id="text" name="text" placeholder="Prénom" value="" />
       </div>
 
       <div class="form-group">
@@ -32,7 +32,7 @@
       </div>
 
       <div class="form-title">
-        <h2>Information du compte</h2>
+        <h2 class="info">Information du compte</h2>
       </div>
 
       <div class="form-group">
@@ -45,28 +45,35 @@
         <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" />
       </div>
 
-      <div class="form-group"> 
+      <div class="form-group">
         <label for="password_confirmation">Confirmation du mot de passe</label>
-        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirmation du mot de passe" /> 
+        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirmation du mot de passe" />
       </div>
+      <div class="cgu">
+        <input type="checkbox" name="checkbox" id="checkbox"><label>J'ai lu et pris connaissance des conditions générales d'utilisation</label>
+      </div>
+      <button type="submit" class="form-button">S'inscrire</button>
 
-      <button type="submit" class="btn btn-primary">S'inscrire</button>
     </form>
   </section>
 </template>
 
 <script></script>
 
-<style lang="scss" scoped> 
-  @import "@/assets/scss/variables.scss"; 
-  @import "@/assets/scss/media_queries.scss"; 
+<style lang="scss" scoped>
+  @import "@/assets/scss/variables.scss";
+  @import "@/assets/scss/media_queries.scss";
 
   section {
-    padding: 1.5em;
-    background-color: $tertiaryColor; 
-    background-size: cover;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    background: $tertiaryColor;
+    color: $primaryColor;
 
     h1 {
       font-size: 1.5em;
@@ -79,25 +86,22 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 100%;
+      width: 50%;
 
       .form-title {
         margin-bottom: 0.5em;
-        border-radius: 5px;
-        border: 1px solid $primaryColor;
-        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-        width: 100%;
         padding: 0.5em;
-        background-color: $tertiaryColor;
-        color: $quaternaryColor;
         font-size: 1.1em;
         font-weight: bold;
+        margin-top: 1em;
 
         h2 {
           font-size: 1.2em;
-          color: $tertiaryColor;
+          color: $primaryColor;
           font-weight: bold;
           padding: 0.2em;
+          font-size: 2em;
+          background: linear-gradient(to top, #30dd8a, #30dd8a 0.6em, transparent 0.5em) no-repeat;
         }
       }
 
@@ -106,53 +110,82 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 100%;
+        width: 80%;
       }
 
       .form-group input {
         width: 100%;
-        height: 2rem;
-        border-radius: 5px;
-        border: 1px solid $quaternaryColor;
-        padding: 5px;
+        height: 2.5rem;
+        border: double 2px transparent;
+        border-radius: 50px;
+        background-image: linear-gradient(white, white), linear-gradient(to right, #30dd8a, #0ba360);
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
         font-size: 1.1em;
-        color: $tertiaryColor;
-        margin-bottom: 0.5em;
-      }
+        color: $primaryColor;
 
-      .form-group label {
-        font-size: 1.1em;
-        color: $tertiaryColor;
-        margin-bottom: 0.5em;
-        margin-top: 0.3em;
-      }
-
-      .form-group input:focus {
-        border: 1px solid $primaryColor;
-      }
-
-      button {
-        margin-top: 2em;
-        background-color: $quaternaryColor;
-        color: $tertiaryColor;
-        font-weight: bold;
-        border: none;
-        padding: 0.6rem;
-        border-radius: 5px;
-        font-size: 1.2rem;
-        cursor: pointer;
-        margin: 0.5rem;
-        box-shadow: 0.1em 0.1em 0.1em darken ($quaternaryColor, 30%);
-        width: 100%;
-
-        &:hover {
-          background-color: lighten ($quaternaryColor, 30%);
+        &:focus {
+          outline: none;
+          border: double 2px transparent;
+          border-radius: 50px;
+          background-image: linear-gradient(white, white), linear-gradient(to right, #0ba360, #30dd8a);
         }
       }
 
-      span{
+      .form-group label {
+        font-size: 1em;
+        color: $tertiaryColor;
+        margin-bottom: 0.5em;
+      }
+
+      button {
+        width: 12.5em;
+        font-size: 1em;
+        font-weight: bold;
+        color: #fff;
+        cursor: pointer;
+        margin: 0.9375em;
+        height: 3em;
+        text-align: center;
+        border: none;
+        background-size: 300% 100%;
+
+        border-radius: 50px;
+        -o-transition: all 0.4s ease-in-out;
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+      }
+
+      button:hover {
+        background-position: 100% 0;
+        -o-transition: all 0.4s ease-in-out;
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+      }
+
+      button:focus {
+        outline: none;
+      }
+
+      span {
         margin-left: 0.2em;
       }
+
+      .form-button {
+        background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+        box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+      }
+    }
+
+    .cgu {
+      display: flex;
+      align-items: center;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      font-size: 1.1em;
+      font-weight: bold;
+      color: $primaryColor;
+      text-align: center;
     }
   }
 </style>
