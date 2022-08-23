@@ -1,3 +1,5 @@
+s (123 sloc)  3.22 KB
+
 <template>
   <div class="profil_page">
     <div class="profile">
@@ -6,8 +8,8 @@
         <ul>
           <li><span class="ad__info">Pseudo:</span></li>
           <li><span class="ad__info">Membre depuis le :</span></li>
-          <li><span class="ad__info"><font-awesome-icon icon="fa-solid fa-at" /> :</span></li>
-          <li><span class="ad__info"><font-awesome-icon icon="fa-solid fa-phone" /> :</span></li>
+          <li><span class="ad__info">Email :</span></li>
+          <li><span class="ad__info">Tel :</span></li>
         </ul>
         <p class="ad__description">
           Mangeux d'marde de sacristi de boswell de cibouleau de baptême de doux
@@ -48,23 +50,17 @@
 <style lang="scss" scoped>
 @import "@/assets/scss/variables.scss";
 @import "@/assets/scss/media_queries.scss";
-
 .profil_page {
   min-height: 100vh;
-  
-  
 }
-
 .infos {
   width: 80%;
-  margin-top: 50px;
+  margin-top: 2em;
   margin-left: 10%;
   margin-bottom: 3em;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  
-
   img {
     display: flex;
     width: 150px;
@@ -78,9 +74,7 @@
     background-color: $tertiaryColor;
     text-align: left;
     padding: 10px 0 0 10px;
-    border-radius: 20px;
   }
-
   p {
     height: 150px;
     width: 500px;
@@ -88,19 +82,13 @@
     background-color: $tertiaryColor;
     text-align: left;
     padding: 10px 0 0 10px;
-    border-radius: 20px;
-  }
-  li {
-    margin-bottom: 5px;
   }
 }
 section {
   height: 100%;
   width: 80%;
   margin-left: 10%;
-  
-  
-
+  border: solid 2px black;
   h1 {
     font-size: 1.5em;
     font-weight: bold;
@@ -108,15 +96,10 @@ section {
     margin-left: 10%;
     text-align: left;
   }
-
   .ads {
     padding: 1.3em 0 1.3em 0;
-    border-radius: 20px;
-    border: solid 2px black;
     background-color: $tertiaryColor;
-
   }
-
   .ad {
     padding: 2em 0 2em 0;
     border: solid 2px black;
@@ -127,14 +110,11 @@ section {
     justify-content: space-around;
     align-items: center;
     background-color: $backgroundColor;
-    border-radius: 20px;
-
     img{
         border: 2px solid black;
         margin-left: 3%;
     }
   }
-
   .ad__info {
     p {
       border: solid 2px black;
@@ -142,8 +122,6 @@ section {
       padding: 10px 10px;
       margin: 2em 2em ;
       background-color: $tertiaryColor;
-      border-radius: 20px;
-
     }
   }
 }
