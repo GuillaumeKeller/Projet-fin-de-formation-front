@@ -78,6 +78,7 @@
     background-color: $tertiaryColor;
     text-align: left;
     padding: 10px 0 0 10px;
+    border-radius: 20px;
   }
 
   p {
@@ -87,6 +88,7 @@
     background-color: $tertiaryColor;
     text-align: left;
     padding: 10px 0 0 10px;
+    border-radius: 20px;
   }
   li {
     margin-bottom: 5px;
@@ -96,7 +98,8 @@ section {
   height: 100%;
   width: 80%;
   margin-left: 10%;
-  border: solid 2px black;
+  
+  
 
   h1 {
     font-size: 1.5em;
@@ -108,6 +111,8 @@ section {
 
   .ads {
     padding: 1.3em 0 1.3em 0;
+    border-radius: 20px;
+    border: solid 2px black;
     background-color: $tertiaryColor;
 
   }
@@ -122,6 +127,7 @@ section {
     justify-content: space-around;
     align-items: center;
     background-color: $backgroundColor;
+    border-radius: 20px;
 
     img{
         border: 2px solid black;
@@ -136,6 +142,7 @@ section {
       padding: 10px 10px;
       margin: 2em 2em ;
       background-color: $tertiaryColor;
+      border-radius: 20px;
 
     }
   }
