@@ -4,7 +4,9 @@
       <div class="scrolling_menu">
         <nav>
           <div class="container-nav">
-            <label for="mobile">Recherche <font-awesome-icon icon="fa-solid fa-chevron-down" /></label>
+            <label for="mobile"
+              >Recherche <font-awesome-icon icon="fa-solid fa-chevron-down"
+            /></label>
 
             <input type="checkbox" id="mobile" role="button" />
             <ul>
@@ -61,7 +63,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 1</a>
+          <p href="#" class="logo__text">annonce 1</p>
         </div>
 
         <div class="ads">
@@ -71,7 +73,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 2</a>
+          <p href="#" class="logo__text">annonce 2</p>
         </div>
 
         <div class="ads">
@@ -81,7 +83,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 3</a>
+          <p href="#" class="logo__text">annonce 3</p>
         </div>
 
         <div class="ads">
@@ -91,7 +93,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 4</a>
+          <p href="#" class="logo__text">annonce 4</p>
         </div>
 
         <div class="ads">
@@ -101,7 +103,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 5</a>
+          <p href="#" class="logo__text">annonce 5</p>
         </div>
 
         <div class="ads">
@@ -111,7 +113,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 6</a>
+          <p href="#" class="logo__text">annonce 6</p>
         </div>
 
         <div class="ads">
@@ -121,7 +123,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 7</a>
+          <p href="#" class="logo__text">annonce 7</p>
         </div>
 
         <div class="ads">
@@ -131,7 +133,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 8</a>
+          <p href="#" class="logo__text">annonce 8</p>
         </div>
 
         <div class="ads">
@@ -141,7 +143,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 9</a>
+          <p href="#" class="logo__text">annonce 9</p>
         </div>
 
         <div class="ads">
@@ -151,7 +153,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 10</a>
+          <p href="#" class="logo__text">annonce 10</p>
         </div>
 
         <div class="ads">
@@ -161,7 +163,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 11</a>
+          <p href="#" class="logo__text">annonce 11</p>
         </div>
 
         <div class="ads">
@@ -171,7 +173,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 12</a>
+          <p href="#" class="logo__text">annonce 12</p>
         </div>
       </div>
     </div>
@@ -180,7 +182,7 @@
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15620.631495143949!2d5.220893382718534!3d46.2032211805023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f3522d15689311%3A0xc2e1d69735f38afb!2s01000%20Bourg-en-Bresse!5e0!3m2!1sfr!2sfr!4v1660743160817!5m2!1sfr!2sfr"
         width="750"
-        height="900"
+        height="1050"
         style="border: 0"
         allowfullscreen=""
         loading="lazy"
@@ -201,7 +203,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 .container {
-
   background-color: $tertiaryColor;
   display: flex;
   flex-direction: row-reverse;
@@ -209,8 +210,6 @@
 }
 
 // ----------------------------------- Navigation menu tablet et phone----------------------------------------
-
-
 
 nav {
   width: 100%;
@@ -261,7 +260,6 @@ nav a {
   display: flex;
   flex-flow: column wrap;
   z-index: 1000;
-
 }
 
 .menu li:hover {
@@ -276,7 +274,6 @@ nav a {
 // ----------------------------------- Navigation Desktop----------------------------------------
 
 .scrolling_menu {
-
   margin: 70px 30px;
 }
 
@@ -306,7 +303,7 @@ nav a {
     border-bottom: 2px solid transparent;
     border-radius: 50px;
 
-    .fa-chevron-down{
+    .fa-chevron-down {
       margin-left: 10px;
     }
   }
@@ -332,7 +329,7 @@ nav a {
   }
   .menu a {
     border-bottom: none;
-    background-color: white;//////////////
+    background-color: white; //////////////
   }
   .menu a:hover {
     border-bottom: none;
@@ -360,10 +357,8 @@ nav a {
       #30dd8a,
       #2bb673
     );
-
   }
 }
-
 
 .conteneur-contenu {
   margin: 50px 20px;
@@ -377,7 +372,8 @@ nav a {
 // ----------------------------------- Maps ------------------------------------
 
 .maps {
-  margin: 20px;
+  border: solid 5px grey;
+  margin: 10px;
 }
 
 // ----------------------------------- Ads ----------------------------------------
@@ -395,6 +391,8 @@ nav a {
   background-color: $secondaryColor;
   height: 700px;
   overflow: scroll;
+  border-radius: 20px;
+  border: solid 2px grey;
 }
 
 .ads {
@@ -402,6 +400,12 @@ nav a {
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
+  border: solid 3px grey;
+
+  p {
+    background-color: $tertiaryColor;
+    padding: 10px;
+  }
 }
 
 // ----------------------------------- Media queries ---------------------------------------
@@ -425,8 +429,7 @@ nav a {
     overflow: auto;
   }
 
-  button{
-    
+  button {
     border-radius: 50px;
     width: 200px;
     height: 30px;
@@ -445,26 +448,20 @@ nav a {
     cursor: pointer;
   }
 
-
   nav > div > ul > li > a {
-    .fa-chevron-down{
+    .fa-chevron-down {
       display: none;
-
     }
   }
   nav > div > ul {
-    
     border: solid 1px black;
   }
-  
-  .container-nav{
-    .fa-chevron-down{
-      margin-left: 10px;
 
+  .container-nav {
+    .fa-chevron-down {
+      margin-left: 10px;
     }
   }
-
-
 }
 
 // Smartphone
@@ -487,11 +484,10 @@ nav a {
     grid-column-gap: 100px;
     grid-row-gap: 50px;
     justify-content: center;
-    overflow: auto;
+    overflow: overlay;
   }
 
-
-  button{
+  button {
     background-color: red;
     border-radius: 50px;
     width: 200px;
@@ -512,9 +508,8 @@ nav a {
   }
 
   nav > div > ul > li > a {
-    .fa-chevron-down{
+    .fa-chevron-down {
       display: none;
-
     }
   }
 }

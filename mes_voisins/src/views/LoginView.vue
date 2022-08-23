@@ -69,7 +69,7 @@ form {
       width: 100%;
       padding: 0.75em 1.5em;
       border-radius: 0.5em;
-      background: $tertiaryColor;
+      background: $secondaryColor;
       border: none;
       box-sizing: border-box;
     }
@@ -77,7 +77,7 @@ form {
 
   .error
   {
-    color: $quaternaryColor;
+    color: red;
   }
 
   button {
@@ -85,7 +85,7 @@ form {
     margin: 5px 0;
     padding: 1.2em 1.5em;
     border-radius: 0.5em;
-    background: $primaryColor;
+    background: $secondaryColor;
     color: black;
     font-weight: bold;
     border: none;
@@ -94,7 +94,7 @@ form {
 
     &:hover
     {
-      background: darken( $primaryColor, 10% );
+      background: darken( $secondaryColor, 10% );
       cursor: pointer;
     }
   }

@@ -6,8 +6,8 @@
         <ul>
           <li><span class="ad__info">Pseudo:</span></li>
           <li><span class="ad__info">Membre depuis le :</span></li>
-          <li><span class="ad__info">Email :</span></li>
-          <li><span class="ad__info">Tel :</span></li>
+          <li><span class="ad__info"><font-awesome-icon icon="fa-solid fa-at" /> :</span></li>
+          <li><span class="ad__info"><font-awesome-icon icon="fa-solid fa-phone" /> :</span></li>
         </ul>
         <p class="ad__description">
           Mangeux d'marde de sacristi de boswell de cibouleau de baptême de doux
@@ -51,16 +51,19 @@
 
 .profil_page {
   min-height: 100vh;
+  
+  
 }
 
 .infos {
   width: 80%;
-  margin-top: 2em;
+  margin-top: 50px;
   margin-left: 10%;
   margin-bottom: 3em;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  
 
   img {
     display: flex;
@@ -84,6 +87,9 @@
     background-color: $primaryColor;
     text-align: left;
     padding: 10px 0 0 10px;
+  }
+  li {
+    margin-bottom: 5px;
   }
 }
 section {
