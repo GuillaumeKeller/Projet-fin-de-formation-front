@@ -1,3 +1,5 @@
+s (123 sloc)  3.22 KB
+
 <template>
   <div class="profil_page">
     <div class="profile">
@@ -48,11 +50,9 @@
 <style lang="scss" scoped>
 @import "@/assets/scss/variables.scss";
 @import "@/assets/scss/media_queries.scss";
-
 .profil_page {
   min-height: 100vh;
 }
-
 .infos {
   width: 80%;
   margin-top: 2em;
@@ -61,7 +61,6 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-
   img {
     display: flex;
     width: 150px;
@@ -76,7 +75,6 @@
     text-align: left;
     padding: 10px 0 0 10px;
   }
-
   p {
     height: 150px;
     width: 500px;
@@ -91,7 +89,6 @@ section {
   width: 80%;
   margin-left: 10%;
   border: solid 2px black;
-
   h1 {
     font-size: 1.5em;
     font-weight: bold;
@@ -99,13 +96,10 @@ section {
     margin-left: 10%;
     text-align: left;
   }
-
   .ads {
     padding: 1.3em 0 1.3em 0;
     background-color: $tertiaryColor;
-
   }
-
   .ad {
     padding: 2em 0 2em 0;
     border: solid 2px black;
@@ -116,13 +110,11 @@ section {
     justify-content: space-around;
     align-items: center;
     background-color: $backgroundColor;
-
     img{
         border: 2px solid black;
         margin-left: 3%;
     }
   }
-
   .ad__info {
     p {
       border: solid 2px black;
@@ -130,7 +122,6 @@ section {
       padding: 10px 10px;
       margin: 2em 2em ;
       background-color: $tertiaryColor;
-
     }
   }
 }
