@@ -41,13 +41,26 @@
       <button type="submit">Envoyer</button>
       <div class="">
         <!-- Component CommentList -->
-        Ici on affiche les commentaires avec un component CommentList
+        <CommentList v-if="(typeof this.ad._embedded.replies != 'undefined')" :comments="this.ad._embedded.replies[0]" />
       </div>
     </div>
   </section>
 </template>
 
-<script></script>
+<script>
+
+import CommentList from "@/components/CommentList.vue";
+
+export default 
+{
+  components: {
+    CommentList
+  },
+  
+  async created(){}
+}
+
+</script>
 
 <style lang="scss" scoped>
   @import "@/assets/scss/variables.scss";
