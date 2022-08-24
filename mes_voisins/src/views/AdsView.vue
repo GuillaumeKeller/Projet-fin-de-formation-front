@@ -21,7 +21,7 @@
                   <li><a href="#">03-Allier</a></li>
                   <li><a href="#">04-Alpes de Hautes-Provence</a></li>
                 </ul>
-              </li>
+              </li> 
               <li class="scrolling">
                 <a href="#"
                   >Villes &ensp;<font-awesome-icon
@@ -378,6 +378,8 @@ nav a {
 
 // ----------------------------------- Ads ----------------------------------------
 
+
+
 .listing_ads {
   margin: 100px 15px;
   display: grid;
@@ -386,7 +388,6 @@ nav a {
   grid-column-gap: 100px;
   grid-row-gap: 50px;
   justify-content: center;
-
   padding-top: 20px;
   background-color: $secondaryColor;
   height: 700px;
@@ -394,7 +395,6 @@ nav a {
   border-radius: 20px;
   border: solid 2px grey;
 }
-
 .ads {
   display: flex;
   flex-direction: column;
