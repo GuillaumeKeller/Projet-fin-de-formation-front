@@ -203,7 +203,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 .container {
-
   background-color: $tertiaryColor;
   display: flex;
   flex-direction: row-reverse;
@@ -211,8 +210,6 @@
 }
 
 // ----------------------------------- Navigation menu tablet et phone----------------------------------------
-
-
 
 nav {
   width: 100%;
@@ -263,7 +260,6 @@ nav a {
   display: flex;
   flex-flow: column wrap;
   z-index: 1000;
-
 }
 
 .menu li:hover {
@@ -278,7 +274,6 @@ nav a {
 // ----------------------------------- Navigation Desktop----------------------------------------
 
 .scrolling_menu {
-
   margin: 70px 30px;
 }
 
@@ -308,7 +303,7 @@ nav a {
     border-bottom: 2px solid transparent;
     border-radius: 50px;
 
-    .fa-chevron-down{
+    .fa-chevron-down {
       margin-left: 10px;
     }
   }
@@ -334,7 +329,7 @@ nav a {
   }
   .menu a {
     border-bottom: none;
-    background-color: white;//////////////
+    background-color: white; //////////////
   }
   .menu a:hover {
     border-bottom: none;
@@ -362,10 +357,8 @@ nav a {
       #30dd8a,
       #2bb673
     );
-
   }
 }
-
 
 .conteneur-contenu {
   margin: 50px 20px;
@@ -379,7 +372,8 @@ nav a {
 // ----------------------------------- Maps ------------------------------------
 
 .maps {
-  margin: 20px;
+  border: solid 5px grey;
+  margin: 10px;
 }
 
 // ----------------------------------- Ads ----------------------------------------
@@ -407,6 +401,7 @@ nav a {
   justify-content: center;
   cursor: pointer;
   border: solid 3px grey;
+
   p {
     background-color: $tertiaryColor;
     padding: 10px;
@@ -434,8 +429,7 @@ nav a {
     overflow: auto;
   }
 
-  button{
-    
+  button {
     border-radius: 50px;
     width: 200px;
     height: 30px;
@@ -454,26 +448,20 @@ nav a {
     cursor: pointer;
   }
 
-
   nav > div > ul > li > a {
-    .fa-chevron-down{
+    .fa-chevron-down {
       display: none;
-
     }
   }
   nav > div > ul {
-    
     border: solid 1px black;
   }
-  
-  .container-nav{
-    .fa-chevron-down{
-      margin-left: 10px;
 
+  .container-nav {
+    .fa-chevron-down {
+      margin-left: 10px;
     }
   }
-
-
 }
 
 // Smartphone
@@ -496,11 +484,10 @@ nav a {
     grid-column-gap: 100px;
     grid-row-gap: 50px;
     justify-content: center;
-    overflow: auto;
+    overflow: overlay;
   }
 
-
-  button{
+  button {
     background-color: red;
     border-radius: 50px;
     width: 200px;
@@ -521,9 +508,8 @@ nav a {
   }
 
   nav > div > ul > li > a {
-    .fa-chevron-down{
+    .fa-chevron-down {
       display: none;
-
     }
   }
 }
