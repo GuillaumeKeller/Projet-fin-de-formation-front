@@ -4,7 +4,9 @@
       <div class="scrolling_menu">
         <nav>
           <div class="container-nav">
-            <label for="mobile">Recherche <font-awesome-icon icon="fa-solid fa-chevron-down" /></label>
+            <label for="mobile"
+              >Recherche <font-awesome-icon icon="fa-solid fa-chevron-down"
+            /></label>
 
             <input type="checkbox" id="mobile" role="button" />
             <ul>
@@ -19,7 +21,7 @@
                   <li><a href="#">03-Allier</a></li>
                   <li><a href="#">04-Alpes de Hautes-Provence</a></li>
                 </ul>
-              </li>
+              </li> 
               <li class="scrolling">
                 <a href="#"
                   >Villes &ensp;<font-awesome-icon
@@ -61,7 +63,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 1</a>
+          <p href="#" class="logo__text">annonce 1</p>
         </div>
 
         <div class="ads">
@@ -71,7 +73,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 2</a>
+          <p href="#" class="logo__text">annonce 2</p>
         </div>
 
         <div class="ads">
@@ -81,7 +83,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 3</a>
+          <p href="#" class="logo__text">annonce 3</p>
         </div>
 
         <div class="ads">
@@ -91,7 +93,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 4</a>
+          <p href="#" class="logo__text">annonce 4</p>
         </div>
 
         <div class="ads">
@@ -101,7 +103,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 5</a>
+          <p href="#" class="logo__text">annonce 5</p>
         </div>
 
         <div class="ads">
@@ -111,7 +113,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 6</a>
+          <p href="#" class="logo__text">annonce 6</p>
         </div>
 
         <div class="ads">
@@ -121,7 +123,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 7</a>
+          <p href="#" class="logo__text">annonce 7</p>
         </div>
 
         <div class="ads">
@@ -131,7 +133,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 8</a>
+          <p href="#" class="logo__text">annonce 8</p>
         </div>
 
         <div class="ads">
@@ -141,7 +143,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 9</a>
+          <p href="#" class="logo__text">annonce 9</p>
         </div>
 
         <div class="ads">
@@ -151,7 +153,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 10</a>
+          <p href="#" class="logo__text">annonce 10</p>
         </div>
 
         <div class="ads">
@@ -161,7 +163,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 11</a>
+          <p href="#" class="logo__text">annonce 11</p>
         </div>
 
         <div class="ads">
@@ -171,7 +173,7 @@
             class="logo__image"
             alt=""
           />
-          <a href="#" class="logo__text">annonce 12</a>
+          <p href="#" class="logo__text">annonce 12</p>
         </div>
       </div>
     </div>
@@ -180,7 +182,7 @@
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15620.631495143949!2d5.220893382718534!3d46.2032211805023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f3522d15689311%3A0xc2e1d69735f38afb!2s01000%20Bourg-en-Bresse!5e0!3m2!1sfr!2sfr!4v1660743160817!5m2!1sfr!2sfr"
         width="750"
-        height="900"
+        height="1050"
         style="border: 0"
         allowfullscreen=""
         loading="lazy"
@@ -382,6 +384,8 @@ nav a {
 
 // ----------------------------------- Ads ----------------------------------------
 
+
+
 .listing_ads {
   margin: 100px 15px;
   display: grid;
@@ -390,18 +394,23 @@ nav a {
   grid-column-gap: 100px;
   grid-row-gap: 50px;
   justify-content: center;
-
   padding-top: 20px;
   background-color: $secondaryColor;
   height: 700px;
   overflow: scroll;
+  border-radius: 20px;
+  border: solid 2px grey;
 }
-
 .ads {
   display: flex;
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
+  border: solid 3px grey;
+  p {
+    background-color: $tertiaryColor;
+    padding: 10px;
+  }
 }
 
 // ----------------------------------- Media queries ---------------------------------------
