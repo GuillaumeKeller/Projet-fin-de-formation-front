@@ -46,6 +46,7 @@
 </template>
 
 <script>
+  import adService from "@/services/adService";
   import CarouselComponent from "@/components/carousel/CarouselComponent.vue";
 
   export default {
