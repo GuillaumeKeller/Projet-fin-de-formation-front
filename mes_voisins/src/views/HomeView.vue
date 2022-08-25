@@ -40,7 +40,7 @@
           </svg>
         </div>
       </div>
-      <CarouselComponent :ads="ads" :interval="3000" controls indicators />
+      <CarouselComponent :slides="slides" :interval="3000" controls indicators />
     </div>
   </section>
 </template>
@@ -53,14 +53,19 @@
     name: "HomeView",
     components: { CarouselComponent},
     data: () => ({
+     
      slides:[
-      
+
+      "https://picsum.photos/id/621/1200/700",
+      "https://picsum.photos/id/510/1200/700",
+      "https://picsum.photos/id/520/1200/700",
+      "https://picsum.photos/id/52/1200/700",
+      "https://picsum.photos/id/666/1200/700",
+      "https://picsum.photos/id/560/1200/700",
      ],
       
 
     }),
-
-   
     
   };
 
