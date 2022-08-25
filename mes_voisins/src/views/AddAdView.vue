@@ -98,18 +98,17 @@ section {
       )
       no-repeat;
   }
-  form{
+  form {
     margin: 40px 0 20px 0;
     width: 100%;
-    #message1{
+    #message1 {
       width: 80%;
       margin-bottom: 20px;
     }
-    #message2{
+    #message2 {
       height: 150px;
       width: 80%;
     }
-    
   }
 
   nav {
@@ -137,7 +136,7 @@ section {
     }
     li {
       float: left;
-  width: 100%;
+      width: 100%;
       width: 23%;
       text-align: center;
       position: relative;
@@ -241,6 +240,30 @@ section {
     color: $primaryColor;
     text-align: center;
   }
-  
+}
+// Tablet 
+@media (min-width: $mediaSmartphone) and (max-width: $mediaTablet) {
+  section{
+
+    width: 100%;
+  }
+}
+// Smartphone
+@media (max-width: $mediaSmartphone) {
+  section {
+    width: 100%;
+
+    h1 {
+      font-size: 2em;
+    }
+    ul{
+      position: relative;
+      right: 20px;
+    }
+    
+    .deroulant_2 {
+      width: 30%;
+    }
+  }
 }
 </style>
