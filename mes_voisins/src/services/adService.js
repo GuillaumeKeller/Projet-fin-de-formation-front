@@ -57,7 +57,13 @@ const adService = {
     return response.data;
   },
 
-  
+  async loadUserData(user_id)
+  {
+    const response = await axios.get(this.base_url + "/mesvoisins/v1/userdata/" + user_id);
+    return response.data;
+  },
+
+
   async addComment( msg, ad_id )
   {
     const response = await axios.post( 
