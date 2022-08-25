@@ -46,41 +46,21 @@
 </template>
 
 <script>
-  import AdComponent from "@/components/AdComponent.vue";
-  import adService from "@/services/adService";
+ 
   import CarouselComponent from "@/components/carousel/CarouselComponent.vue";
 
   export default {
     name: "HomeView",
-    components: { CarouselComponent, AdComponent },
+    components: { CarouselComponent},
     data: () => ({
      slides:[
-      ads=[]
+      
      ],
       
 
     }),
 
-    async created() {
-      this.ads = await adService.loadAds();
-      this.category = await adService.loadAdCategories();
-      this.type = await adService.loadTypes();
-      console.log(this.ads);
-    },
-
-    methods:
-    {
-      getADImage(ad) {
-        if(ad.featured_media > 0)
-        {
-           let imageOk = ad.embedded["wp:featuredmedia"][0].source_url;
-          return imageOk;
-        } else 
-        {
-          return "https://via.placeholder.com/150";
-        }
-      },
-    }
+   
     
   };
 

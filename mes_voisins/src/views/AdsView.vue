@@ -57,126 +57,24 @@
 
       <div class="listing_ads">
         <div class="ads">
-          <img
-            href="#"
-            src="https://picsum.photos/200"
-            class="logo__image"
-            alt=""
+         <AdComponent
+         v-for="ad in this.ads"
+          :key="ad.id"
+          :dbid="ad.id"
+          :title="ad.title.rendered"
+          :desc="ad.excerpt.rendered"
+          :type="this.getTypeName(ad['AdType'][0])"
+          :category="this.getCategoryName(ad['AdCategory'][0])" 
+          :img="this.getAdImage(ad)"
           />
-          <p href="#" class="logo__text">annonce 1</p>
-        </div>
 
-        <div class="ads">
-          <img
-            href="#"
-            src="https://picsum.photos/200"
-            class="logo__image"
-            alt=""
-          />
-          <p href="#" class="logo__text">annonce 2</p>
-        </div>
 
-        <div class="ads">
-          <img
-            href="#"
-            src="https://picsum.photos/200"
-            class="logo__image"
-            alt=""
-          />
-          <p href="#" class="logo__text">annonce 3</p>
-        </div>
-
-        <div class="ads">
-          <img
-            href="#"
-            src="https://picsum.photos/200"
-            class="logo__image"
-            alt=""
-          />
-          <p href="#" class="logo__text">annonce 4</p>
-        </div>
-
-        <div class="ads">
-          <img
-            href="#"
-            src="https://picsum.photos/200"
-            class="logo__image"
-            alt=""
-          />
-          <p href="#" class="logo__text">annonce 5</p>
-        </div>
-
-        <div class="ads">
-          <img
-            href="#"
-            src="https://picsum.photos/200"
-            class="logo__image"
-            alt=""
-          />
-          <p href="#" class="logo__text">annonce 6</p>
-        </div>
-
-        <div class="ads">
-          <img
-            href="#"
-            src="https://picsum.photos/200"
-            class="logo__image"
-            alt=""
-          />
-          <p href="#" class="logo__text">annonce 7</p>
-        </div>
-
-        <div class="ads">
-          <img
-            href="#"
-            src="https://picsum.photos/200"
-            class="logo__image"
-            alt=""
-          />
-          <p href="#" class="logo__text">annonce 8</p>
-        </div>
-
-        <div class="ads">
-          <img
-            href="#"
-            src="https://picsum.photos/200"
-            class="logo__image"
-            alt=""
-          />
-          <p href="#" class="logo__text">annonce 9</p>
-        </div>
-
-        <div class="ads">
-          <img
-            href="#"
-            src="https://picsum.photos/200"
-            class="logo__image"
-            alt=""
-          />
-          <p href="#" class="logo__text">annonce 10</p>
-        </div>
-
-        <div class="ads">
-          <img
-            href="#"
-            src="https://picsum.photos/200"
-            class="logo__image"
-            alt=""
-          />
-          <p href="#" class="logo__text">annonce 11</p>
-        </div>
-
-        <div class="ads">
-          <img
-            href="#"
-            src="https://picsum.photos/200"
-            class="logo__image"
-            alt=""
-          />
-          <p href="#" class="logo__text">annonce 12</p>
         </div>
       </div>
+       
     </div>
+
+   
 
     <div class="maps">
       <iframe
@@ -192,7 +90,94 @@
   </div>
 </template>
 
-<script></script>
+<script>
+import AdComponent from "@/components/AdComponent.vue";
+import adService from "@/services/adService";
+export default {
+  name: "AdsView",
+  components: {
+    AdComponent
+  },
+
+  data() {
+    return {
+      ads: [],
+      types: [],
+      categories: [],
+    };
+  },
+
+  async created() {
+    this.ads = await adService.loadAds();
+    this.types = await adService.loadTypes();
+    this.categories = await adService.loadAdCategories();
+    console.log(this.ads);
+    console.log(this.types);
+    console.log(this.categories);
+  },
+
+  methods:
+  {
+    
+    getTypeName( typeID )
+    {
+      
+      for( let type of this.types )
+      {
+        // Si l'ID correspond
+        if( typeID == type.id )
+        {
+          
+          return type.name;
+        }
+      }
+
+      
+      return null;
+    },
+
+    getCategoryName( categoryID )
+    {
+      
+      for( let category of this.categories )
+      {
+        // Si l'ID correspond
+        if( categoryID == category.id )
+        {
+          
+          return category.name;
+        }
+      }
+
+      
+      return null;
+    },
+
+    getAdImage(ad) 
+    {
+      // Si la recette possède une image associée
+      if( ad.featured_media > 0 )
+      {
+        // Je renvoi l'URL de l'image
+        console.log(ad._embedded['wp:featuredmedia'][0].source_url);
+        return ad._embedded['wp:featuredmedia'][0].source_url;
+        
+      }
+      else
+      {
+        // Je renvoi une image générique ou d'erreur
+        // Ici, deux solutions https://cli.vuejs.org/guide/html-and-static-assets.html#static-assets-handling
+        // - Je renvoi un lien dynamique vers le fichier buildé (dans assets/img)
+        // return require("@/assets/img/unavailable_img.jpg" );
+        
+        // - Je renvoi l'image depuis le dossier public directement
+        // return "./unavailable_img.jpg";
+      }
+    }
+
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 // Import des variables du site
@@ -397,8 +382,8 @@ nav a {
 }
 .ads {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  // justify-content: center;
   cursor: pointer;
   border: solid 3px grey;
 
