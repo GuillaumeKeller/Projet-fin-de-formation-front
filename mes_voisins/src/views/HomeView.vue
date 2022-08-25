@@ -40,28 +40,51 @@
           </svg>
         </div>
       </div>
-      <CarouselComponent :slides="slides" :interval="3000" controls indicators />
+      <CarouselComponent :ads="ads" :interval="3000" controls indicators />
     </div>
   </section>
 </template>
 
 <script>
+  import AdComponent from "@/components/AdComponent.vue";
   import adService from "@/services/adService";
   import CarouselComponent from "@/components/carousel/CarouselComponent.vue";
 
   export default {
     name: "HomeView",
-    components: { CarouselComponent },
+    components: { CarouselComponent, AdComponent },
     data: () => ({
-      slides: [
-        "https://picsum.photos/id/1032/1200/700",
-        "https://picsum.photos/id/1002/1200/700",
-        "https://picsum.photos/id/1020/1200/700",
-        "https://picsum.photos/id/1075/1200/700",
-        "https://picsum.photos/id/1036/1200/700",
-      ],
+     slides:[
+      ads=[]
+     ],
+      
+
     }),
+
+    async created() {
+      this.ads = await adService.loadAds();
+      this.category = await adService.loadAdCategories();
+      this.type = await adService.loadTypes();
+      console.log(this.ads);
+    },
+
+    methods:
+    {
+      getADImage(ad) {
+        if(ad.featured_media > 0)
+        {
+           let imageOk = ad.embedded["wp:featuredmedia"][0].source_url;
+          return imageOk;
+        } else 
+        {
+          return "https://via.placeholder.com/150";
+        }
+      },
+    }
+    
   };
+
+  
 </script>
 
 <style lang="scss" scoped>
