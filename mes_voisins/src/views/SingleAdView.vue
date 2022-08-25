@@ -1,21 +1,16 @@
 <template>
-  <section>
-    <h1>Titre de l'annonce</h1>
+  <section v-if="this.ad">
+    <h1 v-html="this.ad.title.rendered"></h1>
     <div class="ad__data">
-      <img class="ad__picture" src="https://picsum.photos/id/1041/400/180" alt="" />
+      <img :src="this.img.source_url" v-if="this.img" class="ad__picture" alt=" Image de l'annonce" />
       <div class="ad__info">
-        <span> Date de publication : </span>
-        <span> Dernière modification : </span>
-        <span> Etat de l'annonce : </span>
-        <span> Localisation : </span>
-        <h2>Description :</h2>
+        <span> Date de publication : <p v-html="this.ad.date "> </p></span>
+        <span> Dernière modification : <p v-html="this.ad.modified "> </p> </span>
+        <span v-if="this.status"> Etat de l'annonce: <p v-html="this.status.name"> </p> </span>
+        <span> Localisation : <p v-html="this.userdata[0]['postal_code'] "></p> <p v-html="this.userdata[0]['city'] "></p> </span>
+        <h2> Description :</h2>
         <div class="">
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, autem suscipit sunt maxime nobis ab provident voluptate perferendis iusto dolorum non
-            dignissimos. Asperiores modi illo in voluptatibus dolorem quis necessitatibus voluptates veniam. Veritatis, laudantium nisi. Quaerat laudantium asperiores
-            assumenda quidem, corporis dolore aliquid labore illo vitae! Optio dolorem voluptatum et molestiae, voluptatibus repellat minus nemo ab excepturi numquam
-            iste! Eligendi voluptates id temporibus, molestias ex delectus reprehenderit nam eum quasi excepturi quas voluptate iste, quam distinctio quo, aliquid modi
-            officia esse consequuntur assumenda et vero ea similique! Accusamus quam nostrum libero. Ratione incidunt doloremque porro in animi facilis fuga veritatis!
+          <p v-html="this.ad.content.rendered">
           </p>
         </div>
       </div>
@@ -28,10 +23,10 @@
         <img class="user__avatar" src="@/assets/img/avatar.jpg" alt="" />
         <!-- Image de l'utilisateur -->
         <div class="user__contact">
-          <span> Prénom : </span>
-          <span> Nom : </span>
-          <span> Email : </span>
-          <span> Téléphone : </span>
+          <span> Prénom : <p v-html="this.userdata[0]['first_name'] "></p></span>
+          <span> Nom : <p v-html="this.userdata[0]['last_name'] "></p> </span>
+          <span> Email : <p v-html="this.userdata[0]['email'] "> </p> </span>
+          <span> Téléphone : <p v-html="this.userdata[0]['phone'] "> </p> </span>
         </div>
       </div>
     </div>
@@ -48,7 +43,7 @@
 </template>
 
 <script>
-
+import adService from "@/services/adService";
 import CommentList from "@/components/CommentList.vue";
 
 export default 
@@ -57,7 +52,40 @@ export default
     CommentList
   },
   
-  async created(){}
+  async created(){
+    this.ad = await adService.loadAd(this.$route.params.id);
+    this.type = await adService.loadAdType(this.$route.params.id)
+    this.category = await adService.loadAdCategory(this.$route.params.id)
+    this.status = await adService.loadAdStatus(this.$route.params.id);
+    this.userdata = await adService.loadUserData(this.ad.author);
+    console.log(this.userdata);
+    if (this.ad.featured_media > 0)
+    {
+
+      this.img = await adService.loadAdImage(this.ad.featured_media);
+
+    }
+
+    this.type = this.type[0];
+    this.category = this.category[0];
+    this.status = this.status[0];
+
+  },
+
+  data(){
+
+    return {
+
+      ad: false,
+      type: false,
+      category: false,
+      status: false, 
+      img: false,
+      userdata: false,
+    }
+  }
+
+  
 }
 
 </script>
