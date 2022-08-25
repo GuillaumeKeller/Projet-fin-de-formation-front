@@ -46,21 +46,30 @@
 </template>
 
 <script>
+ 
   import CarouselComponent from "@/components/carousel/CarouselComponent.vue";
 
   export default {
     name: "HomeView",
-    components: { CarouselComponent },
+    components: { CarouselComponent},
     data: () => ({
-      slides: [
-        "https://picsum.photos/id/1032/1200/700",
-        "https://picsum.photos/id/1002/1200/700",
-        "https://picsum.photos/id/1020/1200/700",
-        "https://picsum.photos/id/1075/1200/700",
-        "https://picsum.photos/id/1036/1200/700",
-      ],
+     
+     slides:[
+
+      "https://picsum.photos/id/621/1200/700",
+      "https://picsum.photos/id/510/1200/700",
+      "https://picsum.photos/id/520/1200/700",
+      "https://picsum.photos/id/52/1200/700",
+      "https://picsum.photos/id/666/1200/700",
+      "https://picsum.photos/id/560/1200/700",
+     ],
+      
+
     }),
+    
   };
+
+  
 </script>
 
 <style lang="scss" scoped>
