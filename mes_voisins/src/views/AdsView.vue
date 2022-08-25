@@ -160,6 +160,7 @@
     color: white;
     font-weight: bold;
     font-size: 1.5em;
+    border-radius: 50px;
   }
   nav ul {
     display: none;
@@ -179,6 +180,7 @@
     color: white;
     font-weight: bold;
     background-color: $primaryColor;
+    border-radius: 50px;
   }
   nav a {
     display: block;
@@ -199,15 +201,34 @@
   .menu a:hover {
     padding: 10px;
     background-color: $secondaryColor;
+    border-radius: 50px;
+  }
+
+  button.btn-nav {
+    width: 10em;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    margin: 0.9375em;
+    height: 2.5em;
+    text-align: center;
+    border: none;
+    background-color: $primaryColor;
+    border-radius: 50px;
+    transition: background-color 0.5s ease-in-out;
+
+    &:hover {
+      background-color: lighten($primaryColor, 20%);
+    }
   }
 
   // ----------------------------------- Navigation Desktop----------------------------------------
-
   .scrolling_menu {
-    margin: 70px 30px;
+    margin: 3em;
   }
 
-  @media screen and (min-width: $mediaTablet) {
+  @media screen and (min-width: $mediaLaptop) {
     nav {
       width: 80%;
     }
@@ -221,13 +242,15 @@
     nav input[type="checkbox"]:checked + ul,
     nav ul {
       display: flex;
-      flex-flow: row wrap;
+      flex-flow: row;
+      justify-content: space-between;
     }
     nav ul li {
       position: relative;
+      margin: 0 0.5em;
     }
     nav > div > ul > li > a {
-      color: white; 
+      color: white;
       font-weight: bold;
       font-size: 20px;
     }
@@ -247,7 +270,7 @@
     .menu {
       display: none;
       box-shadow: 0px 1px 2px #ccc;
-      background-color: white; 
+      background-color: white;
       position: absolute;
       width: 100%;
       padding-top: 10px;
@@ -262,7 +285,7 @@
     }
     .menu a {
       border-bottom: none;
-      background-color: white; 
+      background-color: white;
     }
     .menu a:hover {
       border-bottom: none;
@@ -270,7 +293,7 @@
     }
 
     button {
-      width: 200px;
+      width: 10em;
       font-size: 16px;
       font-weight: 600;
       color: #fff;
@@ -283,7 +306,7 @@
       box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
       border: none;
       outline: none;
-      background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+      background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a);
     }
   }
 
@@ -294,6 +317,7 @@
     width: 80%;
     justify-content: space-around;
     margin: 0 auto;
+    margin-bottom: 2em;
     flex-direction: row;
     flex-wrap: wrap;
     box-shadow: 0px 0px 0px 2px #30dd8a;
@@ -301,7 +325,7 @@
   }
 
   @media screen and (max-width: $mediaTablet) {
-    .container{
+    .container {
       width: 100%;
     }
     .ads {
