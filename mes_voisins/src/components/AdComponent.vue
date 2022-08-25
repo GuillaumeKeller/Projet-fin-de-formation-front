@@ -1,111 +1,125 @@
 <template>
-    <article>
-        <div>
-
-            <router-link :to="{ name: 'ad', params: { id: this.dbid } }">
-                <h2 v-html="title"></h2>
-            </router-link>
-
-            <img :src="img" />
-            <p v-html="desc"></p>
-            <div v-html="category"></div>
-            <div v-html="type"></div>
-            <div v-html="status"></div>
-
-
-
-        </div>
-    </article>
+  <article>
+    <div>
+      <router-link :to="{ name: 'ad', params: { id: this.dbid } }">
+        <h3 v-html="title"></h3>
+      </router-link>
+      <img :src="img" />
+      <p v-html="desc"></p>
+    </div>
+    <div class="tags">
+      <span class="type" v-show="type != null" v-html="type"></span>
+      <span class="category" v-show="category != null" v-html="category"></span>
+    </div>
+  </article>
 </template>
 
 <script>
-export default
-    {
-        props:
-        {
-            dbid: Number,
-            title: String,
-            desc: String,
-            img: String,
-            category: String,
-            type: String,
-            status: String,
-
-        }
-    }
+  export default {
+    props: {
+      dbid: Number,
+      title: String,
+      desc: String,
+      img: String,
+      category: String,
+      type: String,
+    },
+  };
 </script>
 
 <style lang="scss" scoped>
+  @import "@/assets/scss/variables.scss";
+  @import "@/assets/scss/media_queries.scss";
 
-@import "@/assets/scss/variables.scss";
-@import "@/assets/scss/media_queries.scss";
-
-    article
-    {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background: $tertiaryColor;
-        color: $primaryColor;
-        margin: 0 auto;
-        padding: 0 1rem;
-        box-sizing: border-box;
-        border-radius: 1rem;
-        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
-        transition: all 0.3s ease-in-out;
-        cursor: pointer;
-
-        &:hover
-        {
-            transform: scale(1.05);
-        }
-
-        div
-        {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            margin: 0 1em;
-
-            h2
-            {
-                font-size: 1.5rem;
-                font-weight: 700;
-                text-align: center;
-                margin-bottom: 1rem;
-            }
-
-            img
-            {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                margin-bottom: 1rem;
-            }
-
-            p
-            {
-                font-size: 1rem;
-                font-weight: 400;
-                text-align: center;
-                margin-bottom: 1rem;
-            }
-
-            div
-            {
-                font-size: 1rem;
-                font-weight: 400;
-                text-align: center;
-                margin-bottom: 1rem;
-            }
-        }
+  article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 2em auto;
+    width: 35%;
+    height: auto;
+    background: $tertiaryColor;
+    color: $primaryColor;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
     }
-</style>
 
+    h3 {
+      font-size: 1.5em;
+      font-weight: 600;
+      margin-bottom: 0.5em;
+      text-transform: uppercase;
+      color: $primaryColor;
+    }
+
+    img {
+      width: 50%;
+      height: auto;
+      margin-bottom: 1em;
+    }
+
+    p {
+      font-size: 1em;
+      margin-bottom: 1em;
+      text-align: justify;
+    }
+
+    .tags {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-top: 1em;
+
+      .type {
+        font-size: 0.8em;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: $primaryColor;
+        margin-right: 1em;
+        cursor: pointer;
+        border: 2px solid $primaryColor;
+        border-radius: 10px;
+        padding: 0.5em;
+        background: linear-gradient(to top, #30dd8a, 2em, transparent 0.5em) no-repeat;
+        background-size: 0 100%;
+        transition: background-size 1s, color 1s;
+
+        &:hover {
+          background-size: 100% 100%;
+          color: $tertiaryColor;
+        }
+      }
+
+      .category {
+        font-size: 0.8em;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: $primaryColor;
+        cursor: pointer;
+        border: 2px solid $primaryColor;
+        border-radius: 10px;
+        padding: 0.5em;
+        background: linear-gradient(to top, #f55353, 2em, transparent 0.5em) no-repeat;
+        background-size: 0 100%;
+        transition: background-size 1s, color 1s;
+
+        &:hover {
+          background-size: 100% 100%;
+          color: $tertiaryColor;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $mediaTablet) {
+    article {
+      width: 80%;
+    }
+  }
+</style>
