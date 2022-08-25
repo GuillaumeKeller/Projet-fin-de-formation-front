@@ -35,6 +35,12 @@ const routes = [
     name: 'ad',
     component: () => import(/* webpackChunkName: "about" */ '@/views/SingleAdView.vue')
   }, 
+  {
+    path: '/creation-annonce',
+    name: 'add-ad',
+    component: () => import(/* webpackChunkName: "about" */ '@/views/AddAdView.vue')
+  },
+  
 ]
 
 const router = createRouter({
