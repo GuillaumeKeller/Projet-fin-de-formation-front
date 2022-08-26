@@ -30,26 +30,25 @@
         </div>
       </div>
     </div>
-    <div class="ad__comment">
-      <h2>Commentaires</h2>
-      <textarea placeholder="Ecrire votre commentaire ici" rows="10" />
-      <button type="submit">Envoyer</button>
-      <div class="">
-        <!-- Component CommentList -->
-        <CommentList v-if="(typeof this.ad._embedded.replies != 'undefined')" :comments="this.ad._embedded.replies[0]" />
-      </div>
-    </div>
+    
+      
+    <!-- Component CommentList -->
+    <CommentForm @comment-added="this.handleCommentAdded" />
+    <CommentList v-if="(typeof this.ad._embedded.replies != 'undefined')" :comments="this.ad._embedded.replies[0]" />
+    
   </section>
 </template>
 
 <script>
 import adService from "@/services/adService";
+import CommentForm from "@/components/CommentForm.vue";
 import CommentList from "@/components/CommentList.vue";
 
 export default 
 {
   components: {
-    CommentList
+    CommentForm,
+    CommentList 
   },
   
   async created(){
@@ -83,7 +82,27 @@ export default
       img: false,
       userdata: false,
     }
-  }
+  },
+  methods: 
+    {
+      // Méthode qui ajoute le commentaire nouvellement créé à la liste des commentaires
+      // de la recette sans la recharger complètement
+      async handleCommentAdded( newCommentData ) 
+      {
+        // Si la recette n'a aucun commentaire, on créé la propriété _embedded.replies
+        // qui contiendra un tableau vide pour permettre l'ajout du premier commentaire
+        if( typeof this.recipe._embedded.replies == 'undefined') 
+        {
+          // Attention, replies est un tableau a une entrée qui contient 
+          // un tableau des objets commentaires (comme dans le JSON de la réponse de WP)
+          this.recipe._embedded.replies = [ [] ];
+        }
+
+        // On ajoute le nouveau commentaire au début de la
+        // liste des commentaires de la recette
+        this.recipe._embedded.replies[0].unshift(newCommentData);
+      }
+    }
 
   
 }
@@ -238,7 +257,7 @@ export default
       border: 1px solid $tertiaryColor;
       margin: 0.5em;
       font-size: 1.1em;
-      color: $tertiaryColor;
+      color: black;
       margin-bottom: 0.5em;
     }
 
