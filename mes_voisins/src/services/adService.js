@@ -68,6 +68,23 @@ const adService = {
     );
     return response.data;
   },
+
+  async addAd( ad )
+  {
+    const response = await axios.post( 
+      this.base_url + "/wp/v2/ad", 
+      {
+        title: ad.title,
+        adcontent: ad.content,
+        adexcerpt: ad.text,
+        adType: ad.type,
+        adcategory: ad.category, 
+        status : "active"             
+      }, 
+      
+    );
+    return response.data;
+  }
   
 
 };
