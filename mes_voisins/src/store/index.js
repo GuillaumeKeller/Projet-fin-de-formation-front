@@ -11,16 +11,18 @@ const instance = axios.create({
 
 export default createStore({
   state: {
-    isConnected: false
+    isConnected: false,
+    isDisconnected: true
   },
 
   getters: {},
 
   mutations: {
-    setConnected(state, connected) 
+    setConnected(state, connected, disconnected) 
     {
       
       state.isConnected = connected;
+      state.isDisconnected = disconnected;
     }
   },
 

@@ -16,12 +16,12 @@
       </div>
     </div>
 
-    <!-- Visible si connecté -->
+    
     <div class="ad__contact">
       <h2>Coordonnées</h2>
-      <div class="ad__contact--details">
+      <div class="ad__contact--details" v-if="!this.$store.state.isDisconnected">
         <img class="user__avatar" src="@/assets/img/avatar.jpg" alt="" />
-        <!-- Image de l'utilisateur -->
+        
         <div class="user__contact">
           <span> Prénom : <p v-html="this.userdata[0]['first_name'] "></p></span>
           <span> Nom : <p v-html="this.userdata[0]['last_name'] "></p> </span>

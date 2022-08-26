@@ -1,20 +1,20 @@
 <template>
   <header>
     <div class="logo-home" href="#">
-      <router-link :to="{ name : 'home' }">
-      <img class="logo" src="../assets/img/logo.png" alt="" />
+      <router-link :to="{ name: 'home' }">
+        <img class="logo" src="../assets/img/logo.png" alt="" />
       </router-link>
     </div>
     <div class="search">
       <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
       <input type="text" placeholder="Rechercher" />
     </div>
-    <div class="btn">
-      <router-link :to="{ name : 'register' }">
-      <button class="btn-header">Inscription</button>
+    <div class="btn" v-if="!this.$store.state.isConnected">
+      <router-link :to="{ name: 'register' }">
+        <button class="btn-header">Inscription</button>
       </router-link>
-      <router-link :to="{ name : 'login' }">
-      <button class="btn-header">Connexion</button>
+      <router-link :to="{ name: 'login' }">
+        <button class="btn-header">Connexion</button>
       </router-link>
     </div>
   </header>
@@ -23,197 +23,205 @@
 <script></script>
 
 <style lang="scss" scoped>
-  @import "@/assets/scss/variables.scss";
-  @import "@/assets/scss/media_queries.scss";
+@import "@/assets/scss/variables.scss";
+@import "@/assets/scss/media_queries.scss";
 
-  header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    box-sizing: border-box;
-    background-color: $primaryColor;
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  box-sizing: border-box;
+  background-color: $primaryColor;
 
-    .logo-home {
-      cursor: pointer;
+  .logo-home {
+    cursor: pointer;
 
-      img.logo {
-        width: 25em;
-        height: auto;
-      }
+    img.logo {
+      width: 25em;
+      height: auto;
+    }
+  }
+
+  .search {
+    .fa-magnifying-glass {
+      margin-right: 0.5rem;
+      height: 2.2rem;
+      vertical-align: middle;
+      color: #30dd8a;
     }
 
-    .search {
-      .fa-magnifying-glass {
-        margin-right: 0.5rem;
-        height: 2.2rem;
-        vertical-align: middle;
-        color: #30dd8a;
-      }
+    input {
+      width: 20rem;
+      height: 1.5rem;
+      padding: 0.5rem;
+      border: double 5px transparent;
+      border-radius: 50px;
+      background-image: linear-gradient(white, white),
+        linear-gradient(to right, #30dd8a, #0ba360);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      font-size: 1.1em;
+      color: $primaryColor;
+      margin-right: 0.5em;
+      box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
 
-      input {
-        width: 20rem;
-        height: 1.5rem;
-        padding: 0.5rem;
+      &:focus {
+        outline: none;
         border: double 5px transparent;
         border-radius: 50px;
-        background-image: linear-gradient(white, white), linear-gradient(to right, #30dd8a, #0ba360);
-        background-origin: border-box;
-        background-clip: padding-box, border-box;
-        font-size: 1.1em;
-        color: $primaryColor;
-        margin-right: 0.5em;
-        box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+        background-image: linear-gradient(white, white),
+          linear-gradient(to right, #0ba360, #30dd8a);
+      }
+    }
+  }
 
-        &:focus {
-          outline: none;
-          border: double 5px transparent;
-          border-radius: 50px;
-          background-image: linear-gradient(white, white), linear-gradient(to right, #0ba360, #30dd8a);
-        }
+  .btn {
+    margin-right: 4em;
+    button {
+      width: 12.5em;
+      font-size: 1em;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      margin: 0.9375em;
+      height: 3em;
+      text-align: center;
+      border: none;
+      background-size: 300% 100%;
+
+      border-radius: 50px;
+      -o-transition: all 0.4s ease-in-out;
+      -webkit-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
+    }
+
+    button:hover {
+      background-position: 100% 0;
+      -o-transition: all 0.4s ease-in-out;
+      -webkit-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
+    }
+
+    button:focus {
+      outline: none;
+    }
+
+    .btn-header {
+      background-image: linear-gradient(
+        to right,
+        #0ba360,
+        #3cba92,
+        #30dd8a,
+        #2bb673
+      );
+      box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+    }
+  }
+}
+
+// Media queries
+
+// Smartphone
+
+@media (max-width: $mediaSmartphone) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em;
+
+    .search {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      align-items: center;
+
+      input {
+        width: 80%;
+        margin-bottom: 0.5em;
+        height: 1em;
+      }
+
+      .fa-magnifying-glass {
+        height: 1.5em;
       }
     }
 
     .btn {
-      margin-right: 4em;
+      justify-content: center;
+      margin: auto;
+
       button {
-        width: 12.5em;
-        font-size: 1em;
-        font-weight: bold;
-        color: #fff;
-        cursor: pointer;
-        margin: 0.9375em;
-        height: 3em;
-        text-align: center;
-        border: none;
-        background-size: 300% 100%;
-
-        border-radius: 50px;
-        -o-transition: all 0.4s ease-in-out;
-        -webkit-transition: all 0.4s ease-in-out;
-        transition: all 0.4s ease-in-out;
-      }
-
-      button:hover {
-        background-position: 100% 0;
-        -o-transition: all 0.4s ease-in-out;
-        -webkit-transition: all 0.4s ease-in-out;
-        transition: all 0.4s ease-in-out;
-      }
-
-      button:focus {
-        outline: none;
-      }
-
-      .btn-header {
-        background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
-        box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+        width: 100%;
+        margin: 0.2em;
       }
     }
   }
+}
 
-  // Media queries
+// Media queries
+// Tablette
 
-  // Smartphone
+@media (min-width: $mediaSmartphone) and (max-width: $mediaTablet) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em;
 
-  @media (max-width: $mediaSmartphone) {
-    header {
-      flex-direction: column;
-      align-items: center;
+    .search {
+      padding: 0.1em;
+      margin-bottom: 0.2em;
+      display: flex;
       justify-content: center;
-      padding: 0.5em;
-
-      .search {
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        align-items: center;
-
-        input {
-          width: 80%;
-          margin-bottom: 0.5em;
-          height: 1em;
-        }
-
-        .fa-magnifying-glass {
-          height: 1.5em;
-        }
-      }
-
-      .btn {
-        justify-content: center;
-        margin: auto;
-
-        button {
-          width: 100%;
-          margin: 0.2em;
-        }
-      }
-    }
-  }
-
-  // Media queries
-  // Tablette
-
-  @media (min-width: $mediaSmartphone) and (max-width: $mediaTablet) {
-    header {
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      justify-content: center;
-      padding: 0.5em;
 
-      .search {
-        padding: 0.1em;
-        margin-bottom: 0.2em;
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        align-items: center;
-
-        input {
-          width: 80%;
-          margin-bottom: 0.5em;
-          height: 1em;
-        }
-        .fa-magnifying-glass {
-          height: 1.5em;
-        }
+      input {
+        width: 80%;
+        margin-bottom: 0.5em;
+        height: 1em;
       }
-
-      .btn {
-        justify-content: center;
-        margin: auto;
+      .fa-magnifying-glass {
+        height: 1.5em;
       }
     }
+
+    .btn {
+      justify-content: center;
+      margin: auto;
+    }
   }
+}
 
-  //  LapTop
+//  LapTop
 
-  @media (min-width: $mediaTablet) and (max-width: $mediaLaptop) {
-    header {
-      flex-direction: column;
+@media (min-width: $mediaTablet) and (max-width: $mediaLaptop) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em;
+
+    .search {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
       align-items: center;
-      justify-content: center;
-      padding: 0.5em;
-
-      .search {
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        align-items: center;
-        padding: 0.1em;
-        margin-bottom: 0.2em;
-        input {
-          width: 80%;
-          margin-bottom: 0.5em;
-        }
-      }
-
-      .btn {
-        justify-content: center;
-        margin: auto;
+      padding: 0.1em;
+      margin-bottom: 0.2em;
+      input {
+        width: 80%;
+        margin-bottom: 0.5em;
       }
     }
+
+    .btn {
+      justify-content: center;
+      margin: auto;
+    }
   }
+}
 </style>
