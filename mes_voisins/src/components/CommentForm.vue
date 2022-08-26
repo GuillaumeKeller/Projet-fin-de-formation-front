@@ -3,7 +3,7 @@
     <div v-if="this.$store.state.isConnected">
       <h3>Commenter</h3>
       <textarea name="msg" rows="5" v-model="this.msg" placeholder="Donnez votre avis sur cette annonce!"></textarea>
-      <button>Envoyer</button>
+      <button class="form-button">Envoyer</button>
     </div>
 
     <div v-if="!this.$store.state.isConnected">
@@ -20,9 +20,7 @@ import recipeService from '@/services/adService';
 
 export default 
 {
-  // props: {
-  //   isConnected: Boolean
-  // }
+  
 
   data() {
     return {
@@ -73,7 +71,7 @@ h3 {
 
 textarea {
   border: none;
-  background: black;
+  background: white;
   border-radius: 1em;
   margin: 0.5em auto 0;
   resize: none;
