@@ -155,7 +155,7 @@ export default {
 
     getAdImage(ad) 
     {
-      // Si la recette possède une image associée
+      // Si l'annonce possède une image associée
       if( ad.featured_media > 0 )
       {
         // Je renvoi l'URL de l'image

@@ -63,6 +63,21 @@ const adService = {
     return response.data;
   },
 
+  async loadUser(user_id)
+  {
+    const response = await axios.get(this.base_url+ "/wp/v2/users/" + user_id);
+    return response.data;
+
+  },
+
+  async loadAdAuthor(user_id)
+  {
+    const response = await axios.get(this.base_url+ "/wp/v2/ad?author=" + user_id );
+    return response.data;
+  },
+
+
+
 
   async addComment( msg, ad_id )
   {
