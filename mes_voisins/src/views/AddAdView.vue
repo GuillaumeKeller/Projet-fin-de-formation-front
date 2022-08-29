@@ -10,7 +10,7 @@
         Type
         <select v-model="this.ad.type" required>
         <option disabled selected value="0">Choisissez un Type</option>
-        <option v-for="pafpaf in pofpof" :key="pafpaf.id" :value="pafpaf.id">{{ pafpaf.name }}</option>
+        <option v-for="types in adTypes" :key="types.id" :value="types.id">{{ types.name }}</option>
         </select>
     </label>
     <label>
@@ -19,6 +19,11 @@
         <option disabled selected value="0">Choisissez une Catégorie</option>
         <option v-for="categories in category" :key="categories.id" :value="categories.id">{{ categories.name }}</option>
         </select>
+        </label>
+        <!-- ajouter une image -->
+        <label>
+        Ajouter une image
+        <input type="file" @change="handleFileUpload" />
         </label>
         <label>
             Texte de l'annonce
@@ -45,7 +50,7 @@ export default
 
     async created()
     {
-        this.pofpof = await adService.loadTypes();
+        this.adTypes = await adService.loadTypes();
         this.category = await adService.loadAdCategories();
         console.log(this.pofpof);
         
@@ -90,12 +95,12 @@ export default
                  return;
             }
             
-            if (this.ad.type < 0)
+            if (this.ad.type < 1)
             {
                  alert("Veuillez choisir un type");
                  return;
             }
-            if(this.ad.category < 0)
+            if(this.ad.category < 1)
             {
                  alert("Veuillez choisir une catégorie");
                  return;

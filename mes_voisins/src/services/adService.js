@@ -79,6 +79,7 @@ const adService = {
         adexcerpt: ad.text,
         AdType: ad.type,
         AdCategory: ad.category, 
+        featured_media: ad.image,
         status: "publish"
                   
       }, 
