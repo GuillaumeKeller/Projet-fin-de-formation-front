@@ -4,61 +4,52 @@ import storage from '@/utils/storage';
 // Module nous permettant d'interagir avec l'API de notre Backend Mes-voisins
 const adService = {
 
-    // Propriété qui stocke la BASE URL de notre API
-    base_url : "http://joffreyms-server.eddi.cloud/back/projet-mes-voisins-back/public/wp-json",
+  // Propriété qui stocke la BASE URL de notre API
+  base_url: "http://joffreyms-server.eddi.cloud/back/projet-mes-voisins-back/public/wp-json",
 
 
-    // Méthode qui charge les annonces du site
-    async loadAds() 
-    {
-        const response = await axios.get( this.base_url + "/wp/v2/ad?_embed=true" );
+  // Méthode qui charge les annonces du site
+  async loadAds() {
+    const response = await axios.get(this.base_url + "/wp/v2/ad?_embed=true");
 
-        return response.data;
-    },
-    async loadAdCategories()
-  {
-    const response = await axios.get( this.base_url + "/wp/v2/adcategory" );
+    return response.data;
+  },
+  async loadAdCategories() {
+    const response = await axios.get(this.base_url + "/wp/v2/adcategory");
     return response.data;
   },
 
-  async loadTypes()
-  {
-    const response = await axios.get( this.base_url + "/wp/v2/adtype" );
+  async loadTypes() {
+    const response = await axios.get(this.base_url + "/wp/v2/adtype");
     return response.data;
   },
 
-  async loadAd( ad_id )
-  {
-    const response = await axios.get( this.base_url + "/wp/v2/ad/" + ad_id + "?_embed=true" );
+  async loadAd(ad_id) {
+    const response = await axios.get(this.base_url + "/wp/v2/ad/" + ad_id + "?_embed=true");
     return response.data;
   },
 
-  async loadAdCategory( category_id )
-  {
-    const response = await axios.get( this.base_url + "/wp/v2/adcategory?post=" + category_id );
+  async loadAdCategory(category_id) {
+    const response = await axios.get(this.base_url + "/wp/v2/adcategory?post=" + category_id);
     return response.data;
   },
 
-  async loadAdType( type_id )
-  {
-    const response = await axios.get( this.base_url + "/wp/v2/adtype?post=" + type_id );
+  async loadAdType(type_id) {
+    const response = await axios.get(this.base_url + "/wp/v2/adtype?post=" + type_id);
     return response.data;
   },
 
-  async loadAdStatus( status_id )
-  {
-    const response = await axios.get( this.base_url + "/wp/v2/adstatus?post=" + status_id );
+  async loadAdStatus(status_id) {
+    const response = await axios.get(this.base_url + "/wp/v2/adstatus?post=" + status_id);
     return response.data;
   },
 
-  async loadAdImage( media_id )
-  {
-    const response = await axios.get( this.base_url + "/wp/v2/media/" + media_id );
+  async loadAdImage(media_id) {
+    const response = await axios.get(this.base_url + "/wp/v2/media/" + media_id);
     return response.data;
   },
 
-  async loadUserData(user_id)
-  {
+  async loadUserData(user_id) {
     const response = await axios.get(this.base_url + "/mesvoisins/v1/userdata/" + user_id);
     return response.data;
   },
@@ -79,22 +70,20 @@ const adService = {
 
 
 
-  async addComment( msg, ad_id )
-  {
-    const response = await axios.post( 
-      this.base_url + "/wp/v2/comments", 
-      {
+  async addComment(msg, ad_id) {
+    const response = await axios.post(
+      this.base_url + "/wp/v2/comments", {
         content: msg,
         post: ad_id
-      }, 
-      {
+      }, {
         headers: {
-          Authorization: "Bearer " + storage.get( "userData" ).token
+          Authorization: "Bearer " + storage.get("userData").token
         }
-      } 
+      }
     );
     return response.data;
-  }
+  },
+  
 
 };
 
