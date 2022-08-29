@@ -4,10 +4,10 @@
     <div class="ad__data">
       <img :src="this.img.source_url" v-if="this.img" class="ad__picture" alt=" Image de l'annonce" />
       <div class="ad__info">
-        <span> Date de publication : <p v-html="this.ad.date "> </p></span>
-        <span> Dernière modification : <p v-html="this.ad.modified "> </p> </span>
+        <span v-if="this.ad"> Date de publication : <p v-html="this.ad.date "> </p></span>
+        <span v-if="this.ad"> Dernière modification : <p v-html="this.ad.modified "> </p> </span>
         <span v-if="this.status"> Etat de l'annonce: <p v-html="this.status.name"> </p> </span>
-        <span> Localisation : <p v-html="this.userdata[0]['postal_code'] "></p> <p v-html="this.userdata[0]['city'] "></p> </span>
+        <span v-if="this.userdata"> Localisation : <p v-html="this.userdata[0]['postal_code'] "></p> <p v-html="this.userdata[0]['city'] "></p> </span>
         <h2> Description :</h2>
         <div class="">
           <p v-html="this.ad.content.rendered">
@@ -23,10 +23,10 @@
         <img class="user__avatar" :src="this.img.author_avatar_urls" v-if="this.img" alt="" />
         
         <div class="user__contact">
-          <span> Prénom : <p v-html="this.userdata[0]['first_name'] "></p></span>
-          <span> Nom : <p v-html="this.userdata[0]['last_name'] "></p> </span>
-          <span> Email : <p v-html="this.userdata[0]['email'] "> </p> </span>
-          <span> Téléphone : <p v-html="this.userdata[0]['phone'] "> </p> </span>
+          <span v-if="this.userdata"> Prénom : <p v-html="this.userdata[0]['first_name'] "></p></span>
+          <span v-if="this.userdata"> Nom : <p v-html="this.userdata[0]['last_name'] "></p> </span>
+          <span v-if="this.userdata"> Email : <p v-html="this.userdata[0]['email'] "> </p> </span>
+          <span v-if="this.userdata"> Téléphone : <p v-html="this.userdata[0]['phone'] "> </p> </span>
         </div>
       </div>
     </div>
