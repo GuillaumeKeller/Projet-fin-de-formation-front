@@ -16,12 +16,12 @@
       </div>
     </div>
 
-    <!-- Visible si connecté -->
+    
     <div class="ad__contact">
       <h2>Coordonnées</h2>
-      <div class="ad__contact--details">
-        <img class="user__avatar" src="@/assets/img/avatar.jpg" alt="" />
-        <!-- Image de l'utilisateur -->
+      <div class="ad__contact--details" v-if="!this.$store.state.isDisconnected">
+        <img class="user__avatar" :src="this.img.author_avatar_urls" v-if="this.img" alt="" />
+        
         <div class="user__contact">
           <span> Prénom : <p v-html="this.userdata[0]['first_name'] "></p></span>
           <span> Nom : <p v-html="this.userdata[0]['last_name'] "></p> </span>
@@ -30,26 +30,25 @@
         </div>
       </div>
     </div>
-    <div class="ad__comment">
-      <h2>Commentaires</h2>
-      <textarea placeholder="Ecrire votre commentaire ici" rows="10" />
-      <button type="submit">Envoyer</button>
-      <div class="">
-        <!-- Component CommentList -->
-        <CommentList v-if="(typeof this.ad._embedded.replies != 'undefined')" :comments="this.ad._embedded.replies[0]" />
-      </div>
-    </div>
+    
+      
+    <!-- Component CommentList -->
+    <CommentForm @comment-added="this.handleCommentAdded" />
+    <CommentList v-if="(typeof this.ad._embedded.replies != 'undefined')" :comments="this.ad._embedded.replies[0]" />
+    
   </section>
 </template>
 
 <script>
 import adService from "@/services/adService";
+import CommentForm from "@/components/CommentForm.vue";
 import CommentList from "@/components/CommentList.vue";
 
 export default 
 {
   components: {
-    CommentList
+    CommentForm,
+    CommentList 
   },
   
   async created(){
@@ -83,7 +82,23 @@ export default
       img: false,
       userdata: false,
     }
-  }
+  },
+  methods: 
+    {
+      
+      async handleCommentAdded( newCommentData ) 
+      {
+        
+        if( typeof this.recipe._embedded.replies == 'undefined') 
+        {
+          
+          this.recipe._embedded.replies = [ [] ];
+        }
+
+        
+        this.recipe._embedded.replies[0].unshift(newCommentData);
+      }
+    }
 
   
 }
@@ -102,7 +117,7 @@ export default
     background-repeat: repeat;
     height: 100%;
     padding: 1.5em;
-    position: absolute;
+    //position: absolute;
 
     .ad__data {
       display: flex;
@@ -147,7 +162,7 @@ export default
       }
 
       img {
-        width: 100%;
+        width: 30%;
         height: auto;
         padding: 1em;
       }
@@ -238,7 +253,7 @@ export default
       border: 1px solid $tertiaryColor;
       margin: 0.5em;
       font-size: 1.1em;
-      color: $tertiaryColor;
+      color: black;
       margin-bottom: 0.5em;
     }
 

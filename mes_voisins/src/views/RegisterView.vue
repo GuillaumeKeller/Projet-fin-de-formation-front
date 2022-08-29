@@ -1,35 +1,43 @@
 <template>
   <section>
-    <h1>Inscription</h1>
-    <form action="" method="POST">
+    <p>
+      Tu as déjà un compte ?
+      <router-link :to="{ name: 'login' }">Se connecter</router-link>
+    </p>
+    <form @submit.prevent="this.handleFormRegisterSubmit" method="POST">
       <div class="form-title">
         <h2>Informations personnelles</h2>
       </div>
 
       <div class="form-group">
-        <label for="phonenumber">Prénom</label>
-        <input type="text" class="form-control" id="text" name="text" placeholder="Prénom" value="" />
+        <label for="firstname">Prénom</label>
+        <input v-model="first_name" type="text" class="form-control" id="firstname" name="firstname" placeholder="Prénom" />
       </div>
+      <div class="error" v-if="this.errors.firstnameEmpty">Champ obligatoire</div>
 
       <div class="form-group">
-        <label for="name">Nom</label>
-        <input type="text" class="form-control" id="name" name="name" placeholder="Nom" value="" />
+        <label for="lastname">Nom</label>
+        <input v-model="last_name" type="text" class="form-control" id="lastname" name="lastname" placeholder="Nom" />
       </div>
+      <div class="error" v-if="this.errors.lastnameEmpty">Champ obligatoire</div>
 
       <div class="form-group">
         <label for="adress">Adresse</label>
-        <input type="text" class="form-control" id="adress" name="adress" placeholder="Adresse" value="" />
+        <input v-model="adress" type="text" class="form-control" id="adress" name="adress" placeholder="Adresse" />
       </div>
+      <div class="error" v-if="this.errors.adressEmpty">Champ obligatoire</div>
 
       <div class="form-group">
         <label for="postalcode">Code postal</label>
-        <input type="number" class="form-control" id="postalcode" name="postalcode" placeholder="Code postal" value="" />
+        <input v-model="postal_code" type="number" class="form-control" id="postalcode" name="postalcode" placeholder="Code postal" />
       </div>
+      <div class="error" v-if="this.errors.postal_codeEmpty">Champ obligatoire</div>
 
       <div class="form-group">
         <label for="city">Ville</label>
-        <input type="text" class="form-control" id="city" name="city" placeholder="Ville" value="" />
+        <input v-model="city" type="text" class="form-control" id="city" name="city" placeholder="Ville" />
       </div>
+      <div class="error" v-if="this.errors.cityEmpty">Champ obligatoire</div>
 
       <div class="form-title">
         <h2 class="info">Information du compte</h2>
@@ -37,28 +45,99 @@
 
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="" />
+        <input v-model="email" type="email" class="form-control" id="email" name="email" placeholder="Email" />
       </div>
+      <div class="error" v-if="this.errors.emailEmpty">Champ obligatoire</div>
 
       <div class="form-group">
         <label for="password">Mot de passe</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" />
+        <input v-model="password" type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" />
       </div>
+      <div class="error" v-if="this.errors.passwordEmpty">Champ obligatoire</div>
 
       <div class="form-group">
         <label for="password_confirmation">Confirmation du mot de passe</label>
-        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirmation du mot de passe" />
+        <input
+          v-model="password_confirmation"
+          type="password"
+          class="form-control"
+          id="password_confirmation"
+          name="password_confirmation"
+          placeholder="Confirmation du mot de passe"
+        />
       </div>
-      <div class="cgu">
-        <input type="checkbox" name="checkbox" id="checkbox"><label>J'ai lu et pris connaissance des conditions générales d'utilisation</label>
-      </div>
-      <button type="submit" class="form-button">S'inscrire</button>
-
+      <div class="error" v-if="this.errors.password_confirmationEmpty">Champ obligatoire</div>
+      <div class="cgu"><input type="checkbox" name="checkbox" id="checkbox" /><label>J'ai lu et pris connaissance des conditions générales d'utilisation</label></div>
+      <button type="submit" class="form-button">Créer mon compte</button>
     </form>
   </section>
 </template>
 
-<script></script>
+<script>
+  export default {
+    name: "RegisterView",
+    data() {
+      return {
+        email: "",
+        password: "",
+        password_confirmation: "",
+        first_name: "",
+        last_name: "",
+        adress: "",
+        postal_code: "",
+        city: "",
+
+        errors: {
+          emailEmpty: false,
+          passwordEmpty: false,
+          password_confirmationEmpty: false,
+          first_nameEmpty: false,
+          last_nameEmpty: false,
+          adressEmpty: false,
+          postal_codeEmpty: false,
+          cityEmpty: false,
+        },
+      };
+    },
+
+    methods: {
+      async handleFormRegisterSubmit(event) {
+        console.log("Formulaire soumis", event);
+
+        this.errors.emailEmpty = this.email === "";
+        this.errors.passwordEmpty = this.password === "";
+        this.errors.password_confirmationEmpty = this.password_confirmation === "";
+        this.errors.first_nameEmpty = this.first_name === "";
+        this.errors.last_nameEmpty = this.last_name === "";
+        this.errors.adressEmpty = this.adress === "";
+        this.errors.postal_codeEmpty = this.postal_code === "";
+        this.errors.cityEmpty = this.city === "";
+
+        if (
+          !this.errors.emailEmpty ||
+          !this.errors.passwordEmpty ||
+          !this.errors.password_confirmationEmpty ||
+          !this.errors.firstnameEmpty ||
+          !this.errors.lastnameEmpty ||
+          !this.errors.adressEmpty ||
+          !this.errors.postal_codeEmpty ||
+          !this.errors.cityEmpty
+        ) {
+          this.$store.dispatch("registerForm", {
+            email: this.email,
+            password: this.password,
+            password_confirmation: this.password_confirmation,
+            first_name: this.first_name,
+            last_name: this.last_name,
+            adress: this.adress,
+            postal_code: this.postal_code,
+            city: this.city,
+          });
+        }
+      },
+    },
+  };
+</script>
 
 <style lang="scss" scoped>
   @import "@/assets/scss/variables.scss";
@@ -77,7 +156,7 @@
 
     h1 {
       font-size: 1.5em;
-      color: $tertiaryColor;
+      color: $primaryColor;
       font-weight: bold;
       margin-bottom: 0.5em;
     }
@@ -87,6 +166,13 @@
       flex-direction: column;
       align-items: center;
       width: 50%;
+
+      .error {
+        color: red;
+        font-size: 0.8em;
+        margin-top: 00.5em;
+        font-weight: bold;
+      }
 
       .form-title {
         margin-bottom: 0.5em;
