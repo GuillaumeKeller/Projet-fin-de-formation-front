@@ -75,11 +75,12 @@ const adService = {
       this.base_url + "/wp/v2/ad", 
       {
         title: ad.title,
-        adcontent: ad.content,
+        content: ad.text,
         adexcerpt: ad.text,
-        adType: ad.type,
-        adcategory: ad.category, 
-        status : "publish"             
+        AdType: ad.type,
+        AdCategory: ad.category, 
+        status: "publish"
+                  
       }, 
       {
       
