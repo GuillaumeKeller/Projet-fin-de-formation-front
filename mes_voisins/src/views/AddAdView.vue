@@ -23,7 +23,6 @@
         <!-- ajouter une image -->
         <label>
         Ajouter une image
-        <input type="file" @change="handleFileUpload" />
         </label>
         <label>
             Texte de l'annonce
@@ -52,7 +51,7 @@ export default
     {
         this.adTypes = await adService.loadTypes();
         this.category = await adService.loadAdCategories();
-        console.log(this.pofpof);
+        
         
         
 
@@ -66,6 +65,7 @@ export default
                 text: "Texte de l'annonce",
                 type: 0,
                 category:0,
+                image: null,
             },
 
             type: [],
@@ -113,7 +113,9 @@ export default
             
      
      
-         }
+         },
+
+         
      }
             
 

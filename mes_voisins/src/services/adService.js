@@ -91,6 +91,17 @@ const adService = {
     }
     );
     return response.data;
+  }, 
+
+  uploadImage( file )
+  {
+    const formData = new FormData();
+    formData.append( "file", file );
+    return axios.post( this.base_url + "/wp/v2/media", formData, {
+      headers: {
+        Authorization: "Bearer " + storage.get("userData").token
+      }
+    } );
   }
   
 
