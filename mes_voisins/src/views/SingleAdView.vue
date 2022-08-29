@@ -20,7 +20,7 @@
     <div class="ad__contact">
       <h2>Coordonnées</h2>
       <div class="ad__contact--details" v-if="!this.$store.state.isDisconnected">
-        <img class="user__avatar" src="@/assets/img/avatar.jpg" alt="" />
+        <img class="user__avatar" :src="this.img.author_avatar_urls" v-if="this.img" alt="" />
         
         <div class="user__contact">
           <span> Prénom : <p v-html="this.userdata[0]['first_name'] "></p></span>
@@ -85,21 +85,17 @@ export default
   },
   methods: 
     {
-      // Méthode qui ajoute le commentaire nouvellement créé à la liste des commentaires
-      // de la recette sans la recharger complètement
+      
       async handleCommentAdded( newCommentData ) 
       {
-        // Si la recette n'a aucun commentaire, on créé la propriété _embedded.replies
-        // qui contiendra un tableau vide pour permettre l'ajout du premier commentaire
+        
         if( typeof this.recipe._embedded.replies == 'undefined') 
         {
-          // Attention, replies est un tableau a une entrée qui contient 
-          // un tableau des objets commentaires (comme dans le JSON de la réponse de WP)
+          
           this.recipe._embedded.replies = [ [] ];
         }
 
-        // On ajoute le nouveau commentaire au début de la
-        // liste des commentaires de la recette
+        
         this.recipe._embedded.replies[0].unshift(newCommentData);
       }
     }
@@ -121,7 +117,7 @@ export default
     background-repeat: repeat;
     height: 100%;
     padding: 1.5em;
-    position: absolute;
+    //position: absolute;
 
     .ad__data {
       display: flex;
@@ -166,7 +162,7 @@ export default
       }
 
       img {
-        width: 100%;
+        width: 30%;
         height: auto;
         padding: 1em;
       }
