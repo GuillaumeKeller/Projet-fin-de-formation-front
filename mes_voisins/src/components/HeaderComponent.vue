@@ -9,6 +9,7 @@
       <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
       <input type="text" placeholder="Rechercher" />
     </div>
+
     <div class="btn" v-if="!this.$store.state.isConnected">
       <router-link :to="{ name: 'register' }">
         <button class="btn-header">Inscription</button>
@@ -17,10 +18,42 @@
         <button class="btn-header">Connexion</button>
       </router-link>
     </div>
+
+    <div class="user" v-if="!this.$store.state.isDisconnected">
+      <div class="btn">
+        <router-link :to="{ name: 'ads' }">
+          <button class="btn-header">Annonces</button>
+        </router-link>
+      </div>
+      <div>
+        {{ this.getCurrentUsername() }}
+        <br />
+        <a @click="this.$store.dispatch('userDisconnected')"> Déconnexion </a>
+      </div>
+      <img src="@/assets/img/meme.jpg"  />
+    </div>
   </header>
 </template>
 
-<script></script>
+<script>
+
+import storage from "@/utils/storage";
+
+export default {
+  
+
+  
+
+  
+  props: {},
+
+  methods: {
+    getCurrentUsername() {
+      return storage.get("userData").user_display_name;
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 @import "@/assets/scss/variables.scss";
@@ -34,6 +67,30 @@ header {
   color: white;
   box-sizing: border-box;
   background-color: $primaryColor;
+
+  .user {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    div {
+      text-align: right;
+      margin-right: 0.5em;
+      font-weight: bold;
+
+      a {
+        color: #42b983;
+        font-weight: normal;
+        cursor: pointer;
+      }
+    }
+
+    img {
+      height: 90px;
+      padding: 10px;
+    }
+  }
 
   .logo-home {
     cursor: pointer;

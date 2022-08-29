@@ -60,6 +60,7 @@ export default
 
 <style lang="scss" scoped>
 @import "@/assets/scss/variables.scss";
+@import "@/assets/scss/media_queries.scss";
 
 h3 {
     font-size: 1.5em;
@@ -81,7 +82,7 @@ textarea {
 }
 
 button {
-  width: 100%;
+  width: 450px;
         font-size: 1em;
         font-weight: bold;
         color: #fff;
@@ -120,6 +121,13 @@ button {
       #2bb673
     );
     box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}
+
+@media (max-width: $mediaSmartphone) {
+
+  button{
+    width: 100%;
+  }
 }
 
 
