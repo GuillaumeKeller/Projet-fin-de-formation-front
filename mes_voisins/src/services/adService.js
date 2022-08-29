@@ -79,7 +79,7 @@ const adService = {
         adexcerpt: ad.text,
         adType: ad.type,
         adcategory: ad.category, 
-        status : "active"             
+        status : "publish"             
       }, 
       {
       
