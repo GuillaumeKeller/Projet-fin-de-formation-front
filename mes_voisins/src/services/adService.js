@@ -81,7 +81,12 @@ const adService = {
         adcategory: ad.category, 
         status : "active"             
       }, 
+      {
       
+      headers: {
+        Authorization: "Bearer " + storage.get("userData").token
+      }
+    }
     );
     return response.data;
   }
