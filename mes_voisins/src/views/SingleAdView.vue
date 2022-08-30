@@ -19,7 +19,7 @@
     
     <div class="ad__contact">
       <h2>Coordonnées</h2>
-      <div class="ad__contact--details" v-if="!this.$store.state.isDisconnected">
+      <div class="ad__contact--details" >
         <img class="user__avatar" :src="this.img.author_avatar_urls" v-if="this.img" alt="" />
         
         <div class="user__contact">
@@ -89,14 +89,14 @@ export default
       async handleCommentAdded( newCommentData ) 
       {
         
-        if( typeof this.recipe._embedded.replies == 'undefined') 
+        if( typeof this.ad._embedded.replies == 'undefined') 
         {
           
-          this.recipe._embedded.replies = [ [] ];
+          this.ad._embedded.replies = [ [] ];
         }
 
         
-        this.recipe._embedded.replies[0].unshift(newCommentData);
+        this.ad._embedded.replies[0].unshift(newCommentData);
       }
     }
 

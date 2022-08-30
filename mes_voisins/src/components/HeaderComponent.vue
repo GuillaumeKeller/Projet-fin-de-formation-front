@@ -30,21 +30,15 @@
         <br />
         <a @click="this.$store.dispatch('userDisconnected')"> Déconnexion </a>
       </div>
-      <img src="@/assets/img/meme.jpg"  />
+      <img src="@/assets/img/meme.jpg" />
     </div>
   </header>
 </template>
 
 <script>
-
 import storage from "@/utils/storage";
 
 export default {
-  
-
-  
-
-  
   props: {},
 
   methods: {
@@ -52,6 +46,7 @@ export default {
       return storage.get("userData").user_display_name;
     },
   },
+  
 };
 </script>
 
