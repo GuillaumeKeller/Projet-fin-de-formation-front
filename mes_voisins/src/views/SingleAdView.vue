@@ -19,7 +19,7 @@
     
     <div class="ad__contact">
       <h2>Coordonnées</h2>
-      <div class="ad__contact--details" >
+      <div class="ad__contact--details" v-if="!this.$store.state.isDisconnected" >
         <img class="user__avatar" :src="this.img.author_avatar_urls" v-if="this.img" alt="" />
         
         <div class="user__contact">
@@ -122,7 +122,7 @@ export default
     .ad__data {
       display: flex;
       margin-bottom: 1em;
-      border: 0.3em solid $secondaryColor;
+      border: 0.3em solid #30dd8a;
       border-radius: 0.3em;
 
       .ad__info {
@@ -131,6 +131,7 @@ export default
         padding: 1em;
         display: flex;
         margin-left: 0.3em;
+        
 
         h2 {
           font-size: 1.5em;
@@ -143,8 +144,8 @@ export default
 
         span {
           font-size: 1em;
-          color: $primaryColor;
-          display: block;
+          color: $backgroundColor;
+          display: flex;
           font-weight: bold;
           padding: 0.2em;
           text-align: left;
@@ -153,7 +154,7 @@ export default
 
         p {
           font-size: 1em;
-          color: $primaryColor;
+          color: $backgroundColor;
           font-weight: bold;
           text-align: justify;
           line-height: 1.2em;
@@ -162,7 +163,7 @@ export default
       }
 
       img {
-        width: 30%;
+        width: 20%;
         height: auto;
         padding: 1em;
       }
@@ -175,7 +176,7 @@ export default
       border: none;
       flex-direction: column;
       padding: 1em;
-      border: 0.3em solid $secondaryColor;
+      border: 0.3em solid #30dd8a;
       border-radius: 0.3em;
 
       h2 {
@@ -205,12 +206,16 @@ export default
 
         span {
           font-size: 1em;
-          color: $primaryColor;
-          display: block;
+          color: $backgroundColor;
+          display: flex;
           font-weight: bold;
           text-align: left;
           margin-top: 0.2em;
           margin-left: 0.5em;
+
+          p{
+            color: $backgroundColor;
+          }
         }
       }
     }
