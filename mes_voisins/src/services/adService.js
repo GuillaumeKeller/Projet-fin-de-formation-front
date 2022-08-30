@@ -24,6 +24,11 @@ const adService = {
     return response.data;
   },
 
+  async loadLocations() {
+    const response = await axios.get(this.base_url + "/wp/v2/adlocation");
+    return response.data;
+  },  
+
   async loadAd(ad_id) {
     const response = await axios.get(this.base_url + "/wp/v2/ad/" + ad_id + "?_embed=true");
     return response.data;
@@ -83,6 +88,41 @@ const adService = {
     );
     return response.data;
   },
+
+  async addAd( ad )
+  {
+    const response = await axios.post( 
+      this.base_url + "/wp/v2/ad", 
+      {
+        title: ad.title,
+        content: ad.text,
+        adexcerpt: ad.text,
+        AdType: ad.type,
+        AdCategory: ad.category, 
+        AdLocation: ad.location,
+        status: "publish"
+                  
+      }, 
+      {
+      
+      headers: {
+        Authorization: "Bearer " + storage.get("userData").token
+      }
+    }
+    );
+    return response.data;
+  }, 
+
+  uploadImage( file )
+  {
+    const formData = new FormData();
+    formData.append( "file", file );
+    return axios.post( this.base_url + "/wp/v2/media", formData, {
+      headers: {
+        Authorization: "Bearer " + storage.get("userData").token
+      }
+    } );
+  }
   
 
 };

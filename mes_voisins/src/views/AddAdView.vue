@@ -1,0 +1,136 @@
+<template>
+<section>
+    <h2>Créer une annonce</h2>
+    <form @submit.prevent="handleAdAdd" >
+    <label>
+        Titre de l'annonce
+        <input type="text" v-model="ad.title" placeholder="Titre de l'annonce" required/>
+    </label>
+    <label>
+        Type
+        <select v-model="this.ad.type" required>
+        <option disabled selected value="0">Choisissez un Type</option>
+        <option v-for="types in adTypes" :key="types.id" :value="types.id">{{ types.name }}</option>
+        </select>
+    </label>
+    <label>
+        Catégorie
+        <select v-model="this.ad.category" required>
+        <option disabled selected value="0">Choisissez une Catégorie</option>
+        <option v-for="categories in category" :key="categories.id" :value="categories.id">{{ categories.name }}</option>
+        </select>
+        </label>
+        <label>
+        Localisation
+        <select v-model="this.ad.location" required>
+        <option disabled selected value="0">Choisissez une localisation</option>
+        <option v-for="locations in adLocations" :key="locations.id" :value="locations.id">{{ locations.name }}</option>
+        </select>
+    </label>
+        
+        <label>
+            Texte de l'annonce
+            <textarea v-model ="ad.text" rows="8" required placeholder="Saississez le texte de l'annonce"></textarea>
+        </label>   
+         <button>
+        Soumettre l'annonce
+      </button>
+    </form>
+</section>
+</template>
+
+<script>
+
+
+import adService from "@/services/adService";
+
+export default
+{
+    components:
+    {
+
+    },
+
+    async created()
+    {
+        this.adTypes = await adService.loadTypes();
+        this.category = await adService.loadAdCategories();
+        this.adLocations = await adService.loadLocations();
+        console.log(this.adLocations);
+        console.log(this.category);
+        console.log(this.adTypes);
+        
+        
+        
+        
+        
+        
+
+    },
+
+    data() {
+        return {
+            ad:
+            {
+                title:"Titre de l'annonce",
+                text: "Texte de l'annonce",
+                type: 0,
+                category:0,
+                location: 0,
+               
+            },
+
+            type: [],
+            category: [],
+            location: [],
+            
+        };
+    },
+
+     methods:
+     {
+
+       
+  
+         async handleAdAdd()
+         {
+            if (this.ad.title.length < 10)
+            {
+                 alert("Le titre de l'annonce doit contenir au moins 10 caractères");
+                 return;
+            }
+            
+            if (this.ad.text.length < 50 )
+            {
+                 alert("Le texte de l'annonce doit contenir au moins 50 caractères");
+                 return;
+            }
+            
+            if (this.ad.type < 1)
+            {
+                 alert("Veuillez choisir un type");
+                 return;
+            }
+            if(this.ad.category < 1)
+            {
+                 alert("Veuillez choisir une catégorie");
+                 return;
+            }
+            
+            let newAdData = await adService.addAd(this.ad);
+            
+            this.$router.push ({name:'ad' , params: {id: newAdData.id}});
+
+            
+     
+     
+         },
+
+         
+     }
+            
+
+
+}
+</script>
+
