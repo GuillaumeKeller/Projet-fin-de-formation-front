@@ -10,6 +10,7 @@
     <div class="tags">
       <span class="type" v-show="type != null" v-html="type"></span>
       <span class="category" v-show="category != null" v-html="category"></span>
+      <span class="location" v-show="location != null" v-html="location"></span>
     </div>
   </article>
 </template>
@@ -23,6 +24,7 @@
       img: String,
       category: String,
       type: String,
+      location: String,
     },
   };
 </script>
@@ -106,6 +108,26 @@
         border-radius: 10px;
         padding: 0.5em;
         background: linear-gradient(to top, #f55353, 2em, transparent 0.5em) no-repeat;
+        background-size: 0 100%;
+        transition: background-size 1s, color 1s;
+
+        &:hover {
+          background-size: 100% 100%;
+          color: $tertiaryColor;
+        }
+      }
+
+      .location {
+        font-size: 0.8em;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: $primaryColor;
+        margin-right: 1em;
+        cursor: pointer;
+        border: 2px solid $primaryColor;
+        border-radius: 10px;
+        padding: 0.5em;
+        background: linear-gradient(to top, #30dd8a, 2em, transparent 0.5em) no-repeat;
         background-size: 0 100%;
         transition: background-size 1s, color 1s;
 
