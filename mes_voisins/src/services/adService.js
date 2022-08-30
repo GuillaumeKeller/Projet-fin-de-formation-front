@@ -49,6 +49,11 @@ const adService = {
     return response.data;
   },
 
+  async loadLocation(location_id) {
+    const response = await axios.get(this.base_url + "/wp/v2/adlocation?post="+ location_id);
+    return response.data;
+  },  
+
   async loadAdImage(media_id) {
     const response = await axios.get(this.base_url + "/wp/v2/media/" + media_id);
     return response.data;
