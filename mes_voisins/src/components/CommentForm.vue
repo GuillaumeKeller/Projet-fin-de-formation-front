@@ -16,47 +16,40 @@
 </template>
 
 <script>
-import recipeService from '@/services/adService';
-
-export default 
-{
-  
-
-  data() {
-    return {
-      msg: ''
-    }
-  },
-
-  methods:
+  import recipeService from '@/services/adService';
+  export default 
   {
-    async handleFormSubmit()
+    
+    data() {
+      return {
+        msg: ''
+      }
+    },
+    methods:
     {
-      if( !this.$store.state.isConnected )
+      async handleFormSubmit()
       {
-        // Redirection vers la page de connexion
-        this.$router.push({ name: 'login' });        
-        return;
+        if( !this.$store.state.isConnected )
+        {
+          // Redirection vers la page de connexion
+          this.$router.push({ name: 'login' });        
+          return;
+        }
+        if( this.msg.length < 3 )
+        {
+          alert("Votre commentaire doit contenir au moins 3 caractères"); 
+          return;
+        }
+        // On envoie le commentaire au service
+        let newRecipeData = await recipeService.addComment(this.msg, this.$route.params.id);
+        // On vide le champ de message
+        this.msg = '';
+        // On fait remonter newRecipeData dans le composant parent SingleRecipe
+        this.$emit('comment-added', newRecipeData);
       }
-
-      if( this.msg.length < 3 )
-      {
-        alert("Votre commentaire doit contenir au moins 3 caractères"); 
-        return;
-      }
-
-      // On envoie le commentaire au service
-      let newRecipeData = await recipeService.addComment(this.msg, this.$route.params.id);
-
-      // On vide le champ de message
-      this.msg = '';
-
-      // On fait remonter newRecipeData dans le composant parent SingleRecipe
-      this.$emit('comment-added', newRecipeData);
     }
   }
-}
-</script>
+  </script>
 
 <style lang="scss" scoped>
 @import "@/assets/scss/variables.scss";
@@ -79,6 +72,7 @@ textarea {
   padding: 0.75em;
   width: 100%;
   box-sizing: border-box;
+  border: 0.2em solid #30dd8a;
 }
 
 button {
