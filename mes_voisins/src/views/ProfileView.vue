@@ -1,51 +1,93 @@
-s (123 sloc)  3.22 KB
-
 <template>
   <div class="profil_page">
     <div class="profile">
       <div class="infos">
-        <img class="profile_picture" src="../assets/img/meme.jpg" alt="" />
+        <img class="profile_picture" :src="this.user.source_url" alt=" Image de l'utilisateur" />
         <ul>
-          <li><span class="ad__info">Pseudo:</span></li>
-          <li><span class="ad__info">Membre depuis le :</span></li>
-          <li><span class="ad__info">Email :</span></li>
-          <li><span class="ad__info">Tel :</span></li>
+          <li><span class="ad__info">Pseudo: <p v-html="this.user.slug"></p></span></li>
+          <li><span class="ad__info">Email : <p v-html="this.userdata[0]['email']"></p> </span></li>
+          <li><span class="ad__info">Tel : <p v-html="this.userdata[0]['phone']"></p></span></li>
         </ul>
-        <p class="ad__description">
-          Mangeux d'marde de sacristi de boswell de cibouleau de baptême de doux
-          Jésus de taboire de purée de bout d'ciarge de charrue d'étole de
-          géritole.
-        </p>
       </div>
     </div>
+  </div>
     <section>
       <div class="ads">
         <h1>Annonces</h1>
 
         <div class="ad">
-          <img src="https://picsum.photos/200" alt="" />
-          <div class="ad__info">
-            <h2>Titre de l'annonce</h2>
-            <p>
-              Calvince d'étole de mautadine de verrat de cibole de gériboire de ciarge d'ostifie de bout d'ciarge de cul de géritole de boswell de taboire de cimonaque d'enfant d'chienne de sacrament de sacristi de maudine de saintes fesses.
-            </p>
-          </div>
-        </div>
-        <div class="ad">
-          <img src="https://picsum.photos/200" alt="" />
-          <div class="ad__info">
-            <h2>Titre de l'annonce</h2>
-            <p>
-              Calvince d'étole de mautadine de verrat de cibole de gériboire de ciarge d'ostifie de bout d'ciarge de cul de géritole de boswell de taboire de cimonaque d'enfant d'chienne de sacrament de sacristi de maudine de saintes fesses.
-            </p>
-          </div>
+
+          <AdComponent
+         v-for="authorAds in this.author"
+          :key="authorAds.id"
+          :dbid="authorAds.id"
+          :title="authorAds.title.rendered"
+          :desc="authorAds.excerpt.rendered"
+          :img="this.getAdImage(authorAds)"
+          />
+
+          
         </div>
       </div>
     </section>
-  </div>
 </template>
 
-<script></script>
+<script>
+  import adService    from "@/services/adService";
+  import AdComponent  from "@/components/AdComponent.vue";
+
+  export default{
+
+    components:
+    {
+      AdComponent,
+    },
+  
+
+    async created(){
+  
+    this.userdata = await adService.loadUserData(this.$route.params.id);
+    this.ads      = await adService.loadAds()
+    this.user     = await adService.loadUser(this.$route.params.id);
+    this.author   = await adService.loadAdAuthor(this.$route.params.id)
+    
+    console.log(this.author);
+    console.log(this.author[0]._links['wp:featuredmedia'][0].source_url);
+    console.log(this.author[0]._links['wp:featuredmedia'][0].href);
+  
+    },
+
+    data() {
+          return {
+            ads: false,
+            userdata: false,
+            user: false,
+            author: [],
+            img: false,
+          }
+        
+        },
+  
+  methods: 
+  {
+     getAdImage(ad) 
+    {
+      // Si l'annonce possède une image associée
+      if( ad.featured_media > 0 )
+      {
+        // Je renvoi l'URL de l'image
+        return ad._links['wp:featuredmedia'][0].source_url;
+        
+      }
+    },
+  }
+}
+
+ 
+
+
+
+</script>
 
 <style lang="scss" scoped>
 @import "@/assets/scss/variables.scss";
