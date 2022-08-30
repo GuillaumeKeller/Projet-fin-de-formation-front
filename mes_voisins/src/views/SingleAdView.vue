@@ -2,7 +2,7 @@
   <section v-if="this.ad">
     <h1 v-html="this.ad.title.rendered"></h1>
     <div class="ad__data">
-      <img v-if="this.img" :src="this.img.source_url"  class="ad__picture" alt=" Image de l'annonce" />
+      <img :src="this.img.source_url" v-if="this.img" class="ad__picture" alt=" Image de l'annonce" />
       <div class="ad__info">
         <span v-if="this.ad"> Date de publication : <p v-html="this.ad.date "> </p></span>
         <span v-if="this.ad"> Dernière modification : <p v-html="this.ad.modified "> </p> </span>
@@ -19,12 +19,12 @@
     
     <div class="ad__contact">
       <h2>Coordonnées</h2>
-      <div class="ad__contact--details">
+      <div class="ad__contact--details" >
         <img class="user__avatar" :src="this.img.author_avatar_urls" v-if="this.img" alt="" />
         
         <div class="user__contact">
           <span v-if="this.userdata"> Prénom : <p v-html="this.userdata[0]['first_name'] "></p></span>
-          <span v-if="this.userdata"> Nom : <p v-html="this.userdata[0]['last_name'] "></p> </span> 
+          <span v-if="this.userdata"> Nom : <p v-html="this.userdata[0]['last_name'] "></p> </span>
           <span v-if="this.userdata"> Email : <p v-html="this.userdata[0]['email'] "> </p> </span>
           <span v-if="this.userdata"> Téléphone : <p v-html="this.userdata[0]['phone'] "> </p> </span>
         </div>
@@ -57,7 +57,7 @@ export default
     this.category = await adService.loadAdCategory(this.$route.params.id)
     this.status = await adService.loadAdStatus(this.$route.params.id);
     this.userdata = await adService.loadUserData(this.ad.author);
-    //console.log(this.userdata);
+    console.log(this.userdata);
     if (this.ad.featured_media > 0)
     {
 
