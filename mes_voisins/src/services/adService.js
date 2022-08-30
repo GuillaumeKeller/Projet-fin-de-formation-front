@@ -24,6 +24,11 @@ const adService = {
     return response.data;
   },
 
+  async loadLocations() {
+    const response = await axios.get(this.base_url + "/wp/v2/adlocation");
+    return response.data;
+  },  
+
   async loadAd(ad_id) {
     const response = await axios.get(this.base_url + "/wp/v2/ad/" + ad_id + "?_embed=true");
     return response.data;
@@ -79,7 +84,7 @@ const adService = {
         adexcerpt: ad.text,
         AdType: ad.type,
         AdCategory: ad.category, 
-        featured_media: ad.image,
+        AdLocation: ad.location,
         status: "publish"
                   
       }, 

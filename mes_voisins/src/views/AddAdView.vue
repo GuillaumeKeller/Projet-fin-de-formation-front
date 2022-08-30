@@ -20,10 +20,14 @@
         <option v-for="categories in category" :key="categories.id" :value="categories.id">{{ categories.name }}</option>
         </select>
         </label>
-        <!-- ajouter une image -->
         <label>
-        Ajouter une image
-        </label>
+        Localisation
+        <select v-model="this.ad.location" required>
+        <option disabled selected value="0">Choisissez une localisation</option>
+        <option v-for="locations in adLocations" :key="locations.id" :value="locations.id">{{ locations.name }}</option>
+        </select>
+    </label>
+        
         <label>
             Texte de l'annonce
             <textarea v-model ="ad.text" rows="8" required placeholder="Saississez le texte de l'annonce"></textarea>
@@ -51,6 +55,13 @@ export default
     {
         this.adTypes = await adService.loadTypes();
         this.category = await adService.loadAdCategories();
+        this.adLocations = await adService.loadLocations();
+        console.log(this.adLocations);
+        console.log(this.category);
+        console.log(this.adTypes);
+        
+        
+        
         
         
         
@@ -65,21 +76,21 @@ export default
                 text: "Texte de l'annonce",
                 type: 0,
                 category:0,
-                image: null,
+                location: 0,
+               
             },
 
             type: [],
             category: [],
+            location: [],
+            
         };
     },
 
      methods:
      {
 
-        async test()
-        {
-            console.log(this.ad);
-        },
+       
   
          async handleAdAdd()
          {
