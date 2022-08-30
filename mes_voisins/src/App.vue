@@ -7,13 +7,22 @@
 <script>
   import HeaderComponent from "@/components/HeaderComponent.vue";
   import FooterComponent from "@/components/FooterComponent.vue";
+  import userService     from "@/services/userService";
   
   export default {
     components: {
       HeaderComponent,
       FooterComponent,
     },
+
+    async created()
+  {
+    
+    this.$store.commit( "setConnected", await userService.isConnected() );
+  },
   };
+
+  
 </script>
 
 <style lang="scss">
