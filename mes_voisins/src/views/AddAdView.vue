@@ -1,4 +1,5 @@
 <template>
+    <div v-if="this.$store.state.isConnected">
 <section>
     <h2>Créer une annonce</h2>
     <form @submit.prevent="handleAdAdd" >
@@ -37,6 +38,7 @@
       </button>
     </form>
 </section>
+</div>
 </template>
 
 <script>
