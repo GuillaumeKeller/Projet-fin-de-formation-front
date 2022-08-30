@@ -7,7 +7,7 @@
         <span v-if="this.ad"> Date de publication : <p v-html="this.ad.date "> </p></span>
         <span v-if="this.ad"> Dernière modification : <p v-html="this.ad.modified "> </p> </span>
         <span v-if="this.status"> Etat de l'annonce: <p v-html="this.status.name"> </p> </span>
-        <span v-if="this.userdata"> Localisation : <p v-html="this.userdata[0]['postal_code'] "></p> <p v-html="this.userdata[0]['city'] "></p> </span>
+        <span v-if="this.location"> Localisation :<p v-html="this.location.name"> </p> </span>
         <h2> Description :</h2>
         <div class="">
           <p v-html="this.ad.content.rendered">
@@ -56,8 +56,10 @@ export default
     this.type = await adService.loadAdType(this.$route.params.id)
     this.category = await adService.loadAdCategory(this.$route.params.id)
     this.status = await adService.loadAdStatus(this.$route.params.id);
+    this.location =  await adService.loadLocation(this.$route.params.id)
     this.userdata = await adService.loadUserData(this.ad.author);
-    console.log(this.userdata);
+    // console.log(this.location);
+
     if (this.ad.featured_media > 0)
     {
 
@@ -68,6 +70,7 @@ export default
     this.type = this.type[0];
     this.category = this.category[0];
     this.status = this.status[0];
+    this.location= this.location[0]
 
   },
 
@@ -79,6 +82,7 @@ export default
       type: false,
       category: false,
       status: false, 
+      location: false,
       img: false,
       userdata: false,
     }

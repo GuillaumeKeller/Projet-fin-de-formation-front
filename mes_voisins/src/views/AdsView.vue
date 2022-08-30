@@ -52,6 +52,7 @@
         :desc="ad.excerpt.rendered"
         :type="this.getTypeName(ad['AdType'][0])"
         :category="this.getCategoryName(ad['AdCategory'][0])"
+        :location= "this.getLocationName(ad['AdLocation'][0])"
         :img="this.getAdImage(ad)"
       />
     </div>
@@ -72,6 +73,7 @@
         ads: [],
         types: [],
         categories: [],
+        locations:[],
       };
     },
 
@@ -79,9 +81,11 @@
       this.ads = await adService.loadAds();
       this.types = await adService.loadTypes();
       this.categories = await adService.loadAdCategories();
+      this.locations = await adService.loadLocations();
       console.log(this.ads);
       console.log(this.types);
       console.log(this.categories);
+      console.log(this.locations);
     },
 
     methods: {
@@ -101,6 +105,17 @@
           // Si l'ID correspond
           if (categoryID == category.id) {
             return category.name;
+          }
+        }
+
+        return null;
+      },
+
+      getLocationName(locationID) {
+        for (let AdLocation of this.locations) {
+          // Si l'ID correspond
+          if (locationID == AdLocation.id) {
+            return AdLocation.name;
           }
         }
 
