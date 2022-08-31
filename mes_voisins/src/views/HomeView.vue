@@ -109,7 +109,7 @@
       transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
     }
     .text {
-      font-family: "Roboto Condensed";
+      font-family: "Roboto", sans-serif;
       font-size: 1.5em;
       line-height: 2em;
       letter-spacing: 0.5em;
@@ -187,7 +187,7 @@
         transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
       }
       .text-ads {
-        font-family: "Roboto Condensed";
+        font-family: "Roboto", sans-serif;
         font-size: 1.2em;
         line-height: 1em;
         letter-spacing: 0.3em;

@@ -68,12 +68,14 @@
       </div>
       <div class="error" v-if="this.errors.password_confirmationEmpty">Champ obligatoire</div>
       <div class="cgu"><input type="checkbox" name="checkbox" id="checkbox" /><label>J'ai lu et pris connaissance des conditions générales d'utilisation</label></div>
-      <button type="submit" class="form-button">Créer mon compte</button>
+      <button type="submit" class="form-button" @click.stop.prevent='handleFormRegisterSubmit()'>Créer mon compte</button>
     </form>
   </section>
 </template>
 
 <script>
+
+import swal from 'sweetalert';
 
   export default {
     name: "RegisterView",
@@ -124,7 +126,8 @@
           !this.errors.addressEmpty ||
           !this.errors.postal_codeEmpty ||
           !this.errors.cityEmpty
-        ) {
+        ) 
+        {
           this.$store.dispatch("registerForm", {
             password: this.password,
             first_name: this.first_name,
@@ -136,6 +139,24 @@
             login: this.first_name,
             phone: null
           });
+
+          // if registration is successful, redirect to login page
+          if (this.$store.state.data) {
+            swal({
+              title: "Inscription réussie",
+              text: "Vous pouvez maintenant vous connecter :)",
+              icon: "success",
+              button: "OK",
+            });
+            this.$router.push({ name: "login" });
+          }else{
+            swal({
+              title: "Erreur",
+              text: "Veuillez vérifier vos informations!",
+              icon: "error",
+              button: "OK"
+            });
+          }
         }
       },
     },
@@ -156,6 +177,7 @@
     margin: 0 auto;
     background: $tertiaryColor;
     color: $primaryColor;
+
 
     h1 {
       font-size: 1.5em;
