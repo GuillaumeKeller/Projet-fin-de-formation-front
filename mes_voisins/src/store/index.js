@@ -2,6 +2,7 @@ import axios from "axios";
 import { createStore } from "vuex";
 import storage from '@/utils/storage'
 
+
 const instance = axios.create({
   baseURL: "http://joffreyms-server.eddi.cloud/back/projet-mes-voisins-back/public/wp-json/mesvoisins/v1/userdata",
   headers: {
@@ -18,10 +19,13 @@ export default createStore({
   getters: {},
 
   mutations: {
-    setConnected(state, connected, disconnected) 
+    setConnected(state, connected) 
     {
-      
       state.isConnected = connected;
+    },
+
+    setDisconnected(state, disconnected)
+    {
       state.isDisconnected = disconnected;
     }
   },
@@ -38,15 +42,19 @@ export default createStore({
         console.log(error);
       });
     },
+
     userConnected(context)
     {
       context.commit( "setConnected", true );
+      context.commit( "setDisconnected", false );
     },
 
     userDisconnected(context)
     {
       context.commit( "setConnected", false );
+      context.commit( "setDisconnected", true );
       storage.unset( "userData" );
+
     }
   },
   

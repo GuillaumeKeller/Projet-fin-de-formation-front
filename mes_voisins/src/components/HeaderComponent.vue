@@ -28,7 +28,7 @@
       <div>
         {{ this.getCurrentUsername() }}
         <br />
-        <a @click="this.$store.dispatch('userDisconnected')"> Déconnexion </a>
+        <a @click="userDisconnected()"> Déconnexion </a>         
       </div>
       <img src="@/assets/img/meme.jpg" />
     </div>
@@ -43,11 +43,18 @@
 
     methods: {
       getCurrentUsername() {
+        console.log(storage.get("userData"));
         return storage.get("userData").displayName;
+       
       },
 
-
-    },
+      // I want create a method that disconnect the user
+      userDisconnected() {
+        this.$store.dispatch("userDisconnected", true);
+        console.log(this.$store.state);
+        this.$router.push({ name: "home" });
+      },
+    },  
   };
 </script>
 
