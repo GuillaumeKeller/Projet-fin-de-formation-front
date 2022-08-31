@@ -41,6 +41,16 @@ const routes = [
     name: 'ad-create',
     component: () => import('@/views/AddAdView.vue')
   }, 
+
+  {
+    path: '/404',
+    name: '404',
+    component: () => import('@/views/404View.vue')
+  }, 
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: "/404/",
+  }
   
   
 ]

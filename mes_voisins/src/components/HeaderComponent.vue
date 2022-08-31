@@ -45,6 +45,7 @@
       getCurrentUsername() {
         console.log(storage.get("userData"));
         return storage.get("userData").displayName;
+       
       },
 
       // I want create a method that disconnect the user
