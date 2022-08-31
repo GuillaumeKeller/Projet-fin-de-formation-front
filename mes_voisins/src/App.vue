@@ -15,7 +15,7 @@
       FooterComponent,
     },
 
-    async created()
+  async created()
   {
     
     this.$store.commit( "setConnected", await userService.isConnected() );
