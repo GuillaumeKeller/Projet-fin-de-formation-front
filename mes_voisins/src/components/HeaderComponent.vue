@@ -27,7 +27,7 @@
       <div>
         {{ this.getCurrentUsername() }}
         <br />
-        <a @click="this.$store.dispatch('userDisconnected')"> Déconnexion </a>
+        <a @click="userDisconnected()"> Déconnexion </a>
       </div>
       <img src="@/assets/img/meme.jpg" />
     </div>
