@@ -8,10 +8,9 @@
         <span v-if="this.ad"> Dernière modification : <p v-html="this.ad.modified "> </p> </span>
         <span v-if="this.status"> Etat de l'annonce: <p v-html="this.status.name"> </p> </span>
         <span v-if="this.location"> Localisation :<p v-html="this.location.name"> </p> </span>
-        <h2> Description :</h2>
-        <div class="">
-          <p v-html="this.ad.content.rendered">
-          </p>
+        <div class="description">
+          <h2> Description :</h2>
+          <p v-html="this.ad.content.rendered"></p>
         </div>
       </div>
     </div>
@@ -19,7 +18,7 @@
     
     <div class="ad__contact">
       <h2>Coordonnées</h2>
-      <div class="ad__contact--details" >
+      <div class="ad__contact--details" v-if="!this.$store.state.isDisconnected" >
         <img class="user__avatar" :src="this.img.author_avatar_urls" v-if="this.img" alt="" />
         
         <div class="user__contact">
@@ -29,7 +28,13 @@
           <span v-if="this.userdata"> Téléphone : <p v-html="this.userdata[0]['phone'] "> </p> </span>
         </div>
       </div>
+      <div class="msg" v-if="!this.$store.state.isConnected">
+        <router-link :to="{ name: 'login' }">
+          <button type="submit" class="form-button">Connectez-vous pour accéder aux coordonnées</button>
+        </router-link>
+      </div>
     </div>
+    
     
       
     <!-- Component CommentList -->
@@ -40,74 +45,59 @@
 </template>
 
 <script>
-import adService from "@/services/adService";
-import CommentForm from "@/components/CommentForm.vue";
-import CommentList from "@/components/CommentList.vue";
-
-export default 
-{
-  components: {
-    CommentForm,
-    CommentList 
-  },
-  
-  async created(){
-    this.ad = await adService.loadAd(this.$route.params.id);
-    this.type = await adService.loadAdType(this.$route.params.id)
-    this.category = await adService.loadAdCategory(this.$route.params.id)
-    this.status = await adService.loadAdStatus(this.$route.params.id);
-    this.location =  await adService.loadLocation(this.$route.params.id)
-    this.userdata = await adService.loadUserData(this.ad.author);
-    // console.log(this.location);
-
-    if (this.ad.featured_media > 0)
-    {
-
-      this.img = await adService.loadAdImage(this.ad.featured_media);
-
-    }
-
-    this.type = this.type[0];
-    this.category = this.category[0];
-    this.status = this.status[0];
-    this.location= this.location[0]
-
-  },
-
-  data(){
-
-    return {
-
-      ad: false,
-      type: false,
-      category: false,
-      status: false, 
-      location: false,
-      img: false,
-      userdata: false,
-    }
-  },
-  methods: 
-    {
-      
-      async handleCommentAdded( newCommentData ) 
+  import adService from "@/services/adService";
+  import CommentForm from "@/components/CommentForm.vue";
+  import CommentList from "@/components/CommentList.vue";
+  export default 
+  {
+    components: {
+      CommentForm,
+      CommentList 
+    },
+    
+    async created(){
+      this.ad = await adService.loadAd(this.$route.params.id);
+      this.type = await adService.loadAdType(this.$route.params.id)
+      this.category = await adService.loadAdCategory(this.$route.params.id)
+      this.status = await adService.loadAdStatus(this.$route.params.id);
+      this.userdata = await adService.loadUserData(this.ad.author);
+      console.log(this.userdata);
+      if (this.ad.featured_media > 0)
+      {
+        this.img = await adService.loadAdImage(this.ad.featured_media);
+      }
+      this.type = this.type[0];
+      this.category = this.category[0];
+      this.status = this.status[0];
+    },
+    data(){
+      return {
+        ad: false,
+        type: false,
+        category: false,
+        status: false, 
+        img: false,
+        userdata: false,
+      }
+    },
+    methods: 
       {
         
-        if( typeof this.ad._embedded.replies == 'undefined') 
+        async handleCommentAdded( newCommentData ) 
         {
           
-          this.ad._embedded.replies = [ [] ];
+          if( typeof this.ad._embedded.replies == 'undefined') 
+          {
+            
+            this.ad._embedded.replies = [ [] ];
+          }
+          
+          this.ad._embedded.replies[0].unshift(newCommentData);
         }
-
-        
-        this.ad._embedded.replies[0].unshift(newCommentData);
       }
-    }
-
-  
-}
-
-</script>
+    
+  }
+  </script>
 
 <style lang="scss" scoped>
   @import "@/assets/scss/variables.scss";
@@ -126,7 +116,7 @@ export default
     .ad__data {
       display: flex;
       margin-bottom: 1em;
-      border: 0.3em solid $secondaryColor;
+      border: 0.2em solid #30dd8a;
       border-radius: 0.3em;
 
       .ad__info {
@@ -135,24 +125,26 @@ export default
         padding: 1em;
         display: flex;
         margin-left: 0.3em;
+        
 
         h2 {
           font-size: 1.5em;
-          color: $primaryColor;
+          color: $backgroundColor;
           font-weight: bold;
           text-transform: uppercase;
           text-align: left;
           text-decoration: underline;
+          margin-bottom: 0.5em;
         }
 
         span {
           font-size: 1em;
-          color: $primaryColor;
-          display: block;
+          color: $backgroundColor;
+          display: flex;
           font-weight: bold;
           padding: 0.2em;
           text-align: left;
-          margin-top: 0.2em;
+          margin-top: 1em;
         }
 
         p {
@@ -162,11 +154,12 @@ export default
           text-align: justify;
           line-height: 1.2em;
           margin-right: 0.5em;
+          margin-left: 0.5em;
         }
       }
 
       img {
-        width: 30%;
+        width: 20%;
         height: auto;
         padding: 1em;
       }
@@ -179,7 +172,7 @@ export default
       border: none;
       flex-direction: column;
       padding: 1em;
-      border: 0.3em solid $secondaryColor;
+      border: 0.2em solid #30dd8a;
       border-radius: 0.3em;
 
       h2 {
@@ -209,16 +202,22 @@ export default
 
         span {
           font-size: 1em;
-          color: $primaryColor;
-          display: block;
+          color: $backgroundColor;
+          display: flex;
           font-weight: bold;
           text-align: left;
           margin-top: 0.2em;
           margin-left: 0.5em;
+
+          p{
+            color: $primaryColor;
+            margin-left: 0.5em;
+          }
         }
       }
+      
     }
-
+    
     .ad__comment {
       display: flex;
       flex-direction: column;
@@ -262,21 +261,17 @@ export default
     }
 
     button {
-      margin-top: 2em;
-      background-color: $quaternaryColor;
-      color: $tertiaryColor;
+      width: 450px;
+      font-size: 1em;
       font-weight: bold;
-      border: none;
-      padding: 0.6rem;
-      border-radius: 5px;
-      font-size: 1.2rem;
+      color: #fff;
       cursor: pointer;
-      margin: 0.5rem;
-      box-shadow: 0.1em 0.1em 0.1em lighten ($quaternaryColor, 30%);
-
-      &:hover {
-        background-color: darken($quaternaryColor, 20%);
-      }
+      margin-top: 20px;
+      height: 3em;
+      text-align: center;
+      border: none;
+      background-size: 300% 100%;
+      border-radius: 50px;
     }
   }
 
