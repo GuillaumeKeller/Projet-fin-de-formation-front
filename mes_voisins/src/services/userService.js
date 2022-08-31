@@ -35,7 +35,6 @@ const userService = {
                         }
                     }
                 ).catch(function () {
-
                     return false;
                 });
 
