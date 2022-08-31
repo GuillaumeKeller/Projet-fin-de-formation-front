@@ -6,7 +6,6 @@
       </router-link>
     </div>
 
-    <font-awesome-icon icon="fa-solid fa-bars" />
     
     <div class="nav-btn" v-if="!this.$store.state.isConnected">
       <router-link :to="{ name: 'ads' }">

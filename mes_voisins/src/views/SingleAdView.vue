@@ -48,6 +48,7 @@
   import adService from "@/services/adService";
   import CommentForm from "@/components/CommentForm.vue";
   import CommentList from "@/components/CommentList.vue";
+  import storage from "@/utils/storage";
   export default 
   {
     components: {
@@ -62,6 +63,8 @@
       this.status = await adService.loadAdStatus(this.$route.params.id);
       this.userdata = await adService.loadUserData(this.ad.author);
       console.log(this.userdata);
+      console.log(storage.get('userData'));
+
       if (this.ad.featured_media > 0)
       {
         this.img = await adService.loadAdImage(this.ad.featured_media);
