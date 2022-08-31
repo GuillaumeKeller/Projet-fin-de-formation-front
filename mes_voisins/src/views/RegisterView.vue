@@ -22,10 +22,10 @@
       <div class="error" v-if="this.errors.lastnameEmpty">Champ obligatoire</div>
 
       <div class="form-group">
-        <label for="adress">Adresse</label>
-        <input v-model="adress" type="text" class="form-control" id="adress" name="adress" placeholder="Adresse" />
+        <label for="address">Adresse</label>
+        <input v-model="address" type="text" class="form-control" id="address" name="address" placeholder="Adresse" />
       </div>
-      <div class="error" v-if="this.errors.adressEmpty">Champ obligatoire</div>
+      <div class="error" v-if="this.errors.addressEmpty">Champ obligatoire</div>
 
       <div class="form-group">
         <label for="postalcode">Code postal</label>
@@ -83,9 +83,10 @@
         password_confirmation: "",
         first_name: "",
         last_name: "",
-        adress: "",
+        address: "",
         postal_code: "",
         city: "",
+        login: "",
 
         errors: {
           emailEmpty: false,
@@ -93,7 +94,7 @@
           password_confirmationEmpty: false,
           first_nameEmpty: false,
           last_nameEmpty: false,
-          adressEmpty: false,
+          addressEmpty: false,
           postal_codeEmpty: false,
           cityEmpty: false,
         },
@@ -109,7 +110,7 @@
         this.errors.password_confirmationEmpty = this.password_confirmation === "";
         this.errors.first_nameEmpty = this.first_name === "";
         this.errors.last_nameEmpty = this.last_name === "";
-        this.errors.adressEmpty = this.adress === "";
+        this.errors.addressEmpty = this.address === "";
         this.errors.postal_codeEmpty = this.postal_code === "";
         this.errors.cityEmpty = this.city === "";
 
@@ -119,19 +120,20 @@
           !this.errors.password_confirmationEmpty ||
           !this.errors.firstnameEmpty ||
           !this.errors.lastnameEmpty ||
-          !this.errors.adressEmpty ||
+          !this.errors.addressEmpty ||
           !this.errors.postal_codeEmpty ||
           !this.errors.cityEmpty
         ) {
           this.$store.dispatch("registerForm", {
-            email: this.email,
             password: this.password,
-            password_confirmation: this.password_confirmation,
             first_name: this.first_name,
             last_name: this.last_name,
-            adress: this.adress,
-            postal_code: this.postal_code,
+            address: this.address,
             city: this.city,
+            postal_code: this.postal_code,
+            email: this.email,
+            login: this.first_name,
+            phone: null
           });
         }
       },

@@ -5,12 +5,13 @@
         <img class="logo" src="../assets/img/logo.png" alt="" />
       </router-link>
     </div>
-    <div class="search">
-      <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
-      <input type="text" placeholder="Rechercher" />
-    </div>
 
-    <div class="btn" v-if="!this.$store.state.isConnected">
+    <font-awesome-icon icon="fa-solid fa-bars" />
+    
+    <div class="nav-btn" v-if="!this.$store.state.isConnected">
+      <router-link :to="{ name: 'ads' }">
+        <button class="btn-header">Annonces</button>
+      </router-link>
       <router-link :to="{ name: 'register' }">
         <button class="btn-header">Inscription</button>
       </router-link>
@@ -18,13 +19,12 @@
         <button class="btn-header">Connexion</button>
       </router-link>
     </div>
-
     <div class="user" v-if="!this.$store.state.isDisconnected">
-      <div class="btn">
+      <div class="nav-btn">
         <router-link :to="{ name: 'ads' }">
-          <button class="btn-header">Annonces</button>
-        </router-link>
-      </div>
+        <button class="btn-header">Annonces</button>
+      </router-link>
+    </div>
       <div>
         {{ this.getCurrentUsername() }}
         <br />
@@ -36,244 +36,205 @@
 </template>
 
 <script>
-import storage from "@/utils/storage";
+  import storage from "@/utils/storage";
 
-export default {
-  props: {},
+  export default {
+    props: {},
 
-  methods: {
-    getCurrentUsername() {
-      return storage.get("userData").user_display_name;
+    methods: {
+      getCurrentUsername() {
+        return storage.get("userData").displayName;
+      },
+
+
     },
-  },
-  
-};
+  };
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/variables.scss";
-@import "@/assets/scss/media_queries.scss";
+  @import "@/assets/scss/variables.scss";
+  @import "@/assets/scss/media_queries.scss";
 
-header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  box-sizing: border-box;
-  background-color: $primaryColor;
-
-  .user {
+  header {
+    width: 100%;
     display: flex;
-    justify-content: center;
-    flex-wrap: nowrap;
+    justify-content: space-between;
     align-items: center;
+    color: white;
+    box-sizing: border-box;
+    background-color: $primaryColor;
 
-    div {
-      text-align: right;
-      margin-right: 0.5em;
-      font-weight: bold;
+    .user {
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+      align-items: center;
 
-      a {
-        color: #42b983;
-        font-weight: normal;
-        cursor: pointer;
+      div {
+        text-align: right;
+        margin-right: 0.5em;
+        font-weight: bold;
+
+        a {
+          color: #42b983;
+          font-weight: normal;
+          cursor: pointer;
+        }
+      }
+
+      img {
+        height: 90px;
+        padding: 10px;
       }
     }
 
-    img {
-      height: 90px;
-      padding: 10px;
-    }
-  }
-
-  .logo-home {
-    cursor: pointer;
-
-    img.logo {
-      width: 25em;
-      height: auto;
-    }
-  }
-
-  .search {
-    .fa-magnifying-glass {
-      margin-right: 0.5rem;
-      height: 2.2rem;
-      vertical-align: middle;
-      color: #30dd8a;
-    }
-
-    input {
-      width: 20rem;
-      height: 1.5rem;
-      padding: 0.5rem;
-      border: double 5px transparent;
-      border-radius: 50px;
-      background-image: linear-gradient(white, white),
-        linear-gradient(to right, #30dd8a, #0ba360);
-      background-origin: border-box;
-      background-clip: padding-box, border-box;
-      font-size: 1.1em;
-      color: $primaryColor;
-      margin-right: 0.5em;
-      box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
-
-      &:focus {
-        outline: none;
-        border: double 5px transparent;
-        border-radius: 50px;
-        background-image: linear-gradient(white, white),
-          linear-gradient(to right, #0ba360, #30dd8a);
-      }
-    }
-  }
-
-  .btn {
-    margin-right: 4em;
-    button {
-      width: 12.5em;
-      font-size: 1em;
-      font-weight: bold;
-      color: #fff;
+    .logo-home {
       cursor: pointer;
-      margin: 0.9375em;
-      height: 3em;
-      text-align: center;
-      border: none;
-      background-size: 300% 100%;
 
-      border-radius: 50px;
-      -o-transition: all 0.4s ease-in-out;
-      -webkit-transition: all 0.4s ease-in-out;
-      transition: all 0.4s ease-in-out;
-    }
-
-    button:hover {
-      background-position: 100% 0;
-      -o-transition: all 0.4s ease-in-out;
-      -webkit-transition: all 0.4s ease-in-out;
-      transition: all 0.4s ease-in-out;
-    }
-
-    button:focus {
-      outline: none;
-    }
-
-    .btn-header {
-      background-image: linear-gradient(
-        to right,
-        #0ba360,
-        #3cba92,
-        #30dd8a,
-        #2bb673
-      );
-      box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
-    }
-  }
-}
-
-// Media queries
-
-// Smartphone
-
-@media (max-width: $mediaSmartphone) {
-  header {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5em;
-
-    .search {
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      align-items: center;
-
-      input {
-        width: 80%;
-        margin-bottom: 0.5em;
-        height: 1em;
-      }
-
-      .fa-magnifying-glass {
-        height: 1.5em;
+      img.logo {
+        width: 25em;
+        height: auto;
       }
     }
 
-    .btn {
-      justify-content: center;
-      margin: auto;
-
+    .nav-btn {
       button {
-        width: 100%;
-        margin: 0.2em;
+        width: 12.5em;
+        font-size: 1em;
+        font-weight: bold;
+        color: #fff;
+        cursor: pointer;
+        margin: 0.9375em;
+        height: 3em;
+        text-align: center;
+        border: none;
+        background-size: 300% 100%;
+
+        border-radius: 50px;
+        -o-transition: all 0.4s ease-in-out;
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+      }
+
+      button:hover {
+        background-position: 100% 0;
+        -o-transition: all 0.4s ease-in-out;
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+      }
+
+      button:focus {
+        outline: none;
+      }
+
+      .btn-header {
+        background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+        box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
       }
     }
   }
-}
 
-// Media queries
-// Tablette
+  // Media queries
 
-@media (min-width: $mediaSmartphone) and (max-width: $mediaTablet) {
-  header {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5em;
+  // Smartphone
 
-    .search {
-      padding: 0.1em;
-      margin-bottom: 0.2em;
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
+  @media (max-width: $mediaSmartphone) {
+    header {
+      flex-direction: column;
       align-items: center;
-
-      input {
-        width: 80%;
-        margin-bottom: 0.5em;
-        height: 1em;
-      }
-      .fa-magnifying-glass {
-        height: 1.5em;
-      }
-    }
-
-    .btn {
       justify-content: center;
-      margin: auto;
+      padding: 0.5em;
+
+      .search {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+
+        input {
+          width: 80%;
+          margin-bottom: 0.5em;
+          height: 1em;
+        }
+
+        .fa-magnifying-glass {
+          height: 1.5em;
+        }
+      }
+
+      .btn {
+        justify-content: center;
+        margin: auto;
+
+        button {
+          width: 100%;
+          margin: 0.2em;
+        }
+      }
     }
   }
-}
 
-//  LapTop
+  // Media queries
+  // Tablette
 
-@media (min-width: $mediaTablet) and (max-width: $mediaLaptop) {
-  header {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5em;
-
-    .search {
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
+  @media (min-width: $mediaSmartphone) and (max-width: $mediaTablet) {
+    header {
+      flex-direction: column;
       align-items: center;
-      padding: 0.1em;
-      margin-bottom: 0.2em;
-      input {
-        width: 80%;
-        margin-bottom: 0.5em;
+      justify-content: center;
+      padding: 0.5em;
+
+      .search {
+        padding: 0.1em;
+        margin-bottom: 0.2em;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+
+        input {
+          width: 80%;
+          margin-bottom: 0.5em;
+          height: 1em;
+        }
+        .fa-magnifying-glass {
+          height: 1.5em;
+        }
+      }
+
+      .btn {
+        justify-content: center;
+        margin: auto;
       }
     }
+  }
 
-    .btn {
+  //  LapTop
+
+  @media (min-width: $mediaTablet) and (max-width: $mediaLaptop) {
+    header {
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      margin: auto;
+      padding: 0.5em;
+
+      .search {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        padding: 0.1em;
+        margin-bottom: 0.2em;
+        input {
+          width: 80%;
+          margin-bottom: 0.5em;
+        }
+      }
+
+      .btn {
+        justify-content: center;
+        margin: auto;
+      }
     }
   }
-}
 </style>

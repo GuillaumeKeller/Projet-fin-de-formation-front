@@ -68,9 +68,10 @@ export default {
       this.errors.passwordEmpty = this.password == "";
 
       if (!this.errors.loginEmpty && !this.errors.passwordEmpty) {
-        let data = await userService.login(this.login, this.password);
+        let response = await userService.login(this.login, this.password);
+        console.log(response.data);
 
-        storage.set("userData", data);
+        storage.set("userData", response.data);
 
         if (await userService.isConnected()) {
           this.$store.dispatch("userConnected");

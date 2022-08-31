@@ -9,22 +9,18 @@ const userService = {
     async login(p_login, p_password) {
         const response = await axios.post(this.base_url + "/jwt-auth/v1/token", {
             username: p_login,
-            password: p_password
+            password: p_password,
         }).catch(function () {
-
             return {
                 data: null
             };
         });
-
         return response.data;
     },
 
 
     async isConnected() {
-
         const userData = storage.get("userData");
-
 
         if (userData != null) {
 

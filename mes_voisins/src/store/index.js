@@ -28,9 +28,9 @@ export default createStore({
 
   actions: {
 
-    registerForm: ({ commit }, userData) => {
-      commit; console.log(userData);
-      instance.post ("/create", userData)
+    registerForm: ({ commit }, userRegisterData) => {
+      commit; console.log(userRegisterData);
+      instance.post ("/create", userRegisterData)
       .then((response) => {
         console.log(response);
       })
