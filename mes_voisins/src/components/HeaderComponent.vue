@@ -44,7 +44,7 @@
     methods: {
       getCurrentUsername() {
         return storage.get("userData").displayName;
-        console.log(displayName);
+       
       },
 
 
