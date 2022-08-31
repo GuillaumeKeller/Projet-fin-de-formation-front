@@ -272,6 +272,8 @@
       border: none;
       background-size: 300% 100%;
       border-radius: 50px;
+      background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+      box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
     }
   }
 
