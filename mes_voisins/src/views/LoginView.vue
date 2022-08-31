@@ -76,7 +76,7 @@ export default {
         if (await userService.isConnected()) {
           this.$store.dispatch("userConnected");
 
-          this.$router.push({ name: "home" });
+          this.$router.go(-1);
         } else {
           this.errors.loginFailed = true;
         }
