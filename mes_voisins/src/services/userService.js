@@ -35,7 +35,6 @@ const userService = {
                         }
                     }
                 ).catch(function () {
-
                     return false;
                 });
 
@@ -49,3 +48,4 @@ const userService = {
 };
   
   export default userService;
+

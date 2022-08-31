@@ -22,7 +22,6 @@
       <div
         class="error"
         v-if="this.errors.loginFailed"
-        style="font-weight: bold; margin-bottom: 1em; text-align: center"
       >
         Identifiants incorrects
       </div>
@@ -64,19 +63,21 @@ export default {
 
       this.errors.loginFailed = false;
 
-      this.errors.loginEmpty = this.login == "";
-      this.errors.passwordEmpty = this.password == "";
+      this.errors.loginEmpty = this.login === "";
+      this.errors.passwordEmpty = this.password === "";
 
       if (!this.errors.loginEmpty && !this.errors.passwordEmpty) {
         let response = await userService.login(this.login, this.password);
-        console.log(response.data);
+        // console.log(response.data);
 
         storage.set("userData", response.data);
+        console.log(storage.get("userData"));
 
         if (await userService.isConnected()) {
           this.$store.dispatch("userConnected");
+          console.log(this.$store.state);
 
-          this.$router.push({ name: "home" });
+          this.$router.go(-1);
         } else {
           this.errors.loginFailed = true;
         }

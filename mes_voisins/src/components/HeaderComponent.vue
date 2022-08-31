@@ -6,7 +6,6 @@
       </router-link>
     </div>
 
-    <font-awesome-icon icon="fa-solid fa-bars" />
     
     <div class="nav-btn" v-if="!this.$store.state.isConnected">
       <router-link :to="{ name: 'ads' }">
@@ -28,7 +27,7 @@
       <div>
         {{ this.getCurrentUsername() }}
         <br />
-        <a @click="this.$store.dispatch('userDisconnected')"> Déconnexion </a>
+        <a @click="userDisconnected()"> Déconnexion </a>
       </div>
       <img src="@/assets/img/meme.jpg" />
     </div>
@@ -43,11 +42,18 @@
 
     methods: {
       getCurrentUsername() {
+        console.log(storage.get("userData"));
         return storage.get("userData").displayName;
+       
       },
 
-
-    },
+      // I want create a method that disconnect the user
+      userDisconnected() {
+        this.$store.dispatch("userDisconnected", true);
+        console.log(this.$store.state);
+        this.$router.push({ name: "home" });
+      },
+    },  
   };
 </script>
 
