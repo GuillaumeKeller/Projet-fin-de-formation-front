@@ -63,7 +63,7 @@ const adService = {
     const response = await axios.get(this.base_url + "/mesvoisins/v1/userdata/" + user_id)
     return response.data;
   },
-
+  
   async loadUser(user_id)
   {
     const response = await axios.get(this.base_url+ "/wp/v2/users/" + user_id);
