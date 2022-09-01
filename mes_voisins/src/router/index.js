@@ -18,7 +18,7 @@ const routes = [
   {
     path: '/connexion',
     name: 'login',
-    component: () => import('@/views/LoginView.vue')
+    component: () => import('@/views/LoginView.vue'),
   },
   {
     path: '/inscription',
@@ -57,7 +57,7 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
+  
 })
-
 export default router
