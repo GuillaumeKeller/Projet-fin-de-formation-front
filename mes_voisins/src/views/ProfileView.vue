@@ -23,7 +23,7 @@
           :dbid="authorAds.id"
           :title="authorAds.title.rendered"
           :desc="authorAds.excerpt.rendered"
-          :img="this.getAdImage(authorAds)"
+          
           />
 
           
@@ -51,9 +51,9 @@
     this.user     = await adService.loadUser(this.$route.params.id);
     this.author   = await adService.loadAdAuthor(this.$route.params.id)
     
-    console.log(this.author);
-    console.log(this.author[0]._links['wp:featuredmedia'][0].source_url);
-    console.log(this.author[0]._links['wp:featuredmedia'][0].href);
+    console.log('coucou');
+    console.log(this.author[0].id);
+  
   
     },
 
@@ -76,7 +76,7 @@
       if( ad.featured_media > 0 )
       {
         // Je renvoi l'URL de l'image
-        return ad._links['wp:featuredmedia'][0].source_url;
+        return this.author[0]._links["wp:featuredmedia"][0].href;
         
       }
     },
