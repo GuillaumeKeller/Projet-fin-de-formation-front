@@ -18,7 +18,7 @@
         <button class="btn-header">Connexion</button>
       </router-link>
     </div>
-    <div class="user" v-if="!this.$store.state.isDisconnected">
+    <div class="user" v-else>
       <div class="nav-btn">
         <router-link :to="{ name: 'ads' }">
         <button class="btn-header">Annonces</button>

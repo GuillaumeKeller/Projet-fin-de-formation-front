@@ -77,7 +77,7 @@ export default {
           this.$store.dispatch("userConnected");
           console.log(this.$store.state);
 
-          this.$router.go(-1);
+          this.$router.push({name : 'ads'});
         } else {
           this.errors.loginFailed = true;
         }

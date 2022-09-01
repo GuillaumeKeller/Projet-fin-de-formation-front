@@ -1,6 +1,8 @@
 import axios from "axios";
 import { createStore } from "vuex";
 import storage from '@/utils/storage'
+import swal from "sweetalert";
+
 
 
 const instance = axios.create({
@@ -35,12 +37,27 @@ export default createStore({
     registerForm: ({ commit }, userRegisterData) => {
       commit; console.log(userRegisterData);
       instance.post ("/create", userRegisterData)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+        .then((response) => {
+          console.log(response);
+          swal({
+            title : "Inscription réussie",
+            text : "Vous pouvez maintenant vous connecter",
+            icon : "success",
+            button : "OK"
+          });          
+        }).then( function(){
+          window.location.href = "#/connexion";
+        })
+        .catch((error) => {
+          console.log(error);
+          swal({
+            title : "Erreur",
+            text : "Veuillez vérifier les informations saisies",
+            icon : "error",
+            button : "OK"
+          })
+        }
+        );
     },
 
     userConnected(context)
