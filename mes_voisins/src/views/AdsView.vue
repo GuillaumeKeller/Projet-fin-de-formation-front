@@ -1,37 +1,33 @@
 <template>
   <section class="container">
     <div class="scrolling_menu">
-      <nav menu>
-        
-        <select>
-          <option >Choisissez un Département
+      <nav >
 
-          </option>
+        <option >Choisissez un Département</option>
+        <select v-model="adLocation" @change="switchLocation($event)">
           <option
           v-for="location in this.locations" :key="location.id" 
           >{{ location.name }}</option>
         </select>
 
-        
-        <select>
-          <option >Choisissez une Catégories
-
-          </option>
+        <option >Choisissez un Département</option>
+        <select v-model="adType" @change="switchType($event)">
           <option
-          v-for="category in this.categories" :key="category.id"
-          >{{ category.name }}
-        </option>
+          v-for="typee in this.types" :key="typee.id" 
+          >{{ typee.name }}</option>
         </select>
-        <!--<div class="btn">
-              <button class="btn-nav">
-                Recherche
-                <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
-              </button>
-        </div>-->
+
+        <option >Choisissez une Catégories</option>
+        <select v-model="adCategory" @change="switchCategory($event)">
+          <option 
+          v-for="category in this.categories" 
+          :key="category.id"
+          >{{ category.name }}</option>
+        </select>
         
       </nav>
     </div>
-
+    
     <div class="ads">
       <AdComponent
         v-for="ad in this.ads"
@@ -44,10 +40,13 @@
         :location="this.getLocationName(ad['AdLocation'][0])"
         :img="this.getAdImage(ad)"
 
+        @type-selected="this.filterByType"
         @category-selected="this.filterByCategory"
         @location-selected="this.filterByLocation"
-
+        
         v-show="this.shouldDisplayAd( ad )"
+        
+        
       />
     </div>
   </section>
@@ -68,6 +67,13 @@ export default {
       types: [],
       categories: [],
       locations: [],
+
+      filters  :{
+        adLocation : false,
+        adCategory : false,
+        adType     : false
+      },
+      
     };
   },
 
@@ -83,9 +89,13 @@ export default {
   },
 
   methods: {
+
+    
+
+
     getTypeName(typeID) {
       for (let type of this.types) {
-        // Si l'ID correspond
+        console.log(type)
         if (typeID == type.id) {
           return type.name;
         }
@@ -127,46 +137,72 @@ export default {
       }
     },
 
+    switchLocation(event) {
+      this.filters.adLocation = event.target.value;
+      
+      
+      
+    },
+
+    switchType(event) {
+      this.filters.adType = event.target.value;
+      
+      
+    },
+
+    switchCategory(event) {
+      this.filters.adCategory = event.target.value;
+      
+      
+    },
+
     filterByLocation( location )
     {
-      // Je stocke la difficulté cliquée dans le filtre du composant
-      this.filters.location = location;
-
-      // On réinitialise le filtre de type
-      this.filters.categorys = false;
+      this.filters.adLocation = location;
+      //this.filters.adCategory = false;
+      console.log(location)
+      
     },
 
     filterByCategory( category )
     {
-      // Je stocke le type de recette cliqué dans le filtre du composant
-      this.filters.categorys = category;
-
-      // On réinitialise le filtre de difficulté
-      this.filters.location = false;
+      this.filters.adCategory = category;
+      //this.filters.adLocation = false;
+      console.log(category)
     },
 
-    shouldDisplayAd( p_ad )
+    filterByType( type)
+    {
+      this.filters.adType = type;
+      //this.filters.adLocation = false;
+      console.log
+    },
+
+    shouldDisplayAd( ad )
     {
       
-      if( this.filters.location == false && this.filters.categorys == false )
-      {
-        return true;
-      }
+     if( this.filters.adLocation == false && this.filters.adCategory == false && this.filters.adType == false )
+     {
+      return true;
+     }
 
-      
-      if( this.filters.location != false )
-      {
-        
-        return this.getLocationName( p_ad.location[0] ) == this.filters.location
-      }
-
-      
-      if( this.filters.categorys != false )
+     if( this.filters.adLocation != false || this.filters.adCategory != false ) 
       {
         
-        return this.getCategoryName( p_ad['AdCategory'][0] ) == this.filters.categorys
+        return this.getLocationName(ad['AdLocation'][0]) == this.filters.adLocation || this.getCategoryName(ad['AdCategory'][0]) == this.filters.adCategory;
       }
 
+      /*if( this.filters.adCategory != false || this.filters.adLocation != false )
+      {
+        return this.getCategoryName(ad['AdCategory'][0]) == this.filters.adCategory && this.getLocationName(ad['AdLocation'][0]) == this.filters.adLocation;
+      }
+      */
+
+      /*if( this.filters.adType !=false )
+      {
+        return this.getTypeName(ad['AdType'][0]) == this.filters.adType;
+      }
+      */
     }
   },
 
