@@ -168,13 +168,6 @@
           return require("@/assets/img/no-image.jpg");
         }
       },
-<<<<<<< HEAD
-    },
-
-
-}
-
-=======
       
       getAds() {
         axios.get(this.adsUrl, { params: this.adsData })
@@ -200,7 +193,6 @@
     
   }
   
->>>>>>> 4b3ee962d9d886ae61ce847c2ee812ca3c480696
 </script>
 
 <style lang="scss" scoped>
