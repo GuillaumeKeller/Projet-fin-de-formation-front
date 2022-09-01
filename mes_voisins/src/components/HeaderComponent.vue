@@ -11,6 +11,9 @@
       <router-link :to="{ name: 'ads' }">
         <button class="btn-header">Annonces</button>
       </router-link>
+       <router-link :to="{ name: 'ad-create' }">
+        <button class="btn-header">Créer une annonce</button>
+      </router-link>
       <router-link :to="{ name: 'register' }">
         <button class="btn-header">Inscription</button>
       </router-link>
@@ -26,6 +29,9 @@
        <button class='btn-header'> 
        <a id="myprofile" @click="goToMyProfile()"> Mon profil </a>
       </button>
+      <router-link :to="{ name: 'ad-create' }">
+        <button class="btn-header">Créer une annonce</button>
+      </router-link>
     </div>
       <div>
         {{ this.getCurrentUsername() }}
@@ -55,6 +61,12 @@
         const $getUserId = storage.get("userData").id;
 
         this.$router.push({name : "profile", params: {id: $getUserId}})
+
+      },
+
+      goToCreateAd(){
+
+        this.$router.push({name : "ad-create"})
 
       },
 
@@ -106,9 +118,8 @@
     }
 
     #myprofile {
-
       color:white;
-
+      font-weight: bold;
     }
 
     .logo-home {
