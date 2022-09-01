@@ -18,11 +18,14 @@
         <button class="btn-header">Connexion</button>
       </router-link>
     </div>
-    <div class="user" v-if="!this.$store.state.isDisconnected">
+    <div class="user" v-else>
       <div class="nav-btn">
         <router-link :to="{ name: 'ads' }">
         <button class="btn-header">Annonces</button>
       </router-link>
+       <button class='btn-header'> 
+       <a id="myprofile" @click="goToMyProfile()"> Mon profil </a>
+      </button>
     </div>
       <div>
         {{ this.getCurrentUsername() }}
@@ -42,9 +45,17 @@
 
     methods: {
       getCurrentUsername() {
-        console.log(storage.get("userData"));
+
         return storage.get("userData").displayName;
        
+      },
+
+      goToMyProfile(){
+
+        const $getUserId = storage.get("userData").id;
+
+        this.$router.push({name : "profile", params: {id: $getUserId}})
+
       },
 
       // I want create a method that disconnect the user
@@ -92,6 +103,12 @@
         height: 90px;
         padding: 10px;
       }
+    }
+
+    #myprofile {
+
+      color:white;
+
     }
 
     .logo-home {

@@ -18,7 +18,12 @@
     
     <div class="ad__contact">
       <h2>Coordonnées</h2>
-      <div class="ad__contact--details" v-if="!this.$store.state.isDisconnected" >
+      <div class="msg" v-if="!this.$store.state.isConnected">
+        <router-link :to="{ name: 'login' }">
+          <button type="submit" class="form-button">Connectez-vous pour accéder aux coordonnées</button>
+        </router-link>
+      </div>
+      <div class="ad__contact--details" v-else >
         <img class="user__avatar" :src="this.img.author_avatar_urls" v-if="this.img" alt="" />
         
         <div class="user__contact">
@@ -27,11 +32,6 @@
           <span v-if="this.userdata"> Email : <p v-html="this.userdata[0]['email'] "> </p> </span>
           <span v-if="this.userdata"> Téléphone : <p v-html="this.userdata[0]['phone'] "> </p> </span>
         </div>
-      </div>
-      <div class="msg" v-if="!this.$store.state.isConnected">
-        <router-link :to="{ name: 'login' }">
-          <button type="submit" class="form-button">Connectez-vous pour accéder aux coordonnées</button>
-        </router-link>
       </div>
     </div>
     
@@ -48,6 +48,7 @@
   import adService from "@/services/adService";
   import CommentForm from "@/components/CommentForm.vue";
   import CommentList from "@/components/CommentList.vue";
+  import storage from "@/utils/storage";
   export default 
   {
     components: {
@@ -62,6 +63,8 @@
       this.status = await adService.loadAdStatus(this.$route.params.id);
       this.userdata = await adService.loadUserData(this.ad.author);
       console.log(this.userdata);
+      console.log(storage.get('userData'));
+
       if (this.ad.featured_media > 0)
       {
         this.img = await adService.loadAdImage(this.ad.featured_media);

@@ -18,7 +18,7 @@ const routes = [
   {
     path: '/connexion',
     name: 'login',
-    component: () => import('@/views/LoginView.vue')
+    component: () => import('@/views/LoginView.vue'),
   },
   {
     path: '/inscription',

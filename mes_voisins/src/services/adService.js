@@ -61,7 +61,7 @@ const adService = {
   },
   
   async loadUserData(user_id) {
-    const response = await axios.get(this.base_url + "/mesvoisins/v1/userdata/" + user_id);
+    const response = await axios.get(this.base_url + "/mesvoisins/v1/userdata/" + user_id)
     return response.data;
   },
   
