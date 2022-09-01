@@ -4,7 +4,7 @@
       Tu as déjà un compte ?
       <router-link :to="{ name: 'login' }">Se connecter</router-link>
     </p>
-    <form @submit.prevent="this.handleFormRegisterSubmit" method="POST">
+    <form @submit.prevent="this.handleFormRegisterSubmit()" method="POST">
       <div class="form-title">
         <h2>Informations personnelles</h2>
       </div>
@@ -134,7 +134,7 @@
             postal_code: this.postal_code,
             email: this.email,
             login: this.first_name,
-            phone: null
+            phone: null,
           });
         }
       },
