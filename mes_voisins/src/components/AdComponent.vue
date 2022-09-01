@@ -8,9 +8,9 @@
       <p v-html="desc"></p>
     </div>
     <div class="tags">
-      <span class="type" v-show="type != null" v-html="type"></span>
-      <span class="category" v-show="category != null" v-html="category"></span>
-      <span class="location" v-show="location != null" v-html="location"></span>
+      <span @click="this.$emit('type-selected', type)" class="type" v-show="type != null" v-html="type"></span>
+      <span @click="this.$emit('category-selected', category)" class="category" v-show="category != null" v-html="category"></span>
+      <span @click="this.$emit( 'location-selected', location )" class="location" v-show="location != null" v-html="location"></span>
     </div>
   </article>
 </template>
