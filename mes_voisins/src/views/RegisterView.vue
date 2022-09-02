@@ -1,10 +1,10 @@
 <template>
   <section>
-    <p>
-      Tu as déjà un compte ?
-      <router-link :to="{ name: 'login' }">Se connecter</router-link>
-    </p>
     <form @submit.prevent="this.handleFormRegisterSubmit()" method="POST">
+      <p>
+        Tu as déjà un compte ?
+        <router-link :to="{ name: 'login' }">Se connecter</router-link>
+      </p>
       <div class="form-title">
         <h2>Informations personnelles</h2>
       </div>
@@ -13,13 +13,13 @@
         <label for="firstname">Prénom</label>
         <input v-model="first_name" type="text" class="form-control" id="firstname" name="firstname" placeholder="Prénom" />
       </div>
-      <div class="error" v-if="this.errors.firstnameEmpty">Champ obligatoire</div>
+      <div class="error" v-if="this.errors.first_nameEmpty">Champ obligatoire</div>
 
       <div class="form-group">
         <label for="lastname">Nom</label>
         <input v-model="last_name" type="text" class="form-control" id="lastname" name="lastname" placeholder="Nom" />
       </div>
-      <div class="error" v-if="this.errors.lastnameEmpty">Champ obligatoire</div>
+      <div class="error" v-if="this.errors.last_nameEmpty">Champ obligatoire</div>
 
       <div class="form-group">
         <label for="address">Adresse</label>
@@ -74,7 +74,6 @@
 </template>
 
 <script>
-
   export default {
     name: "RegisterView",
     data() {
@@ -152,29 +151,30 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80%;
     margin: 0 auto;
-    background: $tertiaryColor;
     color: $primaryColor;
-
-    h1 {
-      font-size: 1.5em;
-      color: $primaryColor;
-      font-weight: bold;
-      margin-bottom: 0.5em;
-    }
 
     form {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 50%;
+      background: $tertiaryColor;
+      padding: 1em;
+      border-radius: 0.8em;
+
+      p {
+        font-weight: bold;
+        a {
+          color: $quaternaryColor;
+          text-decoration: none;
+          margin-left: 0.1em;
+        }
+      }
 
       .error {
         color: red;
         font-size: 0.8em;
         margin-top: 00.5em;
-        font-weight: bold;
       }
 
       .form-title {
@@ -202,8 +202,8 @@
       }
 
       .form-group input {
-        width: 100%;
-        height: 2.5rem;
+        width: 80%;
+        height: 2.3rem;
         border: double 2px transparent;
         border-radius: 50px;
         background-image: linear-gradient(white, white), linear-gradient(to right, #30dd8a, #0ba360);
@@ -211,12 +211,17 @@
         background-clip: padding-box, border-box;
         font-size: 1.1em;
         color: $primaryColor;
+        text-align: center;
 
         &:focus {
           outline: none;
           border: double 2px transparent;
           border-radius: 50px;
           background-image: linear-gradient(white, white), linear-gradient(to right, #0ba360, #30dd8a);
+        }
+
+        &::placeholder {
+          color: $primaryColor;
         }
       }
 

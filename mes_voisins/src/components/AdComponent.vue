@@ -128,7 +128,7 @@
         border: 2px solid $primaryColor;
         border-radius: 10px;
         padding: 0.5em;
-        background: linear-gradient(to top, #30dd8a, 2em, transparent 0.5em) no-repeat;
+        background: linear-gradient(to top, #001EFF, 2em, transparent 0.5em) no-repeat;
         background-size: 0 100%;
         transition: background-size 1s, color 1s;
 
