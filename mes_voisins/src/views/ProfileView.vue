@@ -36,6 +36,7 @@
             :dbid="authorAds.id"
             :title="authorAds.title.rendered"
             :desc="authorAds.excerpt.rendered"
+            
           />
         </div>
       </div>
@@ -74,11 +75,12 @@ export default {
 
   methods: {
     getAdImage(ad) {
-      // Si l'annonce possède une image associée
       if (ad.featured_media > 0) {
-        // Je renvoi l'URL de l'image
         return this.author[0]._links["wp:featuredmedia"][0].href;
+      } else {
+        return require("@/assets/img/no-image.jpg");
       }
+      
     },
   },
 };

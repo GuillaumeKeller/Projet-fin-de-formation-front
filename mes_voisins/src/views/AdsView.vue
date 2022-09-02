@@ -52,9 +52,21 @@
     </div>
     
     <div class="ads">
-      <AdComponent v-for="ad in ads" :key="ad.id" :dbid="ad.id" :title="ad.title.rendered" :desc="ad.excerpt.rendered"
-      :type="this.getTypeName(ad['AdType'][0])" :category="this.getCategoryName(ad['AdCategory'][0])"
-      :location="this.getLocationName(ad['AdLocation'][0])" :img="this.getAdImage(ad)" />
+
+
+      <AdComponent
+        v-for="ad in this.ads"
+        :key="ad.id"
+        :dbid="ad.id"
+        :title="ad.title.rendered"
+        :desc="ad.excerpt.rendered"
+        :type="this.getTypeName(ad['AdType'][0])"
+        :category="this.getCategoryName(ad['AdCategory'][0])"
+        :location="this.getLocationName(ad['AdLocation'][0])"
+        :img="this.getAdImage(ad)"
+      />
+
+
     </div>
     
     <PaginationComponent :pagination="pagination" @prev="--adsData.page; getAds();" @next="adsData.page++; getAds();">
@@ -181,6 +193,7 @@
         });
         
       },
+      
       configPagination(headers) {
         this.pagination.total = +headers['x-wp-total'];
         this.pagination.totalPages = +headers['x-wp-totalpages'];
@@ -190,7 +203,6 @@
         this.pagination.nextPage = this.adsData.page < this.pagination.totalPages ? this.adsData.page + 1 : '';
       }
     },
-    
   }
   
 </script>
