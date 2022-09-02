@@ -52,7 +52,7 @@
         :desc="ad.excerpt.rendered"
         :type="this.getTypeName(ad['AdType'][0])"
         :category="this.getCategoryName(ad['AdCategory'][0])"
-        :location= "this.getLocationName(ad['AdLocation'][0])"
+        :location="this.getLocationName(ad['AdLocation'][0])"
         :img="this.getAdImage(ad)"
       />
     </div>
@@ -73,7 +73,7 @@
         ads: [],
         types: [],
         categories: [],
-        locations:[],
+        locations: [],
       };
     },
 
@@ -133,31 +133,7 @@
         }
       },
     },
-
-    getAdImage(ad) 
-    {
-      // Si l'annonce possède une image associée
-      if( ad.featured_media > 0 )
-      {
-        // Je renvoi l'URL de l'image
-        console.log(ad._embedded['wp:featuredmedia'][0].source_url);
-        return ad._embedded['wp:featuredmedia'][0].source_url;
-        
-      }
-      else
-      {
-        // Je renvoi une image générique ou d'erreur
-        // Ici, deux solutions https://cli.vuejs.org/guide/html-and-static-assets.html#static-assets-handling
-        // - Je renvoi un lien dynamique vers le fichier buildé (dans assets/img)
-        // return require("@/assets/img/unavailable_img.jpg" );
-        
-        // - Je renvoi l'image depuis le dossier public directement
-        // return "./unavailable_img.jpg";
-      }
-    }
-
-}
-
+  };
 </script>
 
 <style lang="scss" scoped>

@@ -40,32 +40,18 @@
           </svg>
         </div>
       </div>
-      <CarouselComponent :slides="slides" :interval="3000" controls indicators />
+      <CarouselComponent/>
     </div>
   </section>
 </template>
 
 <script>
  
-  import CarouselComponent from "@/components/carousel/CarouselComponent.vue";
+  import CarouselComponent from "@/components/CarouselComponent.vue";
 
   export default {
     name: "HomeView",
     components: { CarouselComponent},
-    data: () => ({
-     
-     slides:[
-
-      "https://picsum.photos/id/621/1200/700",
-      "https://picsum.photos/id/510/1200/700",
-      "https://picsum.photos/id/520/1200/700",
-      "https://picsum.photos/id/52/1200/700",
-      "https://picsum.photos/id/666/1200/700",
-      "https://picsum.photos/id/560/1200/700",
-     ],
-      
-
-    }),
     
   };
 
