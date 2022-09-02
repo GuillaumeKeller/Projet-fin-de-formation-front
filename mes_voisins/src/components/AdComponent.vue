@@ -29,7 +29,7 @@
   };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "@/assets/scss/variables.scss";
   @import "@/assets/scss/media_queries.scss";
 
