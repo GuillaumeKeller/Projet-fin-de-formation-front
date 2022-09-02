@@ -123,6 +123,7 @@
         text-transform: uppercase;
         color: $primaryColor;
         margin-right: 1em;
+        margin-left: 1em;
         cursor: pointer;
         border: 2px solid $primaryColor;
         border-radius: 10px;
