@@ -6,7 +6,7 @@
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="text" name="email" v-model="this.login" placeholder="john.doe@example.com" />
+        <input type="text" name="email" v-model="this.login" placeholder="Identifiant" />
         <div class="error" v-if="this.errors.loginEmpty">Vous devez saisir un identifiant !</div>
       </div>
       <div class="form-group">
@@ -99,21 +99,16 @@ section {
   align-items: center;
   width: 80%;
   margin: 0 auto;
-  background: $tertiaryColor;
   color: $primaryColor;
 
-  h1 {
-    font-size: 1.5em;
-    color: $tertiaryColor;
-    font-weight: bold;
-    margin-bottom: 0.5em;
-  }
-
   form {
+    background: $tertiaryColor;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
+    padding: 1em;
+    border-radius: 0.8em;
+    width: 40%;
 
     .form-title {
       padding: 0.5em;
@@ -145,8 +140,8 @@ section {
     }
 
     .form-group input {
-      width: 100%;
-      height: 2.5rem;
+      width: 80%;
+      height: 2.3rem;
       border: double 2px transparent;
       border-radius: 50px;
       background-image: linear-gradient(white, white),
@@ -155,6 +150,7 @@ section {
       background-clip: padding-box, border-box;
       font-size: 1.1em;
       color: $primaryColor;
+      text-align: center;
 
       &:focus {
         outline: none;
@@ -200,8 +196,18 @@ section {
       outline: none;
     }
 
-    span {
-      margin-left: 0.2em;
+    p {
+      font-size: 1em;
+      color: $primaryColor;
+      margin-bottom: 0.5em;
+      margin-top: 0.5em;
+      font-weight: bold;
+
+
+      a {
+        color: $quaternaryColor;
+        text-decoration: none;
+      }
     }
 
     .form-button {
