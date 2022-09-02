@@ -1,4 +1,5 @@
 <template>
+
   <section>
     <div class="container">
       <div class="scrolling_menu">
@@ -82,6 +83,7 @@
         "
       >
       </PaginationComponent>
+
     </div>
   </section>
 </template>
