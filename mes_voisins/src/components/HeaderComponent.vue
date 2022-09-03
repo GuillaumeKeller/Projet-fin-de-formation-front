@@ -90,7 +90,6 @@
     justify-content: space-between;
     align-items: center;
     color: white;
-    box-sizing: border-box;
     background-color: $primaryColor;
 
     .user {
@@ -178,6 +177,7 @@
       align-items: center;
       justify-content: center;
       padding: 0.5em;
+      width: 100%;
 
       .search {
         display: flex;

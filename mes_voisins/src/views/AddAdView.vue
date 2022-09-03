@@ -1,13 +1,13 @@
 <template>
     <!-- rediriger vers la page de connexion si l'utilsateur n'est pas connecté -->
+    <section>
       <div id="disconnect" v-if="!$store.state.isConnected">
         <button @click="redirectToLogin()">Connectez-vous pour poster une annonce</button>
         <button @click="redirectToRegister()">M'inscrire</button>
 
         </div> 
 
-    <div v-if="this.$store.state.isConnected"> 
-<section>
+    <div v-else> 
     <h1>Créer mon annonce</h1>
     <form @submit.prevent="handleAdAdd" >
     <label >
@@ -51,8 +51,8 @@
         Soumettre l'annonce
       </button>
     </form>
-</section>
 </div> 
+</section>
 </template>
 
 <script>
