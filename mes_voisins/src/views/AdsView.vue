@@ -348,6 +348,24 @@ section{
       display: flex;
       flex-flow: row;
       justify-content: space-between;
+      align-items: center;
+
+      button {
+      width: 10em;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      cursor: pointer;
+      margin-left: 10px;
+      height: 2.5em;
+      text-align: center;
+
+      border-radius: 50px;
+      box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+      border: none;
+      outline: none;
+      background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a);
+    }
     }
 
     nav ul li {
@@ -402,22 +420,7 @@ section{
       background-color: $secondaryColor;
     }
 
-    button {
-      width: 10em;
-      font-size: 16px;
-      font-weight: 600;
-      color: #fff;
-      cursor: pointer;
-      margin-left: 10px;
-      height: 2.5em;
-      text-align: center;
-
-      border-radius: 50px;
-      box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
-      border: none;
-      outline: none;
-      background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a);
-    }
+    
   }
 
   // ----------------------------------- Ads ----------------------------------------
@@ -430,8 +433,8 @@ section{
     margin-bottom: 2em;
     flex-direction: row;
     flex-wrap: wrap;
-    box-shadow: 0px 0px 0px 2px #30dd8a;
-    border-radius: 1em;
+    // box-shadow: 0px 0px 0px 2px #30dd8a;
+    // border-radius: 1em;
   }
 
   @media screen and (max-width: $mediaTablet) {
