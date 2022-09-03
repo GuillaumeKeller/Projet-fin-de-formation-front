@@ -1,16 +1,18 @@
 <template>
-  <article>
-    <div>
-      <router-link :to="{ name: 'ad', params: { id: this.dbid } }">
-        <h3 v-html="title"></h3>
-      </router-link>
-      <img :src="img" />
-      <p v-html="desc"></p>
-    </div>
+  <article :style="'background-image: url(\'' + img + '\');'">
     <div class="tags">
       <span @click="this.$emit('type-selected', type)" class="type" v-show="type != null" v-html="type"></span>
       <span @click="this.$emit('category-selected', category)" class="category" v-show="category != null" v-html="category"></span>
-      <span @click="this.$emit( 'location-selected', location )" class="location" v-show="location != null" v-html="location"></span>
+      <span @click="this.$emit('location-selected', location)" class="location" v-show="location != null" v-html="location"></span>
+    </div>
+    <div class="data">
+      <router-link :to="{ name: 'ad', params: { id: this.dbid } }">
+        <h3 v-html="title"></h3>
+      </router-link>
+      <div class="desc">
+        <h2>Description :</h2>
+        <p v-html="desc"></p>
+      </div>
     </div>
   </article>
 </template>
@@ -34,49 +36,32 @@
   @import "@/assets/scss/media_queries.scss";
 
   article {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    aspect-ratio: 4/4;
     margin: 2em auto;
-    width: 35%;
-    height: auto;
-    background: $tertiaryColor;
-    color: $primaryColor;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
-    transition: all 0.3s ease-in-out;
-    &:hover {
-      box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
-    }
-
-    h3 {
-      font-size: 1.5em;
-      font-weight: 600;
-      margin-bottom: 0.5em;
-      text-transform: uppercase;
-      color: $primaryColor;
-    }
-
-    img {
-      width: 50%;
-      height: auto;
-      margin-bottom: 1em;
-    }
-
-    p {
-      font-size: 1em;
-      margin-bottom: 1em;
-      text-align: justify;
-    }
+    border-radius: 1.2em;
+    background-size: cover;
+    background-position: center -30px;
+    position: relative;
+    border: 3px solid $primaryColor;
+    padding: 0.5em;
+    background-color: $secondaryColor;
 
     .tags {
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      width: 100%;
-      margin-top: 1em;
+      position: absolute;
+      background-color: $tertiaryColor;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5em 2em 1.5em;
+      border-bottom-left-radius: 1em;
+      border-bottom-right-radius: 1em;
+      border-top: 3px solid $primaryColor;
 
       .type {
         font-size: 0.8em;
@@ -128,13 +113,62 @@
         border: 2px solid $primaryColor;
         border-radius: 10px;
         padding: 0.5em;
-        background: linear-gradient(to top, #001EFF, 2em, transparent 0.5em) no-repeat;
+        background: linear-gradient(to top, #001eff, 2em, transparent 0.5em) no-repeat;
         background-size: 0 100%;
         transition: background-size 1s, color 1s;
 
         &:hover {
           background-size: 100% 100%;
           color: $tertiaryColor;
+        }
+      }
+    }
+
+    .data {
+      background-color: $tertiaryColor;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 1em 2em 1.5em;
+      border-top-left-radius: 1em;
+      border-top-right-radius: 1em;
+      border-bottom: 3px solid $primaryColor;
+      a {
+        text-decoration: none;
+
+        h3 {
+          display: inline-block;
+          margin: 0;
+          font-size: 2.5em;
+          font-weight: 600;
+          color: $primaryColor;
+          margin-bottom: 0.5em;
+          background: linear-gradient(to top, #30dd8a, 0.5em, transparent 0.5em) no-repeat;
+        }
+      }
+
+      .desc {
+
+        border: 2px solid $primaryColor;
+        border-radius: 10px;
+        padding: 0.5em;
+        h2 {
+          margin: 0;
+          font-size: 1.5em;
+          font-weight: 600;
+          color: $primaryColor;
+          margin-bottom: 0.5em;
+          text-align: left;
+          text-decoration: underline;
+        }
+
+        p {
+          font-size: 1.2em;
+          font-weight: 400;
+          color: $secondaryColor;
+          margin: 0;
+          text-align: left;
         }
       }
     }
