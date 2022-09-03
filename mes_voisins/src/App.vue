@@ -36,6 +36,7 @@
   @import "@/assets/scss/variables.scss";
   @import "@/assets/scss/media_queries.scss";
   #app {
+    width: 100%;
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -64,5 +65,13 @@
 
   .swal-footer{
     text-align: center;
+    
+  }
+
+  @media (max-width:$mediaSmartphone) {
+    #app{
+      width: 100%;
+    }
+    
   }
 </style>

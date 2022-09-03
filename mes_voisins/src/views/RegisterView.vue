@@ -10,64 +10,53 @@
       </div>
 
       <div class="form-group">
-        <label for="firstname">Prénom</label>
+        <label for="firstname">Prénom :</label>
         <input v-model="first_name" type="text" class="form-control" id="firstname" name="firstname" placeholder="Prénom" />
       </div>
       <div class="error" v-if="this.errors.first_nameEmpty">Champ obligatoire</div>
 
       <div class="form-group">
-        <label for="lastname">Nom</label>
+        <label for="lastname">Nom :</label>
         <input v-model="last_name" type="text" class="form-control" id="lastname" name="lastname" placeholder="Nom" />
       </div>
       <div class="error" v-if="this.errors.last_nameEmpty">Champ obligatoire</div>
 
       <div class="form-group">
-        <label for="address">Adresse</label>
+        <label for="address">Adresse :</label>
         <input v-model="address" type="text" class="form-control" id="address" name="address" placeholder="Adresse" />
       </div>
       <div class="error" v-if="this.errors.addressEmpty">Champ obligatoire</div>
 
       <div class="form-group">
-        <label for="postalcode">Code postal</label>
+        <label for="postalcode">Code postal :</label>
         <input v-model="postal_code" type="number" class="form-control" id="postalcode" name="postalcode" placeholder="Code postal" />
       </div>
       <div class="error" v-if="this.errors.postal_codeEmpty">Champ obligatoire</div>
 
       <div class="form-group">
-        <label for="city">Ville</label>
+        <label for="city">Ville :</label>
         <input v-model="city" type="text" class="form-control" id="city" name="city" placeholder="Ville" />
       </div>
       <div class="error" v-if="this.errors.cityEmpty">Champ obligatoire</div>
 
       <div class="form-title">
-        <h2 class="info">Information du compte</h2>
+        <h2 class="info">Information du compte :</h2>
       </div>
 
       <div class="form-group">
-        <label for="email">Email</label>
+        <label for="email">Email :</label>
         <input v-model="email" type="email" class="form-control" id="email" name="email" placeholder="Email" />
       </div>
       <div class="error" v-if="this.errors.emailEmpty">Champ obligatoire</div>
 
       <div class="form-group">
-        <label for="password">Mot de passe</label>
+        <label for="password">Mot de passe :</label>
         <input v-model="password" type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" />
       </div>
       <div class="error" v-if="this.errors.passwordEmpty">Champ obligatoire</div>
 
-      <div class="form-group">
-        <label for="password_confirmation">Confirmation du mot de passe</label>
-        <input
-          v-model="password_confirmation"
-          type="password"
-          class="form-control"
-          id="password_confirmation"
-          name="password_confirmation"
-          placeholder="Confirmation du mot de passe"
-        />
-      </div>
-      <div class="error" v-if="this.errors.password_confirmationEmpty">Champ obligatoire</div>
-      <div class="cgu"><input type="checkbox" name="checkbox" id="checkbox" /><label>J'ai lu et pris connaissance des conditions générales d'utilisation</label></div>
+      <!-- <div class="cgu"><input type="checkbox" name="checkbox" id="checkbox" /><label>J'ai lu et pris connaissance des conditions générales d'utilisation</label></div>
+      <div class="error" v-if="this.errors.checkboxEmpty">Vous devez accepter les conditions générales d'utilisation</div> -->
       <button type="submit" class="form-button">Créer mon compte</button>
     </form>
   </section>
@@ -80,7 +69,6 @@
       return {
         email: "",
         password: "",
-        password_confirmation: "",
         first_name: "",
         last_name: "",
         address: "",
@@ -91,7 +79,6 @@
         errors: {
           emailEmpty: false,
           passwordEmpty: false,
-          password_confirmationEmpty: false,
           first_nameEmpty: false,
           last_nameEmpty: false,
           addressEmpty: false,
@@ -107,22 +94,22 @@
 
         this.errors.emailEmpty = this.email === "";
         this.errors.passwordEmpty = this.password === "";
-        this.errors.password_confirmationEmpty = this.password_confirmation === "";
         this.errors.first_nameEmpty = this.first_name === "";
         this.errors.last_nameEmpty = this.last_name === "";
         this.errors.addressEmpty = this.address === "";
         this.errors.postal_codeEmpty = this.postal_code === "";
         this.errors.cityEmpty = this.city === "";
+        // this.errors.checkboxEmpty = this.checkbox === "";
 
         if (
           !this.errors.emailEmpty ||
           !this.errors.passwordEmpty ||
-          !this.errors.password_confirmationEmpty ||
           !this.errors.firstnameEmpty ||
           !this.errors.lastnameEmpty ||
           !this.errors.addressEmpty ||
           !this.errors.postal_codeEmpty ||
-          !this.errors.cityEmpty
+          !this.errors.cityEmpty 
+          // !this.errors.checkboxEmpty
         ) {
           this.$store.dispatch("registerForm", {
             password: this.password,
@@ -159,14 +146,16 @@
       flex-direction: column;
       align-items: center;
       background: $tertiaryColor;
-      padding: 1em;
+      padding: 2em;
       border-radius: 0.8em;
+      box-shadow: 0 0 10px $tertiaryColor;
+      width: 25%;
 
       p {
         font-weight: bold;
         a {
           color: $quaternaryColor;
-          text-decoration: none;
+          text-decoration: underline;
           margin-left: 0.1em;
         }
       }
@@ -183,6 +172,7 @@
         font-size: 1.1em;
         font-weight: bold;
         margin-top: 1em;
+        margin-bottom: 1em;
 
         h2 {
           font-size: 1.5em;
@@ -195,17 +185,18 @@
 
       .form-group {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
-        width: 80%;
+        width: 97%;
+        margin-bottom: 1em;
       }
 
       .form-group input {
-        width: 80%;
+        width: 100%;
         height: 2.3rem;
         border: double 2px transparent;
-        border-radius: 50px;
+        border-radius: 0.8em;
         background-image: linear-gradient(white, white), linear-gradient(to right, #30dd8a, #0ba360);
         background-origin: border-box;
         background-clip: padding-box, border-box;
@@ -227,8 +218,12 @@
 
       .form-group label {
         font-size: 1em;
-        color: $tertiaryColor;
-        margin-bottom: 0.5em;
+        color: $primaryColor;
+        margin-right: 0.5em;
+        text-align: left;
+        width: 30%;
+        font-weight: bold;
+
       }
 
       button {

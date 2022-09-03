@@ -5,12 +5,12 @@
         <h2>Connexion</h2>
       </div>
       <div class="form-group">
-        <label for="email">Email</label>
+        <label for="email">Email :</label>
         <input type="text" name="email" v-model="this.login" placeholder="Identifiant" />
         <div class="error" v-if="this.errors.loginEmpty">Vous devez saisir un identifiant !</div>
       </div>
       <div class="form-group">
-        <label for="password">Mot de passe</label>
+        <label for="password">Mot de passe :</label>
         <input
           type="password"
           id="password"
@@ -90,6 +90,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/assets/scss/variables.scss";
+@import "@/assets/scss/media_queries.scss";
 
 section {
   min-height: 100vh;
@@ -97,7 +98,7 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   color: $primaryColor;
 
@@ -106,15 +107,16 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1em;
+    padding: 2em;
     border-radius: 0.8em;
-    width: 40%;
+    width: 25%;
+    box-shadow: 0 0 10px $tertiaryColor;
 
     .form-title {
       padding: 0.5em;
       font-size: 1.1em;
       font-weight: bold;
-      margin-top: 1em;
+      margin-bottom: 1em;
 
       h2 {
         font-size: 1.5em;
@@ -133,23 +135,24 @@ section {
 
     .form-group {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
       justify-content: center;
-      width: 80%;
+      width: 100%;
+      margin: 0.5em 0;
     }
 
     .form-group input {
-      width: 80%;
+      width: 100%;
       height: 2.3rem;
       border: double 2px transparent;
-      border-radius: 50px;
+      border-radius: 0.8em;
       background-image: linear-gradient(white, white),
         linear-gradient(to right, #30dd8a, #0ba360);
       background-origin: border-box;
       background-clip: padding-box, border-box;
       font-size: 1.1em;
-      color: $primaryColor;
+      color: $secondaryColor;
       text-align: center;
 
       &:focus {
@@ -163,8 +166,12 @@ section {
 
     .form-group label {
       font-size: 1em;
-      color: $tertiaryColor;
-      margin-bottom: 0.5em;
+      font-weight: bold;
+      color: $primaryColor;
+      width: 40%;
+      text-align: left;
+      margin-right: 0.5em;
+
     }
 
     button {
@@ -206,7 +213,8 @@ section {
 
       a {
         color: $quaternaryColor;
-        text-decoration: none;
+        text-decoration: underline;
+        margin-left: 0.1em;
       }
     }
 
@@ -227,6 +235,33 @@ section {
     color: #f00;
     text-align: center;
     margin-top: 0.5em;
+  }
+}
+
+@media (min-width: $mediaTablet) and (max-width: $mediaLaptop) {
+  section {
+    form {
+      width: 40%;
+    }
+  }
+}
+
+@media (min-width: $mediaSmartphone) and (max-width: $mediaTablet) {
+  section {
+    form {
+      width: 80%;
+    }
+  }
+}
+
+@media (max-width: $mediaSmartphone) {
+  section {
+    form {
+      min-height: 100vh;
+      width: 100vw;
+      box-shadow: none;
+      margin: 0 auto;
+    }
   }
 }
 </style>
