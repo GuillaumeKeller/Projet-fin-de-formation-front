@@ -67,11 +67,4 @@
     text-align: center;
     
   }
-
-  @media (max-width:$mediaSmartphone) {
-    #app{
-      width: 100%;
-    }
-    
-  }
 </style>

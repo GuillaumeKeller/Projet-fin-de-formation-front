@@ -276,4 +276,107 @@
       text-align: center;
     }
   }
+
+
+  @media (max-width: 1650px) {
+    section {
+      form {
+        width: 32%;
+        min-height: 100vh;
+        align-items: center;
+      }
+    }
+  }
+  @media (min-width: $mediaTablet) and (max-width: $mediaLaptop) {
+  section {
+    form {
+      width: 100%;
+      padding: 2em 0;
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none;
+
+      .form-group {
+        width: 50%;
+
+
+        label{
+          width: 30%;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $mediaSmartphone) and (max-width: $mediaTablet) {
+  section {
+    form {
+      width: 100%;
+      padding: 2em 0;
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none;
+
+      .form-group {
+        width: 60%;
+        flex-direction: column;
+        justify-content: center;
+
+        label{
+          width: 100%;
+          margin-bottom: 0.5em;
+          
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $mediaSmartphone) {
+  section {
+    form {
+      height: 100vh;
+      width: 100%;
+      box-shadow: none;
+      margin:0;
+      padding: 2em 0;
+      border-radius: 0;
+
+      .form-title{
+        margin-top: 0.2em;
+        margin-bottom: 0.2em;
+        font-size: 1em;
+      }
+
+      .form-group {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 60%;
+        margin: 0.5em 0;
+
+        label{
+          width: 100%;
+          text-align: center;
+          margin-bottom: 0.2em;
+        }
+      }
+
+      p{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        a{
+          margin-top: 0.2em;
+        }
+      }
+
+      button{
+        width: 60%;
+      }
+    }
+  }
+}
 </style>

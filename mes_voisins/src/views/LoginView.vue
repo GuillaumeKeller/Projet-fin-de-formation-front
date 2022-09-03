@@ -5,7 +5,7 @@
         <h2>Connexion</h2>
       </div>
       <div class="form-group">
-        <label for="email">Email :</label>
+        <label for="email">Identifiant :</label>
         <input type="text" name="email" v-model="this.login" placeholder="Identifiant" />
         <div class="error" v-if="this.errors.loginEmpty">Vous devez saisir un identifiant !</div>
       </div>
@@ -256,11 +256,43 @@ section {
 
 @media (max-width: $mediaSmartphone) {
   section {
+    // width: 100%;
     form {
-      min-height: 100vh;
-      width: 100vw;
+      height: 100vh;
+      width: 100%;
       box-shadow: none;
-      margin: 0 auto;
+      margin:0;
+      padding: 0;
+      border-radius: 0;
+
+      .form-group {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 60%;
+        margin: 0.5em 0;
+
+        label{
+          width: 100%;
+          text-align: center;
+          margin-bottom: 0.2em;
+        }
+      }
+
+      p{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        a{
+          margin-top: 0.2em;
+        }
+      }
+
+      button{
+        width: 60%;
+      }
     }
   }
 }

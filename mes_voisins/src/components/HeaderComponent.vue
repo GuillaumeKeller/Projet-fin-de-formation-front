@@ -176,25 +176,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 0.5em;
       width: 100%;
-
-      .search {
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        align-items: center;
-
-        input {
-          width: 80%;
-          margin-bottom: 0.5em;
-          height: 1em;
-        }
-
-        .fa-magnifying-glass {
-          height: 1.5em;
-        }
-      }
 
       .btn {
         justify-content: center;
@@ -216,25 +198,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 0.5em;
-
-      .search {
-        padding: 0.1em;
-        margin-bottom: 0.2em;
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        align-items: center;
-
-        input {
-          width: 80%;
-          margin-bottom: 0.5em;
-          height: 1em;
-        }
-        .fa-magnifying-glass {
-          height: 1.5em;
-        }
-      }
+      width: 100%;
 
       .btn {
         justify-content: center;
@@ -250,20 +214,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 0.5em;
-
-      .search {
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        align-items: center;
-        padding: 0.1em;
-        margin-bottom: 0.2em;
-        input {
-          width: 80%;
-          margin-bottom: 0.5em;
-        }
-      }
+      width: 100%;
 
       .btn {
         justify-content: center;
