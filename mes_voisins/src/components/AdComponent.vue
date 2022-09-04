@@ -1,10 +1,5 @@
 <template>
-  <article :style="'background-image: url(\'' + img + '\');'">
-    <div class="tags">
-      <span @click="this.$emit('type-selected', type)" class="type" v-show="type != null" v-html="type"></span>
-      <span @click="this.$emit('category-selected', category)" class="category" v-show="category != null" v-html="category"></span>
-      <span @click="this.$emit('location-selected', location)" class="location" v-show="location != null" v-html="location"></span>
-    </div>
+  <div id="ad">
     <div class="data">
       <router-link :to="{ name: 'ad', params: { id: this.dbid } }">
         <h3 v-html="title"></h3>
@@ -14,7 +9,13 @@
         <p v-html="desc"></p>
       </div>
     </div>
-  </article>
+    <div class="img" :style="'background-image: url(\'' + img + '\');'"></div>
+    <div class="tags">
+      <span @click="this.$emit('type-selected', type)" class="type" v-show="type != null" v-html="type"></span>
+      <span @click="this.$emit('category-selected', category)" class="category" v-show="category != null" v-html="category"></span>
+      <span @click="this.$emit('location-selected', location)" class="location" v-show="location != null" v-html="location"></span>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -35,25 +36,68 @@
   @import "@/assets/scss/variables.scss";
   @import "@/assets/scss/media_queries.scss";
 
-  article {
-    width: 100%;
-    box-sizing: border-box;
-    aspect-ratio: 4/4;
+  #ad {
+    width: 40%;
     margin: 2em auto;
     border-radius: 1.2em;
-    background-size: cover;
-    background-position: center -30px;
-    position: relative;
-    border: 3px solid $primaryColor;
-    padding: 0.5em;
-    background-color: $secondaryColor;
+    // border: 3px solid $primaryColor;
+    background-color: $tertiaryColor;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    transition: 0.5s ease-out;
+
+    &:hover{
+      transform: scale(1.05);
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .data {
+      background-color: $tertiaryColor;
+      padding: 1em 1em;
+      border-top-left-radius: 1em;
+      border-top-right-radius: 1em;
+      // border-bottom: 3px solid $primaryColor;
+      a {
+        text-decoration: none;
+
+        h3 {
+          display: inline-block;
+          margin: 0;
+          font-size: 1.5em;
+          font-weight: 600;
+          color: $primaryColor;
+          margin-bottom: 0.5em;
+          background: linear-gradient(#30dd8a 0 0) no-repeat calc(200% - var(--p, 0%)) 100% / 200% var(--p, 0.08em);
+          transition: 0.5s var(--t, 0s), background-position 0.5s calc(0.5s - var(--t, 0s));
+
+          &:hover {
+            --p: 100%;
+            --t: 0.5s;
+            color: $tertiaryColor;
+          }
+        }
+      }
+    }
+
+    .img {
+      min-height: auto;
+      aspect-ratio: 4/3;
+      background-size: cover;
+      background-position: center;
+      background-repeat: repeat;
+      box-sizing: content-box;
+      margin: 0 1em;
+      border-radius: 1em;
+    }
 
     .tags {
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      position: absolute;
       background-color: $tertiaryColor;
       bottom: 0;
       left: 0;
@@ -61,7 +105,6 @@
       padding: 1.5em 2em 1.5em;
       border-bottom-left-radius: 1em;
       border-bottom-right-radius: 1em;
-      border-top: 3px solid $primaryColor;
 
       .type {
         font-size: 0.8em;
@@ -124,38 +167,13 @@
       }
     }
 
-    .data {
-      background-color: $tertiaryColor;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      padding: 1em 2em 1.5em;
-      border-top-left-radius: 1em;
-      border-top-right-radius: 1em;
-      border-bottom: 3px solid $primaryColor;
-      a {
-        text-decoration: none;
-
-        h3 {
-          display: inline-block;
-          margin: 0;
-          font-size: 2.5em;
-          font-weight: 600;
-          color: $primaryColor;
-          margin-bottom: 0.5em;
-          background: linear-gradient(to top, #30dd8a, 0.5em, transparent 0.5em) no-repeat;
-        }
-      }
-
-      .desc {
-
-        border: 2px solid $primaryColor;
-        border-radius: 10px;
+    .desc {
+        border-radius: 0.7em;
         padding: 0.5em;
+        background-color: $secondaryColor;
         h2 {
-          margin: 0;
-          font-size: 1.5em;
+          margin: 0.2em 0 0 0.2em;
+          font-size: 1em;
           font-weight: 600;
           color: $primaryColor;
           margin-bottom: 0.5em;
@@ -164,16 +182,15 @@
         }
 
         p {
-          font-size: 1.2em;
+          font-size: 1em;
           font-weight: 400;
-          color: $secondaryColor;
+          color: $primaryColor;
           margin: 0;
           text-align: left;
+          padding: 0.1em;
         }
       }
-    }
   }
-
   @media (max-width: $mediaTablet) {
     article {
       width: 80%;
