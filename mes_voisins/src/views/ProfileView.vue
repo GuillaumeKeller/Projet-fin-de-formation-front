@@ -30,13 +30,14 @@
         <h1>Annonces</h1>
 
         <div class="ad">
+          
           <AdComponent
             v-for="authorAds in this.author"
             :key="authorAds.id"
             :dbid="authorAds.id"
             :title="authorAds.title.rendered"
             :desc="authorAds.excerpt.rendered"
-            
+            @deleteAd="deleteAd(authorAds.id)"
           />
         </div>
       </div>
@@ -47,6 +48,8 @@
 <script>
 import adService from "@/services/adService";
 import AdComponent from "@/components/AdComponent.vue";
+
+
 
 export default {
   components: {
@@ -59,8 +62,12 @@ export default {
     this.user = await adService.loadUser(this.$route.params.id);
     this.author = await adService.loadAdAuthor(this.$route.params.id);
 
-    console.log("coucou");
-    console.log(this.author[0].id);
+    
+    console.log();
+  },
+
+  async updated(){
+    this.author = await adService.loadAdAuthor(this.$route.params.id);
   },
 
   data() {
@@ -79,11 +86,22 @@ export default {
         return this.author[0]._links["wp:featuredmedia"][0].href;
       } else {
         return require("@/assets/img/no-image.jpg");
+      
       }
       
     },
-  },
-};
+
+     async deleteAd(id)
+    {
+      await adService.deleteAd(id);
+     
+    },
+
+  
+  
+  }
+}
+
 </script>
 
 <style lang="scss" scoped>

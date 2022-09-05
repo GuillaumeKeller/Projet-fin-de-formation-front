@@ -4,6 +4,9 @@
       <h3 v-html="title"></h3>
     </router-link>
     <div class="data">
+      <button  v-if="this.$route.name === 'profile'">
+      <a @click="$emit('deleteAd')"> <font-awesome-icon icon="fa-solid fa-trash" /> </a>
+      </button>
       <div class="img" :style="'background-image: url(\'' + img + '\');'"></div>
       <div class="desc">
         <h2>Description :</h2>
@@ -19,6 +22,7 @@
 </template>
 
 <script>
+
   export default {
     props: {
       dbid: Number,
@@ -30,6 +34,7 @@
       location: String,
     },        
   }
+
 </script>
 
 <style lang="scss">
