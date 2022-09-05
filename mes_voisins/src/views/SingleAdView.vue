@@ -5,7 +5,6 @@
       <img :src="this.img.source_url" v-if="this.img" class="ad__picture" alt=" Image de l'annonce" />
       <div class="ad__info">
         <span v-if="this.ad"> Date de publication : <p v-html="this.ad.date "> </p></span>
-        <span v-if="this.ad"> Dernière modification : <p v-html="this.ad.modified "> </p> </span>
         <span v-if="this.status"> Etat de l'annonce: <p v-html="this.status.name"> </p> </span>
         <span v-if="this.location"> Localisation :<p v-html="this.location.name"> </p> </span>
         <div class="description">
@@ -14,7 +13,7 @@
         </div>
       </div>
     </div>
-
+    
     
     <div class="ad__contact">
       <h2>Coordonnées</h2>
@@ -36,7 +35,7 @@
     </div>
     
     
-      
+    
     <!-- Component CommentList -->
     <CommentForm @comment-added="this.handleCommentAdded" />
     <CommentList v-if="(typeof this.ad._embedded.replies != 'undefined')" :comments="this.ad._embedded.replies[0]" />
@@ -64,7 +63,9 @@
       this.userdata = await adService.loadUserData(this.ad.author);
       console.log(this.userdata);
       console.log(storage.get('userData'));
-
+      //formater la date en français en affichant le jour en premier, le mois, et l'année
+      this.ad.date = this.ad.date.split('T')[0].split('-').reverse().join('/');
+      
       if (this.ad.featured_media > 0)
       {
         this.img = await adService.loadAdImage(this.ad.featured_media);
@@ -84,40 +85,40 @@
       }
     },
     methods: 
+    {
+      
+      async handleCommentAdded( newCommentData ) 
       {
         
-        async handleCommentAdded( newCommentData ) 
+        if( typeof this.ad._embedded.replies == 'undefined') 
         {
           
-          if( typeof this.ad._embedded.replies == 'undefined') 
-          {
-            
-            this.ad._embedded.replies = [ [] ];
-          }
-          
-          this.ad._embedded.replies[0].unshift(newCommentData);
+          this.ad._embedded.replies = [ [] ];
         }
-      },
-
-      //convertir this.ad.date en français
-      filters: {
-        formatDate: function (value) {
-          if (!value) return ''
-          value = value.toString()
-          return value.substr(8, 2) + '/' + value.substr(5, 2) + '/' + value.substr(0, 4)
-        }
+        
+        this.ad._embedded.replies[0].unshift(newCommentData);
       }
+    },
     
-      
-
-      
+    //convertir this.ad.date en français
+    filters: {
+      formatDate: function (value) {
+        if (!value) return ''
+        value = value.toString()
+        return value.substr(8, 2) + '/' + value.substr(5, 2) + '/' + value.substr(0, 4)
+      }
+    }
+    
+    
+    
+    
   }
-  </script>
+</script>
 
 <style lang="scss" scoped>
   @import "@/assets/scss/variables.scss";
   @import "@/assets/scss/media_queries.scss";
-
+  
   section {
     display: flex;
     flex-direction: column;
@@ -127,13 +128,13 @@
     height: 100%;
     padding: 1.5em;
     //position: absolute;
-
+    
     .ad__data {
       display: flex;
       margin-bottom: 1em;
       border: 0.2em solid #30dd8a;
       border-radius: 0.3em;
-
+      
       .ad__info {
         flex-direction: column;
         justify-content: space-between;
@@ -141,7 +142,7 @@
         display: flex;
         margin-left: 0.3em;
         
-
+        
         h2 {
           font-size: 1.5em;
           color: $backgroundColor;
@@ -151,7 +152,7 @@
           text-decoration: underline;
           margin-bottom: 0.5em;
         }
-
+        
         span {
           font-size: 1em;
           color: $backgroundColor;
@@ -161,7 +162,7 @@
           text-align: left;
           margin-top: 1em;
         }
-
+        
         p {
           font-size: 1em;
           color: $primaryColor;
@@ -172,14 +173,14 @@
           margin-left: 0.5em;
         }
       }
-
+      
       img {
         width: 20%;
         height: auto;
         padding: 1em;
       }
     }
-
+    
     .ad__contact {
       display: flex;
       justify-content: center;
@@ -189,7 +190,7 @@
       padding: 1em;
       border: 0.2em solid #30dd8a;
       border-radius: 0.3em;
-
+      
       h2 {
         font-size: 1.5em;
         color: $primaryColor;
@@ -198,23 +199,23 @@
         margin-bottom: 0.3em;
         text-align: left;
       }
-
+      
       .user__avatar {
         display: block;
         width: 7%;
         padding: 0.1em;
         border-radius: 0.3em;
       }
-
+      
       .ad__contact--details {
         display: flex;
-
+        
         .user__contact {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
         }
-
+        
         span {
           font-size: 1em;
           color: $backgroundColor;
@@ -223,7 +224,7 @@
           text-align: left;
           margin-top: 0.2em;
           margin-left: 0.5em;
-
+          
           p{
             color: $primaryColor;
             margin-left: 0.5em;
@@ -243,7 +244,7 @@
       padding: 1em;
       border: 0.3em solid $secondaryColor;
       border-radius: 0.3em;
-
+      
       h2 {
         font-size: 1.5em;
         color: $primaryColor;
@@ -253,7 +254,7 @@
         text-align: left;
       }
     }
-
+    
     h1 {
       font-size: 1.5em;
       font-weight: bold;
@@ -265,7 +266,7 @@
       background-color: $primaryColor;
       color: $tertiaryColor;
     }
-
+    
     textarea {
       border-radius: 5px;
       border: 1px solid $tertiaryColor;
@@ -274,7 +275,7 @@
       color: black;
       margin-bottom: 0.5em;
     }
-
+    
     button {
       width: 450px;
       font-size: 1em;
@@ -291,11 +292,11 @@
       box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
     }
   }
-
+  
   // Media queries
-
+  
   // Tablet
-
+  
   @media (min-width: $mediaSmartphone) and (max-width: $mediaTablet) {
     section {
       display: flex;
@@ -303,20 +304,20 @@
     .ad__data {
       flex-direction: column;
       justify-content: center;
-
+      
       .ad__picture {
         display: block;
         width: auto;
       }
-
+      
       .ad__info {
         width: auto;
       }
     }
   }
-
+  
   // Smartphone
-
+  
   @media (max-width: $mediaSmartphone) {
     section {
       display: flex;
@@ -324,12 +325,12 @@
     .ad__data {
       flex-direction: column;
       justify-content: center;
-
+      
       .ad__picture {
         display: block;
         width: auto;
       }
-
+      
       .ad__info {
         width: auto;
       }
