@@ -77,7 +77,7 @@ const adService = {
     const response = await axios.get(this.base_url+ "/wp/v2/ad?author=" + user_id );
     return response.data;
   },
-  
+
   
   
   

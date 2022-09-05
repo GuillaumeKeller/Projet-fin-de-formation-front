@@ -1,5 +1,4 @@
 <template>
-
   <section>
     <div class="container">
       <div class="scrolling_menu">
@@ -14,26 +13,15 @@
             <ul>
               <li class="scrolling">
                 <a href="#"
-                  >Départements &ensp;
+                  >Types &ensp;
                   <font-awesome-icon icon="fa-solid fa-chevron-down" />
                 </a>
                 <ul class="menu">
-                  <li><a href="#">01-Ain</a></li>
-                  <li><a href="#">02-Aisne</a></li>
-                  <li><a href="#">03-Allier</a></li>
-                  <li><a href="#">04-Alpes de Hautes-Provence</a></li>
-                </ul>
-              </li>
-              <li class="scrolling">
-                <a href="#"
-                  >Villes &ensp;
-                  <font-awesome-icon icon="fa-solid fa-chevron-down" />
-                </a>
-                <ul class="menu">
-                  <li><a href="#">Bourg-en-Bresse</a></li>
-                  <li><a href="#">Laon</a></li>
-                  <li><a href="#">Moulins</a></li>
-                  <li><a href="#">Digne-les-Bains</a></li>
+                  <li><a @click="filterType(type.id)"
+                    v-for="type in this.types"
+                    :key="type.id"
+                    :id="type.id"
+                    >{{ type.name }}</a></li>
                 </ul>
               </li>
               <li class="scrolling">
@@ -42,16 +30,23 @@
                   <font-awesome-icon icon="fa-solid fa-chevron-down" />
                 </a>
                 <ul class="menu">
-                  <li><a href="#">Service</a></li>
-                  <li><a href="#">Matériels</a></li>
+                  <li><a @click="filterCategory(category.id)"
+                    v-for="category in this.categories" 
+                    :key="category.id" 
+                  >{{ category.name }}</a></li>
                 </ul>
               </li>
-              <div class="btn">
-                <button class="btn-nav" href="#">
-                  Recherche
-                  <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
-                </button>
-              </div>
+              <li class="scrolling">
+                <a 
+                  >Localisation &ensp;
+                  <font-awesome-icon icon="fa-solid fa-chevron-down" />
+                </a>
+                <ul class="menu">
+                  <li>
+                    <a @click="filterLocation(location.id)" v-for="location in this.locations" :key="location.id">{{location.name}}</a>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </div>
         </nav>
@@ -68,6 +63,7 @@
           :category="this.getCategoryName(ad['AdCategory'][0])"
           :location="this.getLocationName(ad['AdLocation'][0])"
           :img="this.getAdImage(ad)"
+          
         />
       </div>
 
@@ -83,7 +79,6 @@
         "
       >
       </PaginationComponent>
-
     </div>
   </section>
 </template>
@@ -127,6 +122,11 @@
           to: "",
           total: "",
         },
+
+        adType: "",
+        adCategory: "",
+        adLocation: "",
+
       };
     },
 
@@ -192,7 +192,7 @@
           .get(this.adsUrl, { params: this.adsData })
           .then((response) => {
             this.ads = response.data;
-
+            console.log(this.ads);
             this.configPagination(response.headers);
           })
           .catch((error) => {
@@ -208,6 +208,42 @@
         this.pagination.prevPage = this.adsData.page > 1 ? this.adsData.page : "";
         this.pagination.nextPage = this.adsData.page < this.pagination.totalPages ? this.adsData.page + 1 : "";
       },
+      
+      filterType(typeID) {
+        axios.get (" http://joffreyms-server.eddi.cloud/back/projet-mes-voisins-back/public/wp-json/wp/v2/ad?AdType=" + typeID + "&_embed=true")
+        .then((response) => {
+          this.ads = response.data;
+          console.log(this.ads);
+          this.configPagination(response.headers);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      },
+
+      filterCategory(categoryID) {
+        axios.get (" http://joffreyms-server.eddi.cloud/back/projet-mes-voisins-back/public/wp-json/wp/v2/ad?AdCategory=" + categoryID + "&_embed=true")
+        .then((response) => {
+          this.ads = response.data;
+          console.log(this.ads);
+          this.configPagination(response.headers);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      },
+
+      filterLocation(locationID) {
+        axios.get (" http://joffreyms-server.eddi.cloud/back/projet-mes-voisins-back/public/wp-json/wp/v2/ad?AdLocation=" + locationID + "&_embed=true")
+        .then((response) => {
+          this.ads = response.data;
+          console.log(this.ads);
+          this.configPagination(response.headers);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      },
     },
   };
 </script>
@@ -216,11 +252,11 @@
   // Import des variables du site
   @import "@/assets/scss/variables.scss";
   @import "@/assets/scss/media_queries.scss";
-section{
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+  section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
   .container {
     display: flex;
     flex-direction: column;
@@ -279,6 +315,7 @@ section{
     font-weight: bold;
     background-color: $primaryColor;
     border-radius: 50px;
+    cursor: default;
   }
 
   nav a {
@@ -286,6 +323,7 @@ section{
     text-decoration: none;
     color: black;
     padding: 10px 0px;
+    cursor: pointer;
   }
 
   .menu {
@@ -351,21 +389,21 @@ section{
       align-items: center;
 
       button {
-      width: 10em;
-      font-size: 16px;
-      font-weight: 600;
-      color: #fff;
-      cursor: pointer;
-      margin-left: 10px;
-      height: 2.5em;
-      text-align: center;
+        width: 10em;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        cursor: pointer;
+        margin-left: 10px;
+        height: 2.5em;
+        text-align: center;
 
-      border-radius: 50px;
-      box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
-      border: none;
-      outline: none;
-      background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a);
-    }
+        border-radius: 50px;
+        box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+        border: none;
+        outline: none;
+        background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a);
+      }
     }
 
     nav ul li {
@@ -419,8 +457,6 @@ section{
       border-bottom: none;
       background-color: $secondaryColor;
     }
-
-    
   }
 
   // ----------------------------------- Ads ----------------------------------------
