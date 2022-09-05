@@ -1,10 +1,10 @@
 <template>
   <footer>
     <div class="links">
-      <a href="#">
+      <router-link :to="{name : 'team'}">
         <font-awesome-icon icon="fa-solid fa-address-card" />
         Contacts / Equipe
-      </a>
+      </router-link>
       <a href="#">
         <font-awesome-icon icon="fa-solid fa-copyright" />
         Mentions légales
