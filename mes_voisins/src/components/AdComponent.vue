@@ -4,6 +4,9 @@
       <router-link :to="{ name: 'ad', params: { id: this.dbid } }">
         <h3 v-html="title"></h3>
       </router-link>
+      <button>
+      <a @click="$emit('deleteAd')"> <font-awesome-icon icon="fa-solid fa-trash" /> </a>
+      </button>
       <div class="desc">
         <h2>Description :</h2>
         <p v-html="desc"></p>
@@ -19,6 +22,10 @@
 </template>
 
 <script>
+
+
+
+
   export default {
     props: {
       dbid: Number,
@@ -28,8 +35,35 @@
       category: String,
       type: String,
       location: String,
+      
     },
+
+  methods: {
+
+    //   deleteAd(dbId){
+    //   const response = axios.delete('http://joffreyms-server.eddi.cloud/back/projet-mes-voisins-back/public/wp-json/wp/v2/ad?='+dbId ,{ 
+    //     headers: {
+    //       Authorization: "Bearer " + storage.get("userData").token
+    //     }
+    // }).then(function(response){
+    //     if (response.status == 200) {
+    //         console.log('post supprimé')
+    //     }
+    // }).catch(error => console.log(error))
+
+    //   return response.data;
+    // }
+    
+
+
+
+  }
+
+
   };
+
+  
+  
 </script>
 
 <style lang="scss">
