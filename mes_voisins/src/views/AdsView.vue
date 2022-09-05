@@ -67,7 +67,7 @@
         />
       </div>
 
-      <PaginationComponent
+      <PaginationComponent v-if="this.pagination.totalPages >=2"
         :pagination="pagination"
         @prev="
           --adsData.page;
@@ -308,6 +308,7 @@
   nav ul li {
     flex: 1 1 auto;
     text-align: center;
+    
   }
 
   nav > div > ul > li > a {
@@ -387,23 +388,6 @@
       flex-flow: row;
       justify-content: space-between;
       align-items: center;
-
-      button {
-        width: 10em;
-        font-size: 16px;
-        font-weight: 600;
-        color: #fff;
-        cursor: pointer;
-        margin-left: 10px;
-        height: 2.5em;
-        text-align: center;
-
-        border-radius: 50px;
-        box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
-        border: none;
-        outline: none;
-        background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a);
-      }
     }
 
     nav ul li {
@@ -473,14 +457,56 @@
     // border-radius: 1em;
   }
 
-  @media screen and (max-width: $mediaTablet) {
+  @media (min-width: $mediaTablet) and (max-width: $mediaLaptop) {
     .container {
       width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      border-radius: 0;
+      padding: 0;
+    }
+
+    .ads {
+      width: 90%;
+      padding: 1em;
+    }
+  }
+
+  @media (min-width: $mediaSmartphone) and (max-width: $mediaTablet) {
+    .container {
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      border-radius: 0;
+      padding: 0;
     }
 
     .ads {
       width: 80%;
       padding: 1em;
+
+      #ad{
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: $mediaSmartphone) {
+    .container {
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      border-radius: 0;
+      padding: 0;
+    }
+
+    .ads {
+      width: 100%;
+      padding: 0;
+
+      #ad{
+        width: 95%;
+      }
     }
   }
 </style>
