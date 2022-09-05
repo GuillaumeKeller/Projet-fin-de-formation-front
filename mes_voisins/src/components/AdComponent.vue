@@ -11,9 +11,9 @@
       </div>
     </div>
     <div class="tags">
-      <span @click="this.$emit('type-selected', type)" class="type" v-show="type != null" v-html="type"></span>
-      <span @click="this.$emit('category-selected', category)" class="category" v-show="category != null" v-html="category"></span>
-      <span @click="this.$emit('location-selected', location)" class="location" v-show="location != null" v-html="location"></span>
+      <span class="type" v-show="type != null" v-html="type"></span>
+      <span class="category" v-show="category != null" v-html="category"></span>
+      <span class="location" v-show="location != null" v-html="location"></span>
     </div>
   </div>
 </template>
@@ -28,8 +28,8 @@
       category: String,
       type: String,
       location: String,
-    },
-  };
+    },        
+  }
 </script>
 
 <style lang="scss">
@@ -135,7 +135,7 @@
         text-transform: uppercase;
         color: $primaryColor;
         margin-right: 1em;
-        cursor: pointer;
+        cursor : default;
         border: 2px solid $primaryColor;
         border-radius: 10px;
         padding: 0.5em 1em;
@@ -154,10 +154,10 @@
         font-weight: 600;
         text-transform: uppercase;
         color: $primaryColor;
-        cursor: pointer;
         border: 2px solid $primaryColor;
         border-radius: 10px;
         padding: 0.5em 1em;
+        cursor: default;
         background: linear-gradient(to top, #f55353, 2.2em, transparent 0.5em) no-repeat;
         background-size: 0 100%;
         transition: background-size 1s, color 1s;
@@ -175,7 +175,7 @@
         color: $primaryColor;
         margin-right: 1em;
         margin-left: 1em;
-        cursor: pointer;
+        cursor: default;
         border: 2px solid $primaryColor;
         border-radius: 10px;
         padding: 0.5em 1em;
