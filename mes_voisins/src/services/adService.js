@@ -77,7 +77,7 @@ const adService = {
     const response = await axios.get(this.base_url+ "/wp/v2/ad?author=" + user_id );
     return response.data;
   },
-  
+
   
   
   
@@ -118,6 +118,17 @@ const adService = {
         );
         return response.data;
       }, 
+
+      async deleteAd( ad_id )
+      {
+        const response = await axios.delete( this.base_url + "/wp/v2/ad/" + ad_id, {
+          headers: {
+        
+            Authorization: "Bearer " + storage.get("userData").token
+          }
+        } );
+        return response.data;
+      },
       
       uploadImage( file )
       {
