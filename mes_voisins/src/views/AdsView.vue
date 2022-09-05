@@ -67,7 +67,7 @@
         />
       </div>
 
-      <PaginationComponent
+      <PaginationComponent v-if="this.pagination.totalPages >=2"
         :pagination="pagination"
         @prev="
           --adsData.page;
