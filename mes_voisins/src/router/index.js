@@ -50,6 +50,11 @@ const routes = [
   {
     path: '/:pathMatch(.*)*',
     redirect: "/404/",
+  },
+  {
+    path: '/team-mes-voisins',
+    name: 'team',
+    component: () => import('@/views/TeamView.vue')
   }
   
   
