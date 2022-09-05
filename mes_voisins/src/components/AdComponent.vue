@@ -7,7 +7,7 @@
       <router-link :to="{ name: 'ad', params: { id: this.dbid } }">
         <h3 v-html="title"></h3>
       </router-link>
-      <button>
+      <button  v-if="this.$route.name === 'profile'">
       <a @click="$emit('deleteAd')"> <font-awesome-icon icon="fa-solid fa-trash" /> </a>
       </button>
       <div class="img" :style="'background-image: url(\'' + img + '\');'"></div>
@@ -38,30 +38,7 @@
       category: String,
       type: String,
       location: String,
-      
     },
-
-  methods: {
-
-    //   deleteAd(dbId){
-    //   const response = axios.delete('http://joffreyms-server.eddi.cloud/back/projet-mes-voisins-back/public/wp-json/wp/v2/ad?='+dbId ,{ 
-    //     headers: {
-    //       Authorization: "Bearer " + storage.get("userData").token
-    //     }
-    // }).then(function(response){
-    //     if (response.status == 200) {
-    //         console.log('post supprimé')
-    //     }
-    // }).catch(error => console.log(error))
-
-    //   return response.data;
-    // }
-    
-
-
-
-  }
-
 
   };
 

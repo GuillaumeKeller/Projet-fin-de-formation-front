@@ -62,7 +62,8 @@ export default {
     this.user = await adService.loadUser(this.$route.params.id);
     this.author = await adService.loadAdAuthor(this.$route.params.id);
 
-    console.log(this.author[0]['id']);
+    
+    console.log();
   },
 
   async updated(){
@@ -85,6 +86,7 @@ export default {
         return this.author[0]._links["wp:featuredmedia"][0].href;
       } else {
         return require("@/assets/img/no-image.jpg");
+      
       }
       
     },
