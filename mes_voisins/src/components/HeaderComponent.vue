@@ -321,8 +321,6 @@ header {
       flex-direction: column;
       align-items: center;
       justify-content: center;
-
-     
     }
   }
 }
@@ -332,7 +330,7 @@ header {
 
 @media (min-width: $mediaSmartphone) and (max-width: $mediaTablet) {
   #menu-toggle:checked ~ .menu li {
-    height: 10em;
+    height: 7em;
   }
 
   .menu {
