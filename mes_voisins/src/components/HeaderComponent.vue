@@ -106,7 +106,7 @@ export default {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  z-index: 1;
+  z-index: 2;
 }
 
 .menu > li {

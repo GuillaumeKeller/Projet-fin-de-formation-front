@@ -104,30 +104,14 @@ export default {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    position: absolute;
+    position: fixed;
     z-index: 1;
     bottom: 0;
     left: 0;
-    .prev {
-
-      position: absolute;
-      top: 10em;
-      width: 50px;
-      height: 50px;
-      border: 2px solid $primaryColor;
-      color: $primaryColor;
-      border-radius: 50%;
-      margin-left: 25px;
-      cursor: pointer;
-      line-height: 48px;
-      text-align: center;
-      text-indent: -2px;
-      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-    }
+    .prev, 
     .next {
       position: absolute;
-      top: 10em;
+      top: 25em;
       width: 50px;
       height: 50px;
       border: 2px solid $primaryColor;
@@ -173,9 +157,9 @@ export default {
     margin-bottom: 2em;
 
     li {
-      width: 6px;
-      height: 6px;
-      border-radius: 3px;
+      width: 15px;
+      height: 15px;
+      border-radius: 10px;
       background: $primaryColor;
       opacity: 0.2;
       display: inline-block;
@@ -284,6 +268,8 @@ export default {
     }
   }
 }
+
+
 
 @media (max-width: $mediaSmartphone) {
   .slider {
