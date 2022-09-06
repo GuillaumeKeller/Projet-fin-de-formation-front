@@ -4,11 +4,11 @@
     <div class="ad__data">
       <img :src="this.img.source_url" v-if="this.img" class="ad__picture" alt=" Image de l'annonce" />
       <div class="ad__info">
-        <span v-if="this.ad"> Date de publication : <p v-html="this.ad.date "> </p></span>
+        <span v-if="this.ad"> Publiée le <p v-html="this.ad.date "> </p></span>
         <span v-if="this.status"> Etat de l'annonce: <p v-html="this.status.name"> </p> </span>
         <span v-if="this.location"> Localisation :<p v-html="this.location.name"> </p> </span>
         <div class="description">
-          <h2> Description :</h2>
+          <h2> Description</h2>
           <p v-html="this.ad.content.rendered"></p>
         </div>
       </div>
@@ -35,11 +35,12 @@
     </div>
     
     
-    
+
+    <div class="comment">
     <!-- Component CommentList -->
     <CommentForm @comment-added="this.handleCommentAdded" />
     <CommentList v-if="(typeof this.ad._embedded.replies != 'undefined')" :comments="this.ad._embedded.replies[0]" />
-    
+  </div>
   </section>
 </template>
 
@@ -127,17 +128,22 @@
     background-repeat: repeat;
     height: 100%;
     padding: 1.5em;
+    width: auto;
+    padding-bottom: 1em;
+    padding-top: 2em;
     //position: absolute;
     
     .ad__data {
-      display: flex;
+     flex-direction: column;
+     justify-content: center;
       margin-bottom: 1em;
       border: 0.2em solid #30dd8a;
       border-radius: 0.3em;
-      
+
       .ad__info {
+        display: inline-block;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
         padding: 1em;
         display: flex;
         margin-left: 0.3em;
@@ -148,8 +154,8 @@
           color: $backgroundColor;
           font-weight: bold;
           text-transform: uppercase;
-          text-align: left;
-          text-decoration: underline;
+        
+         
           margin-bottom: 0.5em;
         }
         
@@ -159,26 +165,24 @@
           display: flex;
           font-weight: bold;
           padding: 0.2em;
-          text-align: left;
+         justify-content: center;
           margin-top: 1em;
+          margin-bottom: 1em;
         }
         
         p {
           font-size: 1em;
           color: $primaryColor;
+          justify-content: center;
           font-weight: bold;
-          text-align: justify;
+          text-align: center;
           line-height: 1.2em;
           margin-right: 0.5em;
           margin-left: 0.5em;
         }
       }
       
-      img {
-        width: 20%;
-        height: auto;
-        padding: 1em;
-      }
+     
     }
     
     .ad__contact {
@@ -195,9 +199,9 @@
         font-size: 1.5em;
         color: $primaryColor;
         font-weight: bold;
-        text-transform: uppercase;
+        text-align: center;
         margin-bottom: 0.3em;
-        text-align: left;
+       
       }
       
       .user__avatar {
@@ -244,6 +248,8 @@
       padding: 1em;
       border: 0.3em solid $secondaryColor;
       border-radius: 0.3em;
+      margin-top: 3em;
+      width: auto;
       
       h2 {
         font-size: 1.5em;
@@ -277,7 +283,7 @@
     }
     
     button {
-      width: 450px;
+      width: auto;
       font-size: 1em;
       font-weight: bold;
       color: #fff;
@@ -304,6 +310,12 @@
     .ad__data {
       flex-direction: column;
       justify-content: center;
+
+      img {
+       max-width: 100%;
+      min-width: 100%;
+        
+      }
       
       .ad__picture {
         display: block;
@@ -325,6 +337,14 @@
     .ad__data {
       flex-direction: column;
       justify-content: center;
+
+      img {
+       max-width: 100%;
+      min-width: 100%;
+        
+      }
+
+      
       
       .ad__picture {
         display: block;

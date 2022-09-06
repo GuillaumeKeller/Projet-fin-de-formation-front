@@ -59,7 +59,7 @@ h3 {
     font-size: 1.5em;
     color: $primaryColor;
     font-weight: bold;
-    text-transform: uppercase;
+    
     
   }
 

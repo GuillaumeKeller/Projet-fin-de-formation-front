@@ -5,12 +5,14 @@
         <h2>Connexion</h2>
       </div>
       <div class="form-group">
-        <label for="email">Identifiant :</label>
+        <label for="email">Identifiant
         <input type="text" name="email" v-model="this.login" placeholder="Identifiant" />
         <div class="error" v-if="this.errors.loginEmpty">Vous devez saisir un identifiant !</div>
+      </label>
       </div>
+    
       <div class="form-group">
-        <label for="password">Mot de passe :</label>
+        <label for="password">Mot de passe
         <input
           type="password"
           id="password"
@@ -18,7 +20,9 @@
           placeholder="Mot de passe"
         />
         <div class="error" v-if="this.errors.passwordEmpty">Vous devez saisir un mot de passe !</div>
+      </label>
       </div>
+   
       <div
         class="error"
         v-if="this.errors.loginFailed"
@@ -30,9 +34,10 @@
       </div>
       <div>
         <p>
-      Pas encore inscrit ?
-      <router-link :to="{ name: 'register' }">Créer un compte </router-link>
-    </p>
+      Pas encore inscrit ? 
+      </p>
+      <p><router-link :to="{ name: 'register' }">Créer un compte </router-link></p>
+    
       </div>
     </form>
   </section>
@@ -101,6 +106,7 @@ section {
   width: 100%;
   margin: 0 auto;
   color: $primaryColor;
+  background-color: $tertiaryColor;
 
   form {
     background: $tertiaryColor;
@@ -121,6 +127,7 @@ section {
       h2 {
         font-size: 1.5em;
         color: $primaryColor;
+        justify-content: center;
         font-weight: bold;
         text-transform: uppercase;
         background: linear-gradient(
@@ -169,7 +176,7 @@ section {
       font-weight: bold;
       color: $primaryColor;
       width: 40%;
-      text-align: left;
+      // text-align: left;
       margin-right: 0.5em;
 
     }
