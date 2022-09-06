@@ -47,7 +47,7 @@
                   </li>
                 </ul>
               </li>
-              <button @click="resetFilters()"><font-awesome-icon icon="fa-solid fa-square-xmark" /></button>
+              <button @click="handleResetFilters()"><font-awesome-icon icon="fa-solid fa-square-xmark" /></button>
             </ul>
           </div>
         </nav>
@@ -247,13 +247,9 @@
       },
 
       // If filters are active, reset them
-      resetFilters() {
+      handleResetFilters() {
         this.getAds();
-        this.adType = "";
-        this.adCategory = "";
-        this.adLocation = "";
-      },
-     
+      },       
 
     },
   };
@@ -350,7 +346,7 @@
   }
 
   .menu a:hover {
-    padding: 10px;
+    padding: 8px;
     background-color: $secondaryColor;
     border-radius: 50px;
   }
@@ -373,6 +369,16 @@
       background-color: lighten($primaryColor, 20%);
     }
   }
+
+  button{
+
+      border: none;
+      background-color: $tertiaryColor;
+      font-size: 2.5em;
+      color: $primaryColor;
+      cursor: pointer;
+      margin-top: 0.1em;
+    }
 
   // ----------------------------------- Navigation Desktop----------------------------------------
   .scrolling_menu {
