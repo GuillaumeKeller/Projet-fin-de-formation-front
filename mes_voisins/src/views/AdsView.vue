@@ -273,7 +273,7 @@
     width: 100%;
     margin: 0 auto;
     background-color: $tertiaryColor;
-    position: sticky;
+    //position: sticky;
     top: 0px;
   }
 
