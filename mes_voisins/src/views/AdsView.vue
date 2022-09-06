@@ -47,6 +47,7 @@
                   </li>
                 </ul>
               </li>
+              <button @click="resetFilters()"><font-awesome-icon icon="fa-solid fa-square-xmark" /></button>
             </ul>
           </div>
         </nav>
@@ -244,6 +245,16 @@
           console.log(error);
         });
       },
+
+      // If filters are active, reset them
+      resetFilters() {
+        this.getAds();
+        this.adType = "";
+        this.adCategory = "";
+        this.adLocation = "";
+      },
+     
+
     },
   };
 </script>
@@ -392,7 +403,8 @@
 
     nav ul li {
       position: relative;
-      margin: 0 0.5em;
+      margin: 0 1em;
+      text-align: center;
     }
 
     nav > div > ul > li > a {
@@ -440,6 +452,15 @@
     .menu a:hover {
       border-bottom: none;
       background-color: $secondaryColor;
+    }
+
+    button{
+      border: none;
+      background-color: $tertiaryColor;
+      font-size: 2.5em;
+      color: $primaryColor;
+      cursor: pointer;
+      margin-top: 0.1em;
     }
   }
 
