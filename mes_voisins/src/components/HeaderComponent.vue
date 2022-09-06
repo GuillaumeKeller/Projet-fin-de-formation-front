@@ -306,7 +306,7 @@ header {
   }
 
   .menu {
-    top: 64px;
+    top: 62px;
     margin-top: 50px;
   }
 
