@@ -175,11 +175,18 @@ export default
 
 // DESKTOP //
 
+
 #disconnect {
     width: auto;
     background-color: white;
-    min-height: 50vh;
+    min-height: 100vh;
     padding-top: 3em;
+    min-height: 100vh;
+  
+    align-items: center;
+    margin: 0 auto;
+    color: $primaryColor;
+    
   
 
     button {
