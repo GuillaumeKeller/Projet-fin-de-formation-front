@@ -5,14 +5,14 @@
         <font-awesome-icon icon="fa-solid fa-address-card" />
         Contacts / Equipe
       </router-link>
-      <a href="#">
-        <font-awesome-icon icon="fa-solid fa-copyright" />
-        Mentions légales
-      </a>
-      <a href="#">
+      <router-link :to="{name : 'home'}">
+        <font-awesome-icon icon="fa-solid fa-house" />
+        Retour Accueil
+      </router-link>
+      <router-link :to="{name : 'ads'}">
         <font-awesome-icon icon="fa-solid fa-clipboard-list" />
-        Conditions générales
-      </a>
+        Annonces
+      </router-link>
     </div>
     <div class="copyright">
       <font-awesome-icon icon="fa-solid fa-copyright" /> - 2022 - Mes voisins - Ecole O'clock - Promo DeVinci
