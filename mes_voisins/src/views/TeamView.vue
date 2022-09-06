@@ -1,143 +1,191 @@
 <template>
   <section>
-    <div class="profile-card">
-      <div class="img">
-        <img src="@/assets/img/joffrey_profile_picture.png" />
-      </div>
-      <div class="caption">
-        <h3>Joffrey Meistermann</h3>
-        <p>Scrum Master et Git Master</p>
-        <div class="social-links">
-          <a href="#"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
-          <a href="#"><font-awesome-icon icon="fa-brands fa-github" /></a>
-          <a href="#"><font-awesome-icon icon="fa-brands fa-twitter" /></a>
+        <div class="our-team">
+          <div class="picture">
+            <img class="img" src="@/assets/img/avatar-Farrah-Ferag.png" />
+          </div>
+          <div class="team-content">
+            <h3 class="name">Farrah Ferag</h3>
+            <h4 class="title">Product Owner</h4>
+          </div>
+          <ul class="social">
+            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-linkedin" /></a></li>
+            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-github" /></a></li>
+            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-solid fa-envelope" /></a></li>
+            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-twitter" /></a></li>
+          </ul>
         </div>
-      </div>
-    </div>
-    <div class="profile-card">
-      <div class="img">
-        <img src="@/assets/img/joffrey_profile_picture.png" />
-      </div>
-      <div class="caption">
-        <h3>Joffrey Meistermann</h3>
-        <p>Scrum Master et Git Master</p>
-        <div class="social-links">
-          <a href="#"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
-          <a href="#"><font-awesome-icon icon="fa-brands fa-github" /></a>
-          <a href="#"><font-awesome-icon icon="fa-brands fa-twitter" /></a>
+        <div class="our-team">
+          <div class="picture">
+            <img class="img" src="@/assets/img/joffrey_profile_picture.png" />
+          </div>
+          <div class="team-content">
+            <h3 class="name">Joffrey Meistermann</h3>
+            <h4 class="title">Scrum et Git Master</h4>
+          </div>
+          <ul class="social">
+            <li><a href="https://www.linkedin.com/in/joffrey-meistermann/" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-linkedin" /></a></li>
+            <li><a href="https://github.com/JoffreyMS" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-github" /></a></li>
+            <li><a href="mailto:joffrey.meistermann@gmail.com" aria-hidden="true"><font-awesome-icon icon="fa-solid fa-envelope" /></a></li>
+            <li><a href="https://twitter.com/Joffrey_Fr" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-twitter" /></a></li>
+          </ul>
         </div>
-      </div>
-    </div>
-    <div class="profile-card">
-      <div class="img">
-        <img src="@/assets/img/joffrey_profile_picture.png" />
-      </div>
-      <div class="caption">
-        <h3>Joffrey Meistermann</h3>
-        <p>Scrum Master et Git Master</p>
-        <div class="social-links">
-          <a href="#"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
-          <a href="#"><font-awesome-icon icon="fa-brands fa-github" /></a>
-          <a href="#"><font-awesome-icon icon="fa-brands fa-twitter" /></a>
+        <div class="our-team">
+          <div class="picture">
+            <img class="img" src="@/assets/img/guillaume_K.png" />
+          </div>
+          <div class="team-content">
+            <h3 class="name">Guillaume Keller</h3>
+            <h4 class="title">Lead Dev Front</h4>
+          </div>
+          <ul class="social">
+            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-linkedin" /></a></li>
+            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-github" /></a></li>
+            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-solid fa-envelope" /></a></li>
+            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-twitter" /></a></li>
+          </ul>
         </div>
-      </div>
-    </div>
-    <div class="profile-card">
-      <div class="img">
-        <img src="@/assets/img/joffrey_profile_picture.png" />
-      </div>
-      <div class="caption">
-        <h3>Joffrey Meistermann</h3>
-        <p>Scrum Master et Git Master</p>
-        <div class="social-links">
-          <a href="#"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
-          <a href="#"><font-awesome-icon icon="fa-brands fa-github" /></a>
-          <a href="#"><font-awesome-icon icon="fa-brands fa-twitter" /></a>
+        <div class="our-team">
+          <div class="picture">
+            <img class="img" src="@/assets/img/Simon.png" />
+          </div>
+          <div class="team-content">
+            <h3 class="name">Simon Leboulanger</h3>
+            <h4 class="title">Lead Dev Back</h4>
+          </div>
+          <ul class="social">
+            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-linkedin" /></a></li>
+            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-github" /></a></li>
+            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-solid fa-envelope" /></a></li>
+            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-twitter" /></a></li>
+          </ul>
         </div>
-      </div>
-    </div>
   </section>
 </template>
 
-<script></script>
+<style scoped lang="scss">
 
-<style lang="scss" scoped>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+@import '@/assets/scss/variables.scss';
+@import '@/assets/scss/media_queries.scss';
+
 
   section {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #0ba360;
-  }
-  .profile-card {
-    position: relative;
     font-family: "Roboto", sans-serif;
-    width: 320px;
-    height: 320px;
-    background: #fff;
-    padding: 50px;
-    border-radius: 50%;
-    box-shadow: 0 0 22px #3336;
-    transition: 0.6s;
-    margin: 0 25px;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
   }
-  .profile-card:hover {
-    border-radius: 10px;
-    height: 360px;
-  }
-  .profile-card .img {
+  .our-team {
+    padding: 100px 80px 100px;
+    margin-bottom: 30px;
+    background-color: $tertiaryColor;
+    text-align: center;
+    overflow: hidden;
     position: relative;
+    margin-right: 4em;
+  }
+
+  .our-team .picture {
+    display: inline-block;
+    height: 150px;
+    width: 150px;
+    margin-bottom: 50px;
+    z-index: 1;
+    position: relative;
+  }
+
+  .our-team .picture::before {
+    content: "";
+    width: 100%;
+    height: 0;
+    border-radius: 50%;
+    background-color: #0ba360;
+    position: absolute;
+    bottom: 165%;
+    right: 0;
+    left: 0;
+    opacity: 0.9;
+    transform: scale(3.6);
+    transition: all 0.4s linear 0s;
+  }
+
+  .our-team:hover .picture::before {
+    height: 100%;
+  }
+
+  .our-team .picture::after {
+    content: "";
     width: 100%;
     height: 100%;
-    transition: 0.6s;
-    z-index: 99;
-  }
-  .profile-card:hover .img {
-    transform: translateY(-90px);
-  }
-  .img img {
-    width: 100%;
     border-radius: 50%;
-    box-shadow: 0 0 22px #3336;
-    transition: 0.6s;
+    background-color: #0ba360;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
   }
-  .profile-card:hover img {
-    border-radius: 10px;
+
+  .our-team .picture img {
+    width: 100%;
+    height: 99.9%;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: all 0.9s ease 0s;
   }
-  .caption {
-    text-align: center;
-    transform: translateY(-90px);
-    opacity: 0;
-    transition: 0.6s;
+
+  .our-team:hover .picture img {
+    box-shadow: 0 0 0 14px #f7f5ec;
+    transform: scale(0.7);
   }
-  .profile-card:hover .caption {
-    opacity: 1;
+
+  .our-team .name {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 7px;
+    text-transform: uppercase;
+    color: #0ba360;
   }
-  .caption h3 {
-    font-size: 1.8em;
-    font-family: "Roboto", sans-serif;
-  }
-  .caption p {
+  .our-team .title {
+    display: block;
     font-size: 1.1em;
-    color: #0ba360;
-    font-family: "Roboto", sans-serif;
-    margin: 0.5em 0 9px 0;
+    color: #4e5052;
+    text-transform: capitalize;
   }
-  .caption .social-links a {
-    color: #333;
-    margin-right: 15px;
-    font-size: 1.8em;
-    transition: 0.6s;
-    margin-top: 0.5em;
+
+  .our-team .social {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #0ba360;
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    transition: all 0.5s ease 0s;
   }
-  .social-links a:hover {
+
+  .our-team:hover .social {
+    bottom: 0;
+  }
+
+  .our-team .social li {
+    display: inline-block;
+  }
+
+  .our-team .social li a {
+    display: block;
+    padding: 0.6em;
+    font-size: 1.5em;
+    color: $tertiaryColor;
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+  }
+
+  .our-team .social li a:hover {
     color: #0ba360;
+    background-color: $tertiaryColor;
   }
 </style>
