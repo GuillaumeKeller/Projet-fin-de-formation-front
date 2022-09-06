@@ -169,7 +169,7 @@ export default {
 }
 .menu {
   position: absolute;
-  top: 14px;
+  top: 13px;
   margin-top: 50px;
   left: 0;
   flex-direction: column;
