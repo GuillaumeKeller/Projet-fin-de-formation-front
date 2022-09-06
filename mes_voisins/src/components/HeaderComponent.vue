@@ -306,8 +306,8 @@ header {
   }
 
   .menu {
-    top: 64px;
-    margin-top: 50px;
+    top: 62px;
+    margin-top: 47px;
   }
 
   header {
@@ -330,7 +330,7 @@ header {
 
 @media (min-width: $mediaSmartphone) and (max-width: $mediaTablet) {
   #menu-toggle:checked ~ .menu li {
-    height: 7em;
+    height: 11em;
   }
 
   .menu {
@@ -348,13 +348,17 @@ header {
 //  LapTop
 
 @media (min-width: $mediaTablet) and (max-width: $mediaLaptop) {
+  
+  .menu {
+    top: 60px;
+    margin-top: 45px;
+  }
+
   header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
-
-    
+    width: 100%;    
   }
 }
 </style>
