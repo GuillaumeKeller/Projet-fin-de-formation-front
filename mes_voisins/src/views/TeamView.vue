@@ -112,6 +112,12 @@
     margin: auto;
   }
 
+  .img 
+  {
+    z-index: 1;
+
+  }
+
   .all-team {
     display: flex;
     flex-direction: row;
