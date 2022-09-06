@@ -7,7 +7,7 @@
         <li>
           <span class="ad__info"
           >Pseudo:
-          <p v-html="this.user.slug"></p
+          <p v-html="this.userdata['0']['first_name']"></p
             ></span>
           </li>
           <li>
@@ -64,7 +64,7 @@
             this.author = await adService.loadAdAuthor(this.$route.params.id);
             
             
-            console.log(this.author);
+            console.log(this.user);
           },
           
           async updated(){
