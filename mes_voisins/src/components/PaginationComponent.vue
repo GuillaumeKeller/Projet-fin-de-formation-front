@@ -31,21 +31,33 @@
     nav {
         
         button {
-            background-color: $quaternaryColor;
-            color: $tertiaryColor;
+            width: 12.5em;
+            font-size: 1em;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            margin: 0.9375em;
+            height: 3em;
+            text-align: center;
             border: none;
-            border-radius: 5px;
-            padding: 10px;
-            margin: 10px;
-            font-size: 1.5em;
-            font-weight: 600;
-            text-transform: uppercase;
-            transition: all 0.3s ease-in-out;
-            
-            &:hover {
-                background-color: $quaternaryColor;
-                color: $primaryColor;
-            }
+            background-size: 300% 100%;
+            background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+            box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+            border-radius: 50px;
+            -o-transition: all 0.4s ease-in-out;
+            -webkit-transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out;
+        }
+        
+        button:hover {
+            background-position: 100% 0;
+            -o-transition: all 0.4s ease-in-out;
+            -webkit-transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out;
+        }
+        
+        button:focus {
+            outline: none;
         }
         
         span {
