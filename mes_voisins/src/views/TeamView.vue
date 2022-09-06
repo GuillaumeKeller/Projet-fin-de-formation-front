@@ -1,73 +1,105 @@
 <template>
   <section>
-        <div class="our-team">
-          <div class="picture">
-            <img class="img" src="@/assets/img/avatar-Farrah-Ferag.png" />
-          </div>
-          <div class="team-content">
-            <h3 class="name">Farrah Ferag</h3>
-            <h4 class="title">Product Owner</h4>
-          </div>
-          <ul class="social">
-            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-linkedin" /></a></li>
-            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-github" /></a></li>
-            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-solid fa-envelope" /></a></li>
-            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-twitter" /></a></li>
-          </ul>
+    <div class="all-team">
+      <div class="our-team">
+        <div class="picture">
+          <img class="img" src="@/assets/img/avatar-Farrah-Ferag.png" />
         </div>
-        <div class="our-team">
-          <div class="picture">
-            <img class="img" src="@/assets/img/joffrey_profile_picture.png" />
-          </div>
-          <div class="team-content">
-            <h3 class="name">Joffrey Meistermann</h3>
-            <h4 class="title">Scrum et Git Master</h4>
-          </div>
-          <ul class="social">
-            <li><a href="https://www.linkedin.com/in/joffrey-meistermann/" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-linkedin" /></a></li>
-            <li><a href="https://github.com/JoffreyMS" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-github" /></a></li>
-            <li><a href="mailto:joffrey.meistermann@gmail.com" aria-hidden="true"><font-awesome-icon icon="fa-solid fa-envelope" /></a></li>
-            <li><a href="https://twitter.com/Joffrey_Fr" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-twitter" /></a></li>
-          </ul>
+        <div class="team-content">
+          <h3 class="name">Farrah Ferag</h3>
+          <h4 class="title">Product Owner</h4>
         </div>
-        <div class="our-team">
-          <div class="picture">
-            <img class="img" src="@/assets/img/guillaume_K.png" />
-          </div>
-          <div class="team-content">
-            <h3 class="name">Guillaume Keller</h3>
-            <h4 class="title">Lead Dev Front</h4>
-          </div>
-          <ul class="social">
-            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-linkedin" /></a></li>
-            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-github" /></a></li>
-            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-solid fa-envelope" /></a></li>
-            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-twitter" /></a></li>
-          </ul>
+        <ul class="social">
+          <li>
+            <a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
+          </li>
+          <li>
+            <a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-github" /></a>
+          </li>
+          <li>
+            <a href="#" aria-hidden="true"><font-awesome-icon icon="fa-solid fa-envelope" /></a>
+          </li>
+          <li>
+            <a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-twitter" /></a>
+          </li>
+        </ul>
+      </div>
+      <div class="our-team">
+        <div class="picture">
+          <img class="img" src="@/assets/img/joffrey_profile_picture.png" />
         </div>
-        <div class="our-team">
-          <div class="picture">
-            <img class="img" src="@/assets/img/Simon.png" />
-          </div>
-          <div class="team-content">
-            <h3 class="name">Simon Leboulanger</h3>
-            <h4 class="title">Lead Dev Back</h4>
-          </div>
-          <ul class="social">
-            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-linkedin" /></a></li>
-            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-github" /></a></li>
-            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-solid fa-envelope" /></a></li>
-            <li><a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-twitter" /></a></li>
-          </ul>
+        <div class="team-content">
+          <h3 class="name">Joffrey Meistermann</h3>
+          <h4 class="title">Scrum et Git Master</h4>
         </div>
+        <ul class="social">
+          <li>
+            <a href="https://www.linkedin.com/in/joffrey-meistermann/" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
+          </li>
+          <li>
+            <a href="https://github.com/JoffreyMS" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-github" /></a>
+          </li>
+          <li>
+            <a href="mailto:joffrey.meistermann@gmail.com" aria-hidden="true"><font-awesome-icon icon="fa-solid fa-envelope" /></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/Joffrey_Fr" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-twitter" /></a>
+          </li>
+        </ul>
+      </div>
+      <div class="our-team">
+        <div class="picture">
+          <img class="img" src="@/assets/img/guillaume_K.png" />
+        </div>
+        <div class="team-content">
+          <h3 class="name">Guillaume Keller</h3>
+          <h4 class="title">Lead Dev Front</h4>
+        </div>
+        <ul class="social">
+          <li>
+            <a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
+          </li>
+          <li>
+            <a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-github" /></a>
+          </li>
+          <li>
+            <a href="#" aria-hidden="true"><font-awesome-icon icon="fa-solid fa-envelope" /></a>
+          </li>
+          <li>
+            <a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-twitter" /></a>
+          </li>
+        </ul>
+      </div>
+      <div class="our-team">
+        <div class="picture">
+          <img class="img" src="@/assets/img/Simon.png" />
+        </div>
+        <div class="team-content">
+          <h3 class="name">Simon Leboulanger</h3>
+          <h4 class="title">Lead Dev Back</h4>
+        </div>
+        <ul class="social">
+          <li>
+            <a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
+          </li>
+          <li>
+            <a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-github" /></a>
+          </li>
+          <li>
+            <a href="#" aria-hidden="true"><font-awesome-icon icon="fa-solid fa-envelope" /></a>
+          </li>
+          <li>
+            <a href="#" aria-hidden="true"><font-awesome-icon icon="fa-brands fa-square-twitter" /></a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </section>
 </template>
 
 <style scoped lang="scss">
-
-@import '@/assets/scss/variables.scss';
-@import '@/assets/scss/media_queries.scss';
-
+  @import "@/assets/scss/variables.scss";
+  @import "@/assets/scss/media_queries.scss";
 
   section {
     font-family: "Roboto", sans-serif;
@@ -76,17 +108,27 @@
     background-position: center;
     display: flex;
     align-items: center;
-    justify-content: center;
-    
+    justify-content: space-around;
+    margin: auto;
+  }
+
+  .all-team {
+    display: flex;
+    flex-direction: row;
+    // align-items: center;
+    justify-content: space-around;
+    width: 100%;
   }
   .our-team {
-    padding: 100px 80px 100px;
+    padding: 30px 0 40px;
     margin-bottom: 30px;
     background-color: $tertiaryColor;
     text-align: center;
     overflow: hidden;
     position: relative;
-    margin-right: 4em;
+    width: 310px;
+    height: 330px;
+    // margin-right: 4em;
   }
 
   .our-team .picture {
@@ -188,4 +230,57 @@
     color: #0ba360;
     background-color: $tertiaryColor;
   }
+
+  @media (max-width: $mediaLaptop) {
+    
+    section {
+      height: 100%;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .all-team {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      width: 70%;
+      margin-top: 5em;
+    }
+  }
+
+  @media (min-width: $mediaSmartphone) and (max-width: $mediaTablet) {
+    section {
+      height: 100%;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .all-team {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      width: 90%;
+      margin-top: 5em;
+    }
+  }
+
+  @media (max-width: $mediaSmartphone) {
+    section {
+      height: 100%;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .all-team {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      width: 90%;
+      margin-top: 4em;
+    }
+  }
+
 </style>
