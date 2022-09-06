@@ -47,6 +47,7 @@
                   </li>
                 </ul>
               </li>
+              <button @click="handleResetFilters()"><font-awesome-icon icon="fa-solid fa-square-xmark" /></button>
             </ul>
           </div>
         </nav>
@@ -244,6 +245,12 @@
           console.log(error);
         });
       },
+
+      // If filters are active, reset them
+      handleResetFilters() {
+        this.getAds();
+      },       
+
     },
   };
 </script>
@@ -339,7 +346,7 @@
   }
 
   .menu a:hover {
-    padding: 10px;
+    padding: 8px;
     background-color: $secondaryColor;
     border-radius: 50px;
   }
@@ -362,6 +369,16 @@
       background-color: lighten($primaryColor, 20%);
     }
   }
+
+  button{
+
+      border: none;
+      background-color: $tertiaryColor;
+      font-size: 2.5em;
+      color: $primaryColor;
+      cursor: pointer;
+      margin-top: 0.1em;
+    }
 
   // ----------------------------------- Navigation Desktop----------------------------------------
   .scrolling_menu {
@@ -392,7 +409,8 @@
 
     nav ul li {
       position: relative;
-      margin: 0 0.5em;
+      margin: 0 1em;
+      text-align: center;
     }
 
     nav > div > ul > li > a {
@@ -440,6 +458,15 @@
     .menu a:hover {
       border-bottom: none;
       background-color: $secondaryColor;
+    }
+
+    button{
+      border: none;
+      background-color: $tertiaryColor;
+      font-size: 2.5em;
+      color: $primaryColor;
+      cursor: pointer;
+      margin-top: 0.1em;
     }
   }
 
