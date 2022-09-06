@@ -1,29 +1,26 @@
 <template>
   <HeaderComponent />
-  <router-view />
+  <Transition name="fade">
+    <router-view />
+  </Transition>
   <FooterComponent />
 </template>
 
 <script>
   import HeaderComponent from "@/components/HeaderComponent.vue";
   import FooterComponent from "@/components/FooterComponent.vue";
-  import userService     from "@/services/userService";
+  import userService from "@/services/userService";
 
-  
   export default {
     components: {
       HeaderComponent,
       FooterComponent,
     },
 
-  async created()
-  {
-    
-    this.$store.commit( "setConnected", await userService.isConnected() );
-  },
+    async created() {
+      this.$store.commit("setConnected", await userService.isConnected());
+    },
   };
-
-  
 </script>
 
 <style lang="scss">
@@ -63,8 +60,17 @@
     color: #fff;
   }
 
-  .swal-footer{
+  .swal-footer {
     text-align: center;
-    
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.8s ease-in-out;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
   }
 </style>
