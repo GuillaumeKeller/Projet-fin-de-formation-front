@@ -140,6 +140,13 @@
       border: 0.2em solid #30dd8a;
       border-radius: 0.3em;
 
+      img{
+        width: 30%;
+        height: auto;
+        border-radius: 0.8em;
+        margin-top: 1em;
+      }
+
       .ad__info {
         display: inline-block;
         flex-direction: column;
@@ -308,18 +315,17 @@
       display: flex;
     }
     .ad__data {
+      display: flex;
       flex-direction: column;
       justify-content: center;
+      margin-bottom: 1em;
+      align-items: center;
 
-      img {
-       max-width: 100%;
-      min-width: 100%;
-        
-      }
-      
+
       .ad__picture {
         display: block;
-        width: auto;
+        width: 70%;
+        height: auto;
       }
       
       .ad__info {
@@ -335,20 +341,14 @@
       display: flex;
     }
     .ad__data {
+      display: flex;
       flex-direction: column;
       justify-content: center;
-
-      img {
-       max-width: 100%;
-      min-width: 100%;
-        
-      }
-
-      
+      align-items: center;     
       
       .ad__picture {
         display: block;
-        width: auto;
+        width: 70%;
       }
       
       .ad__info {
